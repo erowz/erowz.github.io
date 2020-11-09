@@ -64,8 +64,8 @@ nav-zh:
         url:    /sx
   - title: 计算机相关
     children:
-      - title:  前端
-        url:    /Blog
+      - title:  前端 qd
+        url:    /qd
   - title: 其他
     children:
       - title:  杂项
