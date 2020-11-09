@@ -50,23 +50,47 @@ header:
   #   url: /about.html
 
 nav-zh:
-  - title: Data
+  - title: 学习笔记
     children:
-      - title:  빅데이터 Big Data
-        url:    /bigdata
-      - title:  데이터 엔지니어 Data Engineer
-        url:    /dataengineer
-      - title:  파이썬 분석 iPython
-        url:    /ipython
-      - title:  통계학 Stats
-        url:    /stats
-  - title: DEV
+      - title:  美学
+        url:    /mx/mxbj
+  - title: 读书/电影/漫画笔记
     children:
-      - title:  Dijkstra's Algorithm
-        url:    /algorithm/Dijkstra
-  - title: ETC
+      - title:  2020年读书归档
+        url:    /ds
+  - title: 随想笔记
     children:
-      - title:  블로그 Blog
-        url:    /blog
-      - title:  그외 ETC
+      - title:  2020随想
+        url:    /sx
+  - title: 计算机相关
+    children:
+      - title:  前端
+        url:    /qd
+  - title: 其他
+    children:
+      - title:  杂项
+        url:    /zx
+      - title:  全部
         url:    /
+
+#nav-xh:
+#  - title: Data
+#    children:
+#      - title:  빅데이터 Big Data
+#        url:    /bigdata
+#      - title:  데이터 엔지니어 Data Engineer
+#        url:    /dataengineer
+#      - title:  파이썬 분석 iPython
+#        url:    /ipython
+#      - title:  통계학 Stats
+#        url:    /stats
+#  - title: DEV
+#    children:
+#      - title:  Dijkstra's Algorithm
+#        url:    /algorithm/Dijkstra
+#  - title: ETC
+#    children:
+#      - title:  블로그 Blog
+#        url:    /blog
+#      - title:  그외 ETC
+#        url:    /
