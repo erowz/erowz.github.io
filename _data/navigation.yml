@@ -65,17 +65,13 @@ nav-zh:
   - title: 计算机相关
     children:
       - title:  前端
-        url:    /qd
+        url:    /blog
   - title: 其他
     children:
       - title:  杂项
         url:    /zx
       - title:  全部
         url:    /
-  - title: ETC
-    children:
-      - title:  블로그 Blog
-        url:    /blog
 
 #nav-xh:
 #  - title: Data
