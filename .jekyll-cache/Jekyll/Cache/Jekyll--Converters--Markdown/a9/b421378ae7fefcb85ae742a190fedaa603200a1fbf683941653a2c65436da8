@@ -1,0 +1,18 @@
+I"�<h1 id="lambda-함수">Lambda 함수</h1>
+<ul>
+  <li>단일문으로 표현되는 익명함수</li>
+  <li>코드 상에서 한번만 사용되는 기능이 있을 때 굳이 함수로 만들지 않고 1회성으로 만들어서 쓸 때 사용</li>
+  <li>익명함수 : 이름이 없는 구현체만 존재하는 간단한 함수를 의미</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="err">입력값</span><span class="p">:</span><span class="err">출력값</span>
+</code></pre></div></div>
+
+<p>eg.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">square</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">function</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&gt;&gt; 25</span><span class="err">
+</span></code></pre></div></div>
+:ET

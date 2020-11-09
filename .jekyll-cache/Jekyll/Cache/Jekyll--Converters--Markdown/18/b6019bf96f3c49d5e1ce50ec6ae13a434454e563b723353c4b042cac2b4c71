@@ -1,0 +1,156 @@
+I"Y
+<blockquote>
+  <p>MEMO<br />
+나는 <a href="https://tianqi.name/jekyll-TeXt-theme/">Jekyll-TeXt-Theme</a>을 사용하고 있어서 해당 프로젝트를 바탕으로 작성함</p>
+</blockquote>
+
+<p>Navigation Bar에 카테고리를 설정하고 싶어서 방법을 찾아보았다.</p>
+
+<h1 id="설정하는-법">설정하는 법</h1>
+
+<h2 id="catetory-list">catetory list</h2>
+
+<ol>
+  <li>/category 폴더 생성</li>
+  <li>파일명 [category name].md 형식으로 각 카테고리별 파일 생성<br />
+  <img src="/assets/images/blog/JekyllCategory/img01.png" alt="categories" width="140px" /></li>
+</ol>
+
+<ul>
+  <li>recently
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Algorithm</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/algorithm</span>
+<span class="nn">---</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Before
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">category</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Algorithm</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/algorithm</span>
+<span class="na">sidebar</span><span class="pi">:</span>
+    <span class="na">nav</span><span class="pi">:</span> <span class="s">nav-kr</span>
+<span class="nn">---</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>title : 카테고리 이름</li>
+      <li>permalink : 링크 관리</li>
+      <li><del>sidebar : 카테고리별 포스트 목록 페이지에 sidebar를 포함시키기 위해 설정</del> ⇒ _config.yml에 기본 설정으로 대체</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="_configyml">_config.yml</h2>
+<ul>
+  <li>공통 속성 설정하기 : layout, sidebar</li>
+</ul>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">defaults</span><span class="pi">:</span>
+  <span class="s">...</span>
+  <span class="s">- scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">category"</span>
+  <span class="err">  </span><span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">category</span>
+      <span class="na">sidebar</span><span class="pi">:</span>
+        <span class="na">nav</span><span class="pi">:</span> <span class="s">nav-kr</span>
+</code></pre></div></div>
+
+<h2 id="navigation-list">navigation list</h2>
+
+<ul>
+  <li>
+    <p>/_data/navigation.yml 에 nav list 추가</p>
+
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">nav-kr</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Data Science</span>
+  <span class="na">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span>  <span class="s">Big Data</span>
+      <span class="na">url</span><span class="pi">:</span>    <span class="s">/bigdata</span>
+    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span>  <span class="s">Stats</span>
+      <span class="na">url</span><span class="pi">:</span>    <span class="s">/stats</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Python</span>
+  <span class="na">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span>  <span class="s">Python</span>
+      <span class="na">url</span><span class="pi">:</span>    <span class="s">/python</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">ETC</span>
+  <span class="na">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span>  <span class="s">Blog</span>
+      <span class="na">url</span><span class="pi">:</span>    <span class="s">/blog</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="category-page">category page</h2>
+
+<ol>
+  <li>_layouts/category.html</li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ---
+  layout: articles
+  show_title: true
+  articles:
+    data_source: site.category
+    article_type: BlogPosting
+    show_cover: false
+    show_excerpt: true
+    show_info: true
+    type: item
+  ---
+  
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"layout--home"</span><span class="nt">&gt;</span>
+      {%- include paginator.html -%}
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+      <span class="p">{</span><span class="o">%-</span> <span class="nx">include</span> <span class="nx">scripts</span><span class="o">/</span><span class="nx">home</span><span class="p">.</span><span class="nx">js</span> <span class="o">-%</span><span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+
+    {{ content }}
+  
+</code></pre></div></div>
+
+<ol>
+  <li>articles.html 수정</li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- for _key in _keys -%}
+  {%- if forloop.first -%}
+    {%- case _key -%}
+      {%- when 'site' -%}
+        {%- assign _articles = site -%}
+      {%- when 'page' -%}
+        {%- assign _articles = page -%}
+      {%- when 'layout' -%}
+        {%- assign _articles = layout -%}
+      {%- when 'paginator' -%}
+        {%- assign _articles = paginator -%}
+      {%- else -%}
+        {%- assign _articles = site[_key] -%}
+      {%- else -%}
+    {%- endcase -%}
+  {%- else -%}
+    <span class="c">&lt;!-- # 카테고리용 포스트 지정 --&gt;</span>
+    {%- if _key == 'category' -%}
+      {%- assign _articles = site.categories[page.title]-%}
+    {%- else -%}
+      {%- assign _articles = _articles[_key] -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+</code></pre></div></div>
+
+<h1 id="output">Output</h1>
+
+<p>Navigation Bar를 포함한 기타 등등의 자잘한 CSS까지 정리된 현재의 결과물이다.</p>
+
+<p><img src="/assets/images/blog/JekyllCategory/img02.png" alt="Navi Bar" class="border" width="600px" /></p>
+
+<blockquote>
+  <p>REF</p>
+  <ul>
+    <li><a href="https://devyurim.github.io/DE/Github%20Blog" target="_blank">DevYurim</a></li>
+  </ul>
+</blockquote>
+:ET

@@ -1,0 +1,98 @@
+I"�<h1 id="조건문condition">조건문(Condition)</h1>
+
+<ul>
+  <li>특정 조건에서만 실행시키고자 할 때 사용</li>
+  <li>조건 : Boolean으로 표현 (예외 있음)</li>
+</ul>
+
+<h2 id="if-문">if 문</h2>
+
+<h3 id="if-elif-else">if, elif, else</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="err">조건</span><span class="p">:</span>
+  <span class="err">실행문</span>
+<span class="k">elif</span> <span class="err">조건</span><span class="p">:</span>
+  <span class="err">실행문</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="err">실행문</span>
+</code></pre></div></div>
+
+<ul>
+  <li>조건문 : if, elif, else 코드 마지막에 :(콜론, Colon)
+    <ol>
+      <li>기본적으로 boolean 사용</li>
+      <li>정수, 실수, 문자열 리스트 등 기본 타입도 조건에 사용 가능
+        <ul>
+          <li>true : 값이 들어있는 값</li>
+          <li>false : 각 타입의 기본값 → eg. None, 0, 0.0, ‘‘(빈 문자열), [](빈 리스트), ()(빈 튜플), {}(빈 딕셔너리), set()(빈 집합)</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <dl>
+      <dt>실행문 (Block 또는 Code Block)</dt>
+      <dd>들여쓰기(tab 또는 4칸 띄어쓰기)로 설정</dd>
+      <dd>들여쓰기는 항상 동일하게 유지해야 함</dd>
+    </dl>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &gt; 10'</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &gt; 5'</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &lt;= 5'</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<h3 id="and-or-not">AND, OR, NOT</h3>
+<ul>
+  <li>논리식 사용 가능</li>
+  <li>우선 순위 : NOT &gt; AND &gt; OR</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">11</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'this is true'</span><span class="p">)</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">!=</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'this is true'</span><span class="p">)</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'this is true'</span><span class="p">)</span>
+<span class="c1"># 결과가 false이므로 print 결과 없음
+</span></code></pre></div></div>
+
+<h3 id="중첩-조건문nested-conidition">중첩 조건문(Nested conidition)</h3>
+<ul>
+  <li>조건문의 중첩이 가능하며 들여쓰기로 depth(깊이) 설정</li>
+  <li>제한 없음</li>
+</ul>
+
+<h1 id="반복문loop">반복문(Loop)</h1>
+<ul>
+  <li>반복적인 작업을 수행</li>
+  <li>while문, for문 등</li>
+</ul>
+
+<h2 id="while-문">while 문</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="err">조건</span><span class="p">:</span>
+  <span class="err">실행문</span>
+</code></pre></div></div>
+
+<ul>
+  <li>조건을 만족하는 동안 반복 작업 수행</li>
+  <li>while 뒤의 조건이 true인 경우, while 코드 블록을 반복 수행</li>
+  <li>반복을 중단시킬 설정 필수 → 없으면 무한반복 수행됨</li>
+</ul>
+:ET

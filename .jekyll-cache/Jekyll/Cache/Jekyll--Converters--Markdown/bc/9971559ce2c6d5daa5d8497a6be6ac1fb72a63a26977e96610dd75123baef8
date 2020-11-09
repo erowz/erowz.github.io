@@ -1,0 +1,182 @@
+I"�<h1 id="확률과-의사결정">확률과 의사결정</h1>
+<ul>
+  <li>통계의 목적 : 표본 조사 &gt; 모수(parameter) 추정 &gt; 모집단의 특징 분석</li>
+  <li>표본에서 모수를 추정하는 이유
+    <ol>
+      <li>모집단을 대상으로 하는 조사가 불가능</li>
+      <li>시간과 비용 등의 물리적 한계</li>
+    </ol>
+  </li>
+  <li>표본에서 모수 추정해서 발생하는 오차 해결 방법
+    <ul>
+      <li>통계량이 모수와 일치할 확률을 나타냄으로써 해결</li>
+      <li>통계량이 맞을 확률을 같이 제시하여 그 통계량이 의미가 있도록 하는 것</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="확률probability">확률(probability)</h2>
+<ul>
+  <li>아무리 정교하게 분석된 통계자료라 할 지라도 100% 맞을 수 없으므로 그 결과를 확률과 함께 표현한다</li>
+  <li>통계의 결과가 전혀 맞지 않는 경우(0%), 모두 맞을 확률(100%)</li>
+  <li>일정 조건 하에서 동일한 실험을 지속적으로 N회 반복했을 때, 사건 A가 n번 발생할 확률 P</li>
+</ul>
+
+<script type="math/tex; mode=display">P(A)=\frac{n(A)}{N}</script>
+
+<p>n(A) : 사건 A가 발생하는 경우의 수, N : 전체 경우의 수</p>
+
+<h3 id="확률의-조건">확률의 조건</h3>
+<ul>
+  <li>0 ~ 1 사이의 값</li>
+  <li>
+    <p>모든 사건에 대한 확률의 합 : 1</p>
+
+    <script type="math/tex; mode=display">\sum_{i=1}^{n}P(E_i) = 1</script>
+
+    <p>($E$ : 사건(Event), $i$ : 시행 횟수, $P$ : 확률)</p>
+  </li>
+</ul>
+
+<h3 id="확률의-덧셈법칙addition-rule-of-probability">확률의 덧셈법칙(addition rule of probability)</h3>
+<ul>
+  <li>
+    <p>A, B 두 사건이 있을 때 A 또는 B 사건이 일어날 확률</p>
+
+    <ol>
+      <li>중복이 있는 경우 : A의 확률 + B의 확률 - 공통으로 발생하는 부분의 확률</li>
+    </ol>
+
+    <script type="math/tex; mode=display">P(A \cup B) = P(A) + P(B) - P(A \cap B)</script>
+
+    <ol>
+      <li>배반 사건의 경우 : A의 확률 + B의 확률</li>
+    </ol>
+
+    <script type="math/tex; mode=display">P(A \cup B) = P(A) + P(B)</script>
+  </li>
+</ul>
+
+<h3 id="조건부-확률conditional-probability">조건부 확률(conditional probability)</h3>
+<ul>
+  <li>
+    <p>A가 먼저 발생한 상황 하에 B가 발생할 확률</p>
+
+    <script type="math/tex; mode=display">P(B|A) = \frac{P(B \cap A)}{P(A)}</script>
+
+    <p>이를 정리하면</p>
+
+    <script type="math/tex; mode=display">P(B \cap A) = P(A) \cdot P(B|A)</script>
+  </li>
+</ul>
+
+<h1 id="확률변수의-기대값과-분산">확률변수의 기대값과 분산</h1>
+
+<h2 id="확률변수의-기대값expected-value">확률변수의 기대값(expected value)</h2>
+<ul>
+  <li>통계학에서 기대값은 평균과 같은 의미로 사용됨</li>
+  <li>사건에서 발생하는 해당 값과 그 사건이 발생할 확률을 곱해서 모두 더한 값</li>
+  <li>수식
+    <ul>
+      <li>
+        <p>확률 : 
+<script type="math/tex">\sum_{i=1}^{n}P(E_i) = 1</script></p>
+      </li>
+      <li>
+        <p>기대값 : 
+<script type="math/tex">E(X)=\sum xP(x)</script></p>
+      </li>
+    </ul>
+  </li>
+  <li>eg. 주사위를 던졌을 때의 기대값</li>
+</ul>
+
+<script type="math/tex; mode=display">1 \times \frac{1}{6} + 2 \times \frac{1}{6} + 3 \times \frac{1}{6} + 4 \times \frac{1}{6} + 5 \times \frac{1}{6} + 6 \times \frac{1}{6} \\
+= \frac{1+2=3+4+5+6}{6} = 3.5</script>
+
+<h3 id="기대값의-성질">기대값의 성질</h3>
+<ul>
+  <li>a,b가 상수, X,Y가 확률변수일 때 다음이 성립 (E : 기대값)</li>
+</ul>
+
+<ol>
+  <li>$E(a) = a$ : <em>상수에 대한 기대값은 상수</em></li>
+  <li>$E(aX) = aE(X)$ : <em>상수와 확률변수를 곱했을 때 상수는 밖으로 나옴</em></li>
+  <li>$E(aX \pm b) = aE(X) \pm b$ : <em>상수를 밖으로 뺄 수 있다</em></li>
+  <li>$E(aX \pm bY) = aE(X) \pm bE(Y)$ : <em>상수를 밖으로 뺄 수 있다</em></li>
+  <li>$E(XY) = E(X)E(Y)$, X와 Y는 확률적으로 독립</li>
+</ol>
+
+<h2 id="확률변수의-분산">확률변수의 분산</h2>
+
+<h3 id="분산variance">분산(variance)</h3>
+<ul>
+  <li>기대값의 특성을 나태나는 값</li>
+  <li>확률변수들이 기대값으로부터 벗어나는 정도를 나타냄</li>
+  <li>기대값과 어느 정도 차이가 있는지를 표현</li>
+  <li>확률변수와 기대값($\mu$)의 차이를 구한 후 제곱하고, 해당 사건의 확률($P(x)$)을 곱한 후 모두 더해서 구한다</li>
+</ul>
+
+<script type="math/tex; mode=display">Var(X) = E(X-\mu)^2 = \sum (X-\mu)^2P(X)</script>
+
+<h4 id="분산의-성질">분산의 성질</h4>
+<ul>
+  <li>a,b가 상수, X,Y가 확률변수일 때 다음이 성립</li>
+</ul>
+
+<ol>
+  <li>$Var(a) = 0$ : <em>상수에 대한 분산은 0이다</em></li>
+  <li>$Var(aX) = a^2Var(X)$ : <em>상수가 밖으로 나오면서 분산은 제곱의 합이므로 상수 제곱으로 나온다</em></li>
+  <li>$Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y)$ : <em>공분산이 있으면 더해준다</em><br />
+ $Var(X+Y) = Var(X) + Var(Y)$ , X와 Y는 확률적으로 독립</li>
+  <li>$Var(X-Y) = Var(X) + Var(Y) - 2Cov(X,Y)$ : <em>분산은 제곱이므로 분리하면 +가 된다. 공분산은 빼준다</em><br />
+ $Var(X+Y) = Var(X) + Var(Y)$ , X와 Y는 확률적으로 독립</li>
+</ol>
+
+<h3 id="확률변수의-표준편차">확률변수의 표준편차</h3>
+<ul>
+  <li>분산($\sigma^2$)의 제곱근</li>
+</ul>
+
+<script type="math/tex; mode=display">\sigma = \sqrt{E(X-\mu)^2} = \sqrt{\sum(X - \mu)^2 P(X)}</script>
+
+<h3 id="확률변수의-기대값과-분산-예제">확률변수의 기대값과 분산 예제</h3>
+<p><img src="/assets/images/stats/stats-book/random_variable_eg.png" alt="" /></p>
+
+<ul>
+  <li>확률변수의 기대값</li>
+</ul>
+
+<script type="math/tex; mode=display">E(X)= \sum xP(x)</script>
+
+<ul>
+  <li>A의 기대값 = 300 X 0.58 + 150 X 0.87 + 0 X 0.55 + (-100) X 0.05 = 299.5</li>
+  <li>
+    <p>B의 기대값 = 300 X 0.65 + 150 X 0.51 + 0 X 0.45 + (-100) X 0.05 = 266.5</p>
+  </li>
+  <li>확률변수의 분산 : 기대값을 먼저 구해야 계산 가능</li>
+</ul>
+
+<script type="math/tex; mode=display">Var(X) = E(X - \mu)^2= \sum(X - \mu)^2 P(X)</script>
+
+<ul>
+  <li>A의 분산 $ = (300 - 299.5)^2 \times 0.58 + (150 - 299.5)^2 \times 0.87$<br />
+$ \qquad \qquad + (0 - 299.5)^2 \times 0.55 + ((-100) - 299.5)^2 \times 0.05$<br />
+$ \qquad \quad = 76,760.0125$</li>
+  <li>
+    <p>B의 분산 $ = (300 - 266.5)^2 \times 0.65 + (150 - 266.5)^2 \times 0.51$<br />
+$ \qquad \qquad + (0 - 266.5)^2 \times 0.45 + ((-100) - 266.5)^2 \times 0.05$<br />
+$ \qquad \quad = 46,327.435$</p>
+  </li>
+  <li>결과 분석
+    <ul>
+      <li>기대값 : A의 인센티브가 B의 것보다 약 30만큼 높게 기대됨</li>
+      <li>분산 : A의 분산이 더 크므로 B보다 불안정하다고 볼 수 있다</li>
+      <li>A : 우승 확률이 조금 떨어지고 기대값이 높다</li>
+      <li>B : 기대값이 적지만 조금 더 안정적이고 우승 확률이 높다</li>
+    </ul>
+  </li>
+  <li>선택 결과 : 우승을 노리고 있으므로 B를 선택</li>
+</ul>
+
+:ET

@@ -1,0 +1,27 @@
+I"�
+<h1 id="python-기본-구조">Python 기본 구조</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># python system 관련 패키지
+</span><span class="kn">import</span> <span class="nn">sys</span>  
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'python start'</span><span class="p">)</span>
+
+<span class="c1"># 이 파일을 실행했을 때 수행해야할 것을 설정하는 것
+# 근데 왜 __main__인 건데?? 이런 건 설명안해주네. ㅡㅡ;;
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>⇒</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 spotify_api.py 
+python start
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

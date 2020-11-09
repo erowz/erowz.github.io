@@ -1,0 +1,27 @@
+I"E
+<h1 id="sql-data-types">SQL Data Types</h1>
+
+<pre><code class="language-mermaid">graph LR
+    A{SQL Data Types}
+    A--&gt;B(Numeric)
+    A--&gt;C(Date/Time)
+    A--&gt;D(Character/String)
+    A--&gt;E(Unicode Character/String)
+    A--&gt;F(Binary)
+    A--&gt;G(Miscellaneous)
+    A--&gt;H(Boolean)
+    B--&gt;B1[bit, tinyint, smallint, int,&lt;br/&gt;bigint, decimal, numeric, float, real]
+    C--&gt;C1[Date, Time, Datetime, Timestamp, Year]
+    D--&gt;D1["Char, Varchar, Varchar(max), Text"]
+    E--&gt;E1["NChar, NVarchar, NVarchar(max), NText"]
+    F--&gt;F1["Binary, Varbinary, Varbinary(max), image"]
+    G--&gt;G1[Clob, Blob, XML, JSON]
+</code></pre>
+
+<h1 id="numeric-types">Numeric types</h1>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

@@ -1,0 +1,236 @@
+I"�$
+<h1 id="python-설치">Python 설치</h1>
+
+<p>데이터 분석이 목적인 경우 <strong>아나콘다(Anaconda)로 설치</strong>하기를 권장한다. 아나콘다로 설치하면 파이썬과 데이터 분석 관련 패키지의 설치 및 관리가 가능하다.</p>
+
+<h2 id="anaconda">Anaconda</h2>
+
+<p><strong>설치 파일 다운로드</strong></p>
+
+<p>- <a href="https://www.anaconda.com/distribution/#download-section" target="_blank">https://www.anaconda.com/distribution/#download-section</a><br />
+- version : 3.7<br />
+<img src="/assets/images/ipython/Installaion#excerpt/img01.png" alt="install" width="500px" /></p>
+
+<p><strong>설치</strong></p>
+
+<p>- Anaconda3-2019.10-MacOSX-x86_64.pkg 실행<br />
+- 기본 설정값으로 설치 진행<br />
+<img src="/assets/images/ipython/Installaion#excerpt/img02.png" alt="install" width="500px" /></p>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img03.png" alt="install" width="500px" /><br />
+<em><a href="https://www.jetbrains.com/pycharm/" target="_blank">https://www.jetbrains.com/pycharm/</a></em></p>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img04.png" alt="install" width="500px" /><br />
+<em><a href="https://anaconda.org/" target="_blank">https://anaconda.org/</a></em></p>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img04.png" alt="install" width="500px" /></p>
+<blockquote>
+  <p><a href="https://anaconda.org/" target="_blank">https://anaconda.org/</a></p>
+</blockquote>
+
+<p><strong>※ Windows의 경우</strong></p>
+
+<ul>
+  <li>Select Installation Type : Just Me로 선택해서 로컬 계정에 설치하라고 한다. 단, 사용자 이름이 한글일 경우 All Users로 C 드라이브에 설치 진행. 다만 All Users로 설치할 경우 권한 문제가 발생할 수 있으니 주의할 것.</li>
+  <li>Advanced Option : Add Anaconda to my PATH environment variables와 Register Anaconda as my default Python3.7 둘 다 체크</li>
+</ul>
+
+<h1 id="jupyter-notebook">Jupyter Notebook</h1>
+
+<ul>
+  <li>markdown 기능 제공</li>
+  <li>python의 print 함수를 사용하지 않아도 출력 기능 동작<br />
+<em>※ 마지막에 위치한 값 하나만 output으로 출력됨</em></li>
+</ul>
+
+<h2 id="실행-방법">실행 방법</h2>
+
+<h4 id="1-terminal">1. terminal</h4>
+
+<p><code class="highlighter-rouge">jupyter notebook</code>을 입력해서 실행</p>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img05.png" alt="jupyter" /></p>
+
+<h4 id="2-anaconda-navigator">2. Anaconda Navigator</h4>
+
+<p>Applications &gt; Anaconda Navigator 실행 &gt; Launch Jupyter Notebook
+<img src="/assets/images/ipython/Installaion#excerpt/img06.png" alt="jupyter" /></p>
+
+<p><strong>Jupyter Notebook 실행 화면</strong></p>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img07.png" alt="jupyter" /></p>
+
+<h2 id="사용-방법">사용 방법</h2>
+
+<p>웹 브라우저에서 구글 드라이브를 사용하듯이 로컬 스토리지를 브라우저에서 탐색한다고 생각하면 이해가 쉬울 듯 하다.</p>
+
+<h3 id="jupyter-notebook-시작">Jupyter Notebook 시작</h3>
+
+<p>- python 파일 생성 : New &gt; Python 3 &gt; Untitled.ipynb가 생성됨 (<em>※ ipynb 파일은 일반 탐색기에서는 실행되지 않음</em>)<br />
+- 동일 경로에 사용할 데이터 파일 준비
+<img src="/assets/images/ipython/Installaion#excerpt/img08.png" alt="jupyter" /></p>
+
+<h3 id="jupyter-notebook-실행">Jupyter Notebook 실행</h3>
+
+<p><strong>파일명 변경</strong></p>
+
+<p>- Rename : File &gt; Rename으로 파일명 변경
+<img src="/assets/images/ipython/Installaion#excerpt/img09.png" alt="jupyter" /></p>
+
+<blockquote>
+  <p><strong>Cell</strong><br />
+- 박스 하나를 셀이라고 부름<br />
+- 코드(code) 또는 마크다운(markdown) 등 작성 가능<br />
+- 각 셀마다 실행(run)<br />
+- 상태 표시<br />
+· 파란색 : 선택된 상태를 의미. Enter 키를 누르거나 마우스 클릭하면 녹색으로 바뀌며 편집 모드로 변경됨<br />
+· 녹색 : 코드 작성 가능. Esc 키를 누르거나 셀 바깥을 클릭하면 파란색 선택 모드로 변경됨</p>
+</blockquote>
+
+<p><strong>단축키 도움말 확인</strong></p>
+
+<p>Command Mode에서 h를 눌러 확인
+<img src="/assets/images/ipython/Installaion#excerpt/img10.png" alt="jupyter" /></p>
+
+<p><strong>코드 입력 및 실행</strong></p>
+
+<p>- 편집 모드로 선택 후 코드 입력 후 실행
+<img src="/assets/images/ipython/Installaion#excerpt/img11.png" alt="jupyter" /></p>
+
+<h3 id="csv-file-사용하기">csv file 사용하기</h3>
+
+<p><strong>파일 로딩</strong></p>
+
+<p>- 파이썬의 패키지인 판다스(pandas)의 read_csv()라는 기능을 사용하여 로딩 가능<br />
+- 동일 경로의 train.csv 로딩</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+pd.read_csv("train.csv")
+</code></pre></div></div>
+
+<p><img src="/assets/images/ipython/Installaion#excerpt/img12.png" alt="jupyter" /></p>
+
+<blockquote>
+  <p><strong>상대 경로 설정 방법</strong><br />
+- ../ 상위 폴더로 이동해서 파일의 해당 경로로 이동</p>
+</blockquote>
+
+<h3 id="jupyter-notebook-재실행">Jupyter Notebook 재실행</h3>
+
+<p>파일 종료 후 재실행 시 상위 코드부터 순차적으로 실행을 시켜줘야 정상 작동한다. 예를 들어, 상위 코드에서 pandas를 import해줘야 아래 코드에서 csv file 로딩이 가능하다.</p>
+
+<h2 id="단축키">단축키</h2>
+
+<blockquote>
+  <p><strong>&lt;Edit Mode : 셀 선택 상태&gt;</strong><br />
+<strong>Enter</strong> : 셀 선택 상태(명령 모드)를 편집 상태(입력 모드)로 전환<br />
+<strong>Esc</strong> : 셀 편집 모드(입력 모드)를 선택 모드(명령 모드)로 전환<br />
+<strong>h</strong> : 단축키 도움말<br />
+<strong>a</strong> : 선택된 셀을 위에 새로운 셀 추가<br />
+<strong>b</strong> : 선택된 셀을 아래에 새로운 셀 추가<br />
+<strong>f</strong> : 찾기/바꾸기<br />
+<strong>m</strong> : 선택된 셀을 markdown 상태로 전환<br />
+<strong>y</strong> : 선택된 셀을 code 편집 상태로 전환<br />
+<strong>x</strong> : 셀 잘라내기<br />
+<strong>c</strong> : 셀 복사하기<br />
+<strong>v</strong> : 셀 붙여넣기<br />
+<strong>z</strong> : 되돌리기<br />
+<strong>dd</strong>: 셀 제거하기<br />
+<strong>x</strong>: 셀 잘라내기</p>
+
+  <p><strong>&lt;Command Mode : 셀 편집 상태&gt;</strong><br />
+<strong>Ctrl + Enter</strong> : 셀 실행<br />
+<strong>Shift + Enter</strong> : 셀 실행 후 아래 셀 선택<br />
+<strong>Alt + Enter</strong> : 셀 실행 후 아래에 새로운 셀 추가<br />
+<strong>Tab</strong> : 함수 리스트 호출<br />
+<strong>Shift + Tab</strong> : 함수 내에서 도움말 호출<br />
+<strong>Ctrl + /</strong> : 주석 설정/해제</p>
+</blockquote>
+
+<h2 id="jupyter-notebook-html-출력-설정">Jupyter Notebook html 출력 설정</h2>
+
+<h3 id="1-cell-넓이-설정">1. Cell 넓이 설정</h3>
+
+<p>손쉽게 넓이 조절이 가능하지만 막상 html로 출력해서 블로그에 업로드하기에 적합하지 않아 보인다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.core.display import display, HTML
+display(HTML("&lt;style&gt;.container { width: 100% !important; }&lt;/style&gt;"))
+</code></pre></div></div>
+
+<h3 id="2-css-설정">2. CSS 설정</h3>
+
+<p>해당 CSS 설정 삭제하기</p>
+
+<ul>
+  <li>화면 넓이 설정 : 아래 코드 전체 삭제</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@media (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 940px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>배경에서 그림자 효과 제거</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@media not print {
+  #notebook-container {
+    padding: 15px;  # - 삭제
+    ...
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);  # - 삭제
+    box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);  # - 삭제
+  }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <dl>
+      <dt>프롬프트 넓이 조절</dt>
+      <dd>14ex로 검색해서 11ex로 변경</dd>
+    </dl>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    .prompt {
+      /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+      min-width: 14ex;  # &gt;&gt; 11ex;로 수정
+      font-size: 11px;  # 새로 추가
+      /* This padding is tuned to match the padding on the CodeMirror editor. */
+      padding: 0.4em;
+      margin: 0px;
+      ...
+    }
+
+    /* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+    div.output_subarea {
+      overflow-x: auto;
+      padding: 0.4em;
+      ...
+      max-width: calc(100% - 14ex);  # &gt;&gt; 11ex로 수정
+    }
+</code></pre></div></div>
+
+<ul>
+  <li>데이터 테이블 넓이 설정 : 아래 코드 전체 새로 추가</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    .dataframe {
+      width: auto !important;
+    }
+</code></pre></div></div>
+:ET

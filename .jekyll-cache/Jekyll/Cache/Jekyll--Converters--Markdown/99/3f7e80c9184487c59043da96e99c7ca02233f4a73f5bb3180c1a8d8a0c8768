@@ -1,0 +1,118 @@
+I"�
+<h1 id="database">Database</h1>
+<ul>
+  <li>Organized Collection of Data</li>
+  <li>보편적으로 RDB를 많이 사용함</li>
+</ul>
+
+<h2 id="rdb">RDB</h2>
+<blockquote class="comment">
+  <p>Relational Database</p>
+</blockquote>
+
+<p><img src="/assets/images/dataengineer/RDBMS#excerpt/img01.png" alt="Image" width="400px" /></p>
+
+<ul>
+  <li>RDB(Relational Database)
+    <ul>
+      <li>데이터를 표현하는 관계형 데이터 모델</li>
+      <li>2차원 테이블 형태로 데이터를 표현 eg. excel처럼 생각할 수 있다</li>
+    </ul>
+  </li>
+  <li>RDBMS(Relational Database Management System)
+    <ul>
+      <li>관계형 데이터베이스를 생성 및 수정하는 시스템</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rdb-특징">RDB 특징</h2>
+<ul>
+  <li>모든 데이터를 2차원의 테이블로 표현
+    <ul>
+      <li>row와 column을 갖고 있다</li>
+    </ul>
+  </li>
+  <li>E-R(Entity-Relationship) 모델
+    <ul>
+      <li>상호관계가 있는 여러 테이블로 구성 : JOIN 등으로 상호관계 연결 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="aws-rds">AWS RDS</h1>
+<blockquote class="comment">
+  <p><a href="http://aws.amazon.com/" target="_blank">AWS</a> &gt; Console &gt; Services &gt; Database/RDS</p>
+</blockquote>
+
+<p><img src="/assets/images/dataengineer/RDBMS#excerpt/img02.png" alt="Image" class="border" width="500px" /></p>
+
+<h2 id="region-선택">Region 선택</h2>
+<ul>
+  <li>해당 지역에 생성되므로 데이터베이스 생성 전에 선택하자<br />
+<img src="/assets/images/dataengineer/RDBMS#excerpt/img03.png" alt="Image" class="border" width="200px" /></li>
+</ul>
+
+<h2 id="create-database">Create Database</h2>
+<p><a href="/assets/images/dataengineer/RDBMS#excerpt/img04.png"><img src="/assets/images/dataengineer/RDBMS#excerpt/img04.png" alt="Image" width="360px" /></a>
+<a href="/assets/images/dataengineer/RDBMS#excerpt/img05.png"><img src="/assets/images/dataengineer/RDBMS#excerpt/img05.png" alt="Image" width="360px" /></a>
+<a href="/assets/images/dataengineer/RDBMS#excerpt/img06.png"><img src="/assets/images/dataengineer/RDBMS#excerpt/img06.png" alt="Image" width="360px" /></a>
+<a href="/assets/images/dataengineer/RDBMS#excerpt/img07.png"><img src="/assets/images/dataengineer/RDBMS#excerpt/img07.png" alt="Image" width="360px" /></a>
+<a href="/assets/images/dataengineer/RDBMS#excerpt/img08.png"><img src="/assets/images/dataengineer/RDBMS#excerpt/img08.png" alt="Image" width="360px" /></a></p>
+
+<ul>
+  <li>Method : Standard</li>
+  <li>Engine Type : MySQL 5.7.22 (현재 가장 stable한 버전, 19.11.22)</li>
+  <li>Templates : 사용 목적에 맞춰 선택
+    <ul>
+      <li>일반 프로젝트 사용 시 Production</li>
+      <li>우리는 연습용이니까 Free tier</li>
+    </ul>
+  </li>
+  <li>DB Instance Indetifier : DB 이름 지정</li>
+  <li>Credential Settings
+    <ul>
+      <li>Master Username/Password : 관리자 이름/비번 지정</li>
+    </ul>
+  </li>
+  <li>DB Instance Size : 저장하려는 데이터의 양이 클 수록 크게 설정</li>
+  <li>Storage Type
+    <ul>
+      <li>General Purpose : 저장을 위한 목적으로 사용할 때</li>
+      <li>Provisioned IOPS(Input/Output Per Second) : 인/아웃풋 빠르게 엑세스할 수 있게 사용할 때. 속도 지정 가능</li>
+    </ul>
+  </li>
+  <li>Storage Auto Scaling : 자동으로 크기 조정 가능 여부 설정</li>
+  <li>Multi-AZ deploymet : 다양한 국가에서 접속 시 균등한 성능을 사용할 수 있게 할 때 설정</li>
+  <li>Virtual Private Cloud(VPC)
+    <ul>
+      <li>클라우드 내 가상환경 설정</li>
+      <li>Security와도 연관되어 있다</li>
+    </ul>
+  </li>
+  <li>Network &amp; Security &gt; Public Accessibility : YES로 설정해야 커맨드 접속 가능</li>
+</ul>
+
+<h2 id="security-protocol-설정">Security Protocol 설정</h2>
+<p><img src="/assets/images/dataengineer/RDBMS#excerpt/img09.png" alt="Image" class="border" width="500px" /><br />
+<img src="/assets/images/dataengineer/RDBMS#excerpt/img10.png" alt="Image" class="border" width="500px" /><br />
+<img src="/assets/images/dataengineer/RDBMS#excerpt/img11.png" alt="Image" class="border" width="500px" /></p>
+<ul>
+  <li>Type : MYSQL/Aurora</li>
+  <li>Protocol : TCP</li>
+  <li>Port Range : 3306</li>
+  <li>Source : Anywhere → 0.0.0.0/0, ::/0</li>
+</ul>
+
+<h2 id="정보-확인">정보 확인</h2>
+<p><img src="/assets/images/dataengineer/RDBMS#excerpt/img12.png" alt="Image" class="border" width="500px" /></p>
+<ul>
+  <li>Endpoint : fastcampus.c65nymnb37vh.ap-northeast-2.rds.amazonaws.com</li>
+  <li>Port : 3306</li>
+</ul>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

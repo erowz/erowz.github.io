@@ -1,0 +1,44 @@
+I"�
+<h1 id="쥬피터-노트북-확장-프로그램-설치">쥬피터 노트북 확장 프로그램 설치</h1>
+
+<h3 id="설치">설치</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$pip install jupyter_contrib_nbextensions      # 라이브러리 설치
+$jupyter contrib nbextension install --user    # 쥬피터노트북에 등록
+</code></pre></div></div>
+
+<h3 id="설정">설정</h3>
+
+<ol>
+  <li>
+    <p>extension 설정 접속<br />
+<a href="http://localhost:8888/nbextensions" target="_blank">http://localhost:8888/nbextensions</a></p>
+  </li>
+  <li>
+    <p>기능 추가</p>
+    <ul>
+      <li>체크 박스 해제 : disable configuration for nbextensions without explicit compatibility</li>
+      <li>원하는 기능 체크 박스 설정해서 추가<br />
+<img src="/assets/images/ipython/JupyterExtension#excerpt/img01.png" alt="extensions" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="확장-프로그램-추가-및-사용">확장 프로그램 추가 및 사용</h1>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+<p>: 쥬피터 노트북 목차 생성<br />
+<img src="/assets/images/ipython/JupyterExtension#excerpt/img02.png" alt="extensions" style="width:600px" />
+<img src="/assets/images/ipython/JupyterExtension#excerpt/img03.png" alt="extensions" style="width:600px" /></p>
+
+<h3 id="collapsible-headings">Collapsible Headings</h3>
+<p>: 구간 폴딩<br />
+<img src="/assets/images/ipython/JupyterExtension#excerpt/img04.png" alt="extensions" style="width:600px" />
+<img src="/assets/images/ipython/JupyterExtension#excerpt/img05.png" alt="extensions" style="width:600px" /></p>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="http://blog.naver.com/PostView.nhn?blogId=kiddwannabe&amp;logNo=221583729175" target="_blank">쥬피터노트북 확장 프로그램 설치하기(nbextension)|작성자 데이터공방</a><br />
+<a href="https://skysign.tistory.com/33" target="_blank">Jupyter notebook에 nbextension 설치/사용 방법</a></p>
+</blockquote>
+:ET

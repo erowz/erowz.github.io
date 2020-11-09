@@ -1,0 +1,92 @@
+I"�
+<h1 id="sql-query">SQL query</h1>
+
+<ul>
+  <li>RDBM의 종류에 따라 구문이 조금씩 다르지만 기본 원리는 동일</li>
+  <li>SQLLITE로 진행</li>
+</ul>
+
+<h2 id="data">Data</h2>
+<h3 id="select">SELECT</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span><span class="p">;</span>
+</code></pre></div></div>
+<ul>
+  <li>ASC/DESC : 정렬 순서</li>
+  <li>ORDER BY : 정렬 대상</li>
+  <li>GROUP BY : 그룹으로 묶어서 데이터 선택</li>
+  <li>LIMIT : 출력 개수 제한</li>
+  <li>INSERT
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블</span> <span class="p">(</span><span class="err">컬럼</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>UPDATE
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="k">SET</span> <span class="err">컬럽</span><span class="o">=</span><span class="err">값</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div>    </div>
+  </li>
+  <li>REPLACE : 있으면 바꾸고, 없으면 추가
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPLACE</span> <span class="k">INTO</span> <span class="err">테이블</span> <span class="p">(</span><span class="err">컬럼</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>INSERT OR IGNORE : 중복이 없을 때만 실행하고 있으면 종료 cf. MySQL : INSERT IGNORE
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="err">테이블</span> <span class="p">(</span><span class="err">컬럼</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>DELETE
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div>    </div>
+  </li>
+  <li>JOIN
+<img src="/assets/images/dataengineer/SQL#excerpt/img01.png" alt="Image" /><br />
+<em>출처 : https://commons.wikimedia.org/wiki/File:SQL_Joins.svg</em></li>
+</ul>
+
+<h2 id="table">Table</h2>
+<ul>
+  <li>CREATE
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">테이블</span> <span class="p">(</span><span class="err">컬럼</span> <span class="err">데이터타입</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>ALTER
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블</span> <span class="k">RENAME</span> <span class="k">TO</span> <span class="err">새테이블명</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="err">컬럼명</span> <span class="err">데이터타입</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>DROP
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="err">테이블</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="function">Function</h2>
+<ul>
+  <li>SUBSTR(컬럼, 시작 인덱스, 끝 인덱스) : 컬럼을 호출할 때 문자열의 일부만 가져오도록 선택</li>
+  <li>UPPER/LOWER : 대문자/소문자로 변환</li>
+  <li>LENGTH : 문자열 길이</li>
+  <li>MAX/MIN : 최대/최소값</li>
+  <li>AVG, COUNT, SUM</li>
+  <li>DATE : 세부 syntax는 database별 상이
+```sql
+SELECT DATE(CURRENT_TIMESTAMP) » ‘2020-02-24’
+SELECT DATE(‘NOW’) » ‘2020-02-24’</li>
+</ul>
+
+<p>SELECT CURRENT_TIMESTAMP » ‘2020-02-24 20:00:00’
+SELECT DATETIME(‘NOW’) » ‘2020-02-24 20:00:00’
+SELECT DATETIME(CURRENT_TIMESTAMP, ‘+1 DAY’) » ‘2020-02-25 20:00:00’</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- CASE WHEN
+```sql
+SELECT
+컬럼, ...
+CASE WHEN 조건 THEN 결과
+WHEN 조건 THEN 결과
+ELSE 결과
+END AS 출력용 컬럼명,
+컬럼, ... (선택)
+FROM 테이블
+</code></pre></div></div>
+<p></p>
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

@@ -1,0 +1,77 @@
+I"b
+<h1 id="모듈module">모듈(Module)</h1>
+<ul>
+  <li>다양한 기능들이 함수로 구현되어 모듈 형태로 제공</li>
+  <li>이미 구현되어 있는 필요한 기능을 가져다 import해서 사용하면 됨</li>
+</ul>
+
+<h2 id="사용-예정-모듈">사용 예정 모듈</h2>
+
+<h3 id="requests">requests</h3>
+<ul>
+  <li>requests : HTTP 요청/응답 모듈</li>
+  <li>get() : HTTP 요청의 결과를 받는 함수</li>
+  <li>text : 받은 내용 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://naver.com'</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">text</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/python/Module/img01.png" alt="Image" /></p>
+
+<h3 id="numpy">numpy</h3>
+<ul>
+  <li>수치해석 모듈</li>
+</ul>
+
+<h3 id="pandas">pandas</h3>
+<ul>
+  <li>데이터 분석 모듈</li>
+</ul>
+
+<h2 id="호출-방식">호출 방식</h2>
+
+<h3 id="import">import</h3>
+<p><code class="highlighter-rouge"> import 모듈 </code></p>
+<ul>
+  <li>모듈을 통째로 임포트</li>
+  <li>함수 호출 시 . 뒤에서 tab 키를 누르면 리스트가 보여짐</li>
+</ul>
+
+<p><img src="/assets/images/python/Module/img02.png" alt="Image" width="150px" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="o">&gt;&gt;</span> <span class="mf">3.141592653589793</span>
+</code></pre></div></div>
+
+<h3 id="from-import">from import</h3>
+<p><code class="highlighter-rouge">from 모듈 import 대상</code></p>
+<ul>
+  <li>해당 모듈에서 필요한 것만 골라서 임포트</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="n">pi</span>
+<span class="o">&gt;&gt;</span> <span class="mf">3.141592653589793</span>
+</code></pre></div></div>
+
+<h3 id="from-imort-">from imort *</h3>
+<ul>
+  <li>해당 모듈에 정의된 모든 것을 임포트</li>
+  <li>다른 모듈과 중복 발생 등의 우려가 있으므로 권장하지 않음</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">pi</span>
+<span class="o">&gt;&gt;</span> <span class="mf">3.141592653589793</span>
+
+<span class="n">cos</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mf">0.862318872287684</span>
+</code></pre></div></div>
+
+<h3 id="as-alias">as (alias)</h3>
+:ET

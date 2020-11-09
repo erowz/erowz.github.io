@@ -1,0 +1,47 @@
+I",
+<h1 id="unix--shell-commands">UNIX / Shell Commands</h1>
+
+<h2 id="unix-기본-command">UNIX 기본 Command</h2>
+
+<h3 id="terminal-shortcut">Terminal Shortcut</h3>
+<ul>
+  <li>Ctrl + l : clear</li>
+</ul>
+
+<h3 id="navigating-files-and-directions">Navigating Files and Directions</h3>
+<ul>
+  <li>cd path : 경로 진입</li>
+  <li>ls path : 경로 내 리스트</li>
+  <li>pwd : 현 위치 경로 반환</li>
+  <li>.. : 상위 경로</li>
+  <li>. : 해당 폴더</li>
+</ul>
+
+<h3 id="files-and-directories">Files and Directories</h3>
+<ul>
+  <li>cp old new : 파일 복사</li>
+  <li>rm path : 파일 삭제</li>
+  <li>mkdir path : 폴더 생성</li>
+  <li>cp -r / rm -r : 폴더 복사 / 삭제</li>
+  <li>*</li>
+</ul>
+
+<h3 id="pipes-and-filters">Pipes and Filters</h3>
+<ul>
+  <li>cat : 파일 내용 출력</li>
+  <li>head : 파일의 처음 10줄 출력</li>
+  <li>tail : 파일 마지막 10줄 출력</li>
+  <li>command &gt; file : file에 command의 결과를 저장 eg. python3 exam.py &gt; exam.txt</li>
+  <li>command » file : file에 command의 결과를 추가 저장(append)</li>
+</ul>
+
+<h2 id="shell-script">Shell Script</h2>
+<ul>
+  <li>시스템 자동화 설정 가능</li>
+</ul>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

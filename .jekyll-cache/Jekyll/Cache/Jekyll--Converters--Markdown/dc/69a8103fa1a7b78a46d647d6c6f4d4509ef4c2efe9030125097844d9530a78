@@ -1,0 +1,236 @@
+I"0
+<h1 id="jekyll-theme-사용해보기">Jekyll Theme 사용해보기</h1>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a><br />
+<a href="https://jekyllthemes.io/" target="_blank">Jekyll Theme 공식 사이트</a><br />
+<a href="https://devinlife.com/howto%20github%20pages/new-blog-from-template/" target="_blank">Jekyll theme을 사용하여 블로그 생성하기</a></p>
+</blockquote>
+
+<h3 id="블로그-설정-과정">블로그 설정 과정</h3>
+
+<ol>
+  <li>로컬에 테마 설치</li>
+  <li>테마 수정</li>
+  <li>GitHub에 배포
+    <ul>
+      <li>GitHub Pages 생성</li>
+      <li>Git Push</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="jekyll-theme-선택">Jekyll Theme 선택</h1>
+
+<h3 id="theme">Theme</h3>
+
+<ul>
+  <li><a href="https://tianqi.name/jekyll-TeXt-theme/" target="_blank">jekyll-TeXt-theme</a></li>
+  <li><a href="https://tianqi.name/jekyll-TeXt-theme/docs/en/update-from-1-to-2">Doc</a><br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img01.png" alt="Image" width="300px" /></li>
+</ul>
+
+<h3 id="theme-list">Theme List</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><a href="https://jekyllthemes.io/theme/documentation" target="_blank"><strong>Documentation Jekyll theme</strong></a></th>
+      <th style="text-align: center"><a href="https://jekyllthemes.io/theme/just-the-docs" target="_blank"><strong>Just The Docs Jekyll theme</strong></a></th>
+      <th style="text-align: center"><a href="https://jekyllthemes.io/theme/docs-responsive-documentation-or-manual-jekyll-theme" target="_blank"><strong>Docs Jekyll theme</strong></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img02.jpeg" alt="Image" width="300px" /></td>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img03.jpeg" alt="Image" width="300px" /></td>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img04.jpeg" alt="Image" width="300px" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://jekyllthemes.io/theme/leonids" target="_blank"><strong>Leonids Jekyll theme</strong></a></td>
+      <td style="text-align: center"><a href="https://jekyllthemes.io/theme/minimal-mistakes" target="_blank"><strong>Minimal Mistakes Jekyll theme</strong></a></td>
+      <td style="text-align: center"><a href="https://jekyllthemes.io/theme/online-cv" target="_blank"><strong>Online CV</strong></a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><em>이력서, 카테고리 보유</em></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"><em>온라인 이력서 작성 시 좋을 듯</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img05.jpeg" alt="Image" width="300px" /></td>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img06.jpeg" alt="Image" width="300px" /></td>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img07.jpeg" alt="Image" width="300px" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://jekyllthemes.io/theme/meuse-multi-purpose-theme-powered-by-jekyll" target="_blank"><strong>Meuse Jekyll theme</strong></a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><em>$24</em></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="/assets/images/blog/JekyllTheme#excerpt/img08.jpeg" alt="Image" width="300px" /></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="jekyll-text-theme">jekyll-TeXt-theme</h1>
+
+<ul>
+  <li>참고 : <a href="https://github.com/kitian616/jekyll-TeXt-theme" target="_blank">TeXt Theme</a><br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img09.png" alt="Image" width="600px" /><br />
+  <em>출처 : jekyll_TeXt-theme</em></li>
+</ul>
+
+<ol>
+  <li>install the theme
+    <ol>
+      <li>common method</li>
+      <li>ruby gem method : setup your site 필요</li>
+    </ol>
+  </li>
+  <li>setup your site</li>
+  <li>local preview for development, build and publish.</li>
+</ol>
+
+<h3 id="install-theme">Install Theme</h3>
+
+<ol>
+  <li>
+    <dl>
+      <dt>fork theme git</dt>
+      <dd>git clone을 통해서도 가능</dd>
+      <dd>github pages 사용 시 fork로 간단하게 적용 가능하므로 편한 방법을 선택할 것</dd>
+    </dl>
+
+    <ul>
+      <li><a href="https://github.com/kitian616/jekyll-TeXt-theme" target="_blank">jekyll-Text-theme</a> github 방문</li>
+      <li>fork git<br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img10.png" alt="Image" width="600px" /></li>
+    </ul>
+  </li>
+  <li>
+    <p>내 github 설정</p>
+
+    <ul>
+      <li>repository rename<br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img11.png" alt="Image" width="600px" /></li>
+      <li>page 접속 확인<br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img12.png" alt="Image" width="600px" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="local-preview">Local Preview</h3>
+
+<ul>
+  <li>git clone<br />
+  <img src="/assets/images/blog/JekyllTheme#excerpt/img13.png" alt="Image" width="300px" /></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$git clone https://github.com/willnfate/willnfate.github.io.git
+$cd willnfate.github.io.git
+
+# 설치
+$bundle
+Using jekyll-text-theme 2.2.6 from source at `.`
+Bundle complete! 3 Gemfile dependencies, 42 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+Post-install message from html-pipeline:
+-------------------------------------------------
+Thank you for installing html-pipeline!
+You must bundle Filter gem dependencies.
+See html-pipeline README.md for more details.
+https://github.com/jch/html-pipeline#dependencies
+-------------------------------------------------
+
+# 서버 실행 // $jekyll serve 
+$ bundle exec jekyll serve
+Configuration file: /Users/minky/work/willnfate.github.io/_config.yml
+            Source: /Users/minky/work/willnfate.github.io
+       Destination: /Users/minky/work/willnfate.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 1.162 seconds.
+ Auto-regeneration: enabled for '/Users/minky/work/willnfate.github.io'
+    Server address: http://127.0.0.1:4000
+  Server running... press ctrl-c to stop.
+</code></pre></div></div>
+
+<p><img src="/assets/images/blog/JekyllTheme#excerpt/img14.png" alt="Image" width="600px" /></p>
+
+<h3 id="build-and-publish">Build and Publish</h3>
+
+<p>If you host your site on GitHub Pages, just push the source to the master branch of your USERNAME.github.io repository, GitHub would build automatically. You can visit your site on <a href="https://USERNAME.github.io" target="_blank">https://USERNAME.github.io</a> several minutes later.</p>
+
+<p>If you host your site on your server, you need first run JEKYLL_ENV=production bundle exec jekyll build to generated your site, then update the files in _site folder to your server.</p>
+
+<p>이제 기본 설치가 완료되었다!!</p>
+
+<h1 id="skin-customizing">Skin Customizing</h1>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://tianqi.name/jekyll-TeXt-theme/docs/en/configuration" target="_blank">Configuration</a></p>
+</blockquote>
+
+<h3 id="스킨-설정">스킨 설정</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
+</code></pre></div></div>
+
+<h3 id="mathjax-설정">MathJax 설정</h3>
+
+<h3 id="_configyml">_config.yml</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Mathjax
+mathjax: true # false (default), true
+mathjax_autoNumber: false # false (default), true &lt;&lt; 자동 수식 번호매기기 해제
+</code></pre></div></div>
+
+<h4 id="text-align">text align</h4>
+
+<p>mathjax.html &gt; _config에 displayAlign과 displayIndent 추가</p>
+
+<ul>
+  <li>추가 코드
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+<span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+<span class="na">displayAlign</span><span class="p">:</span> <span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span>
+<span class="na">displayIndent</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2em</span><span class="dl">"</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>적용 예</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+{%- include snippets/assign.html target=site.data.variables.default.mathjax_autoNumber
+  source0=site.mathjax_autoNumber source1=page.mathjax_autoNumber -%}
+{%- assign _mathjax_autoNumber = __return -%}
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+    <span class="kd">var</span> <span class="nx">_config</span> <span class="o">=</span> <span class="p">{</span> 
+        <span class="na">tex2jax</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">inlineMath</span><span class="p">:</span> <span class="p">[[</span><span class="dl">'</span><span class="s1">$</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">$</span><span class="dl">'</span><span class="p">],</span> <span class="p">[</span><span class="dl">'</span><span class="se">\\</span><span class="s1">(</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="se">\\</span><span class="s1">)</span><span class="dl">'</span><span class="p">]]</span>
+        <span class="p">},</span>
+        <span class="na">displayAlign</span><span class="p">:</span> <span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">displayIndent</span><span class="p">:</span> <span class="dl">"</span><span class="s2">.5em</span><span class="dl">"</span>
+    <span class="p">};</span>
+    <span class="p">{</span><span class="o">%-</span> <span class="k">if</span> <span class="nx">_mathjax_autoNumber</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">-%</span><span class="p">}</span>
+        <span class="nx">_config</span><span class="p">.</span><span class="nx">TeX</span> <span class="o">=</span> <span class="p">{</span> <span class="na">equationNumbers</span><span class="p">:</span> <span class="p">{</span> <span class="na">autoNumber</span><span class="p">:</span> <span class="dl">"</span><span class="s2">all</span><span class="dl">"</span> <span class="p">}</span> <span class="p">};</span>
+    <span class="p">{</span><span class="o">%-</span> <span class="nx">endif</span> <span class="o">-%</span><span class="p">}</span>
+    <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">(</span><span class="nx">_config</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"{{ _sources.mathjax }}"</span> <span class="na">async</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,1166 @@
+<!DOCTYPE html><html lang="en">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>빅데이터 - R vs Python - Dev Tripper</title>
+
+<meta name="description" content="출처 : https://medium.com/@InDataLabs/r-vs-python-729ceaa15620#.r2lkjj362R과 Python 무엇이 다른가요?R과 PYTHON의 비교R과 Python은 프로그래밍 언어로, 본인이 학습하고자 하는 분야의 최종 목적(강의 수강 계기)...">
+<link rel="canonical" href="http://0.0.0.0:4000/bigdata/RvsPython"><link rel="alternate" type="application/rss+xml" title="Dev Tripper" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+
+<meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+<meta name="theme-color" content="#ffffff">
+<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" ><!-- start custom head snippets -->
+
+<!-- end custom head snippets -->
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.isFormElement = function(node) {
+    var tagName = node.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i;
+      loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cbs[i]();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();
+(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();
+(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();
+</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.6',
+      sources: {
+        font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        valine: 'https://unpkg.com/valine/dist/Valine.min.js',
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script>
+</head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page layout--page--sidebar clearfix js-page-root">
+  <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
+  <div class="page__viewport">
+    <div class="page__actions d-print-none">
+      <div class="button button--circle button--lg box-shadow-2 sidebar-button js-sidebar-show">
+        <i class="fas fa-bars icon--show"></i>
+      </div>
+    </div>
+
+    <div class="grid page__grid">
+
+      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">Data Science</li><li class="toc-h2"><a href="/bigdata">빅데이터 Big Data</a></li><li class="toc-h2"><a href="/dataengineer">데이터 엔지니어 Data Engineer</a></li><li class="toc-h2"><a href="/ipython">파이썬 분석 iPython</a></li><li class="toc-h2"><a href="/stats">통계학 Stats</a></li><li class="toc-h1">DEV</li><li class="toc-h2"><a href="/algorithm">알고리즘 Algorithm</a></li><li class="toc-h2"><a href="/python">파이썬 Python</a></li><li class="toc-h1">ETC</li><li class="toc-h2"><a href="/blog">블로그 Blog</a></li><li class="toc-h2"><a href="/etc">그외 ETC</a></li></ul><br/>
+<footer class="footer py-4 js-page-footer">
+  <div class="main"><div itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MiKy"><meta itemprop="url" content="/"><meta itemprop="description" content="Developer likes Trip."><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Follow me on Linkedin.">
+        <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/willnfate" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M260.096 155.648c0 27.307008-9.899008 50.516992-29.696 69.632-19.796992 19.115008-45.396992 28.672-76.8 28.672-30.036992 0-54.612992-9.556992-73.728-28.672-19.115008-19.115008-28.672-42.324992-28.672-69.632 0-28.672 9.556992-52.224 28.672-70.656 19.115008-18.432 44.372992-27.648 75.776-27.648 31.403008 0 56.32 9.216 74.752 27.648 18.432 18.432 28.331008 41.984 29.696 70.656 0 0 0 0 0 0m-202.752 808.96c0 0 0-632.832 0-632.832 0 0 196.608 0 196.608 0 0 0 0 632.832 0 632.832 0 0-196.608 0-196.608 0 0 0 0 0 0 0m313.344-430.08c0-58.708992-1.364992-126.292992-4.096-202.752 0 0 169.984 0 169.984 0 0 0 10.24 88.064 10.24 88.064 0 0 4.096 0 4.096 0 40.96-68.267008 105.812992-102.4 194.56-102.4 68.267008 0 123.220992 22.868992 164.864 68.608 41.643008 45.739008 62.464 113.664 62.464 203.776 0 0 0 374.784 0 374.784 0 0-196.608 0-196.608 0 0 0 0-350.208 0-350.208 0-91.476992-33.451008-137.216-100.352-137.216-47.787008 0-81.236992 24.576-100.352 73.728-4.096 8.192-6.144 24.576-6.144 49.152 0 0 0 364.544 0 364.544 0 0-198.656 0-198.656 0 0 0 0-430.08 0-430.08 0 0 0 0 0 0" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow me on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/willnfate" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li></ul>
+</div>
+</div>
+    </div><div class="site-info mt-2">
+      <div>© Dev Tripper 2020 <br/>
+        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </div>
+    </div>
+  </div>
+</footer>
+</div></div><div class="page__main js-page-main has-aside cell cell--auto">
+
+      <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500.07 500"><title>miky</title><path d="M174.6.52s88.07,90,97.34,99.32,24.21,7.81,32.45-.52L395.55,7.24c7.21-7.28,17.27-8,25.23-1.56,5.15,4.16,4.39,21.37,4.39,21.37s-2.33,268.26-2.33,282.44c0,16.65,34,55.15,55.62,55.15s20.6,9.36,20.6,14.56,5.15,17.69-17.51,17.69S393,361.52,393,319.9s-1-218.5-1-236.18-12.87-15.09-22.66-5.21l-69,69.71c-7.73,7.81-17.51,7.29-24.72,0s-59.23-62.94-68-71.79S188,67.07,188,79.55v74.92c0,7.28,98.63,48.9,97.85,129-1,106.13-90.64,113.41-112.28,113.41s-21.11-10.4-21.11-21.33-.52-96.24-.52-112.89S155,232.5,169.45,232.5,188,239.78,188,260.59v76c0,9.36,7.21,21.33,21.11,21.33s40.69-24.46,41.72-73.36C252.14,222.1,197.27,194,161.21,194S41.73,235.62,41.73,314.7s68,154,147.3,154,129.78-49.94,129.78-115.49c0-13.52,7.6-27.05,17.51-27.05,16.48,0,17.51,18.21,17.51,29.13S346.62,494.7,193.15,499.9C79.91,503.74,12.89,399,12.89,315.74s71.84-136,98.88-142.54C137.52,167,153,156.55,153,137.82V52.5L134.43,33.77h-69c-18.54,0-35,26-35,47.87s18.54,48.9,45.32,48.9c11.33,0,15.45,7.28,15.45,15.6s-7.21,14.05-19,14.05S-.5,142.5-.5,82.68,45.85,0,68,0,174.6.52,174.6.52Z" transform="translate(0.5 0)"/></svg><a title="Developer likes Trip
+" href="/">Dev Tripper</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
+        <ul><li class="navigation__item"><a href="/archive.html">Archive</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
+
+              <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
+
+<!-- end custom main top snippet -->
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>빅데이터 - R vs Python</h1></header></div><meta itemprop="headline" content="빅데이터 - R vs Python"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=bigdata">bigdata</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=python">python</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Jan 20, 2020</span>
+            </li></ul></div><meta itemprop="author" content="MiKy"/><meta itemprop="datePublished" content="2020-01-20T03:15:00+09:00">
+    <meta itemprop="keywords" content="bigdata,python"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody">
+<p><img src="/assets/images/bigdata/RvsPython/img01.png" alt="R vs Python" width="500px" /><br />
+<em>출처 : https://medium.com/@InDataLabs/r-vs-python-729ceaa15620#.r2lkjj362</em></p>
+
+<h2 id="r과-python-무엇이-다른가요">R과 Python 무엇이 다른가요?</h2>
+
+<h3 id="r과-python의-비교">R과 PYTHON의 비교</h3>
+
+<p>R과 Python은 프로그래밍 언어로, 본인이 학습하고자 하는 분야의 최종 목적(강의 수강 계기)과 결과물을 머릿속에 그려보고(혹은 업무 적용이 가능한가를 가늠해보고), 그것들이 R로 작성되었을 때와 Python으로 작성되었을 때 확장성과 활용성 측면에서 어느 언어와 툴이 더 유리한지를 판단하는 것이 중요합니다.</p>
+
+<p>또한, 프로그래밍 언어가 다르다고 해서 데이터 사이언스 자체의 이론이나 Theory가 변하는 것은 아니니 한 가지를 중점적으로 학습해 놓으면 다른 프로그래밍 언어를 학습하시기에 매우 수월합니다.</p>
+
+<h4 id="r">R</h4>
+
+<p>R은 연구 목적의 업무에 최적화되어있지만 웬만한 종류의 데이터 분석에도 매우 용이합니다. 왜냐하면 R은 방대한 양의 패키지와 즉시 사용 가능한 테스트 SET을 제공하기 때문이죠. 이는 R의 최대 강점이기도 합니다.</p>
+
+<p>R을 처음 만든 목적 자체가 ‘데이터 분석, 통계학 그리고 시각화를 하기 위해 더 좋고 친근한 방법을 만들어 보자!’입니다. 그만큼 R은 강력한 데이터 시각화 기능을 자랑하죠. 의미 전달이나 보고가 목적이라면 R을 활용하세요.</p>
+
+<p>R의 또 다른 강점은 그래픽 기능으로 수학 기호를 포함할 수 있는 출판물 수준의 그래프를 제공하는 것이다. (Wikipedia).</p>
+
+<p>RStudio는 R의 가장 큰 단점인 손이 가지 않는 고전적인 디자인인데요, 이 단점을 커버하고 RStudio는 R을 조금 더 편하게 사용할 수 있도록 예쁜 디자인과 섬세한 기능들을 제공합니다. – ‘이토록 쉬운 통계 &amp; R’, 임경덕 저</p>
+
+<h4 id="python">PYTHON</h4>
+
+<p>Python은 초보자부터 전문가까지 사용자층을 보유하고 있습니다. 다양한 플랫폼에서 쓸 수 있고, 라이브러리(모듈)가 풍부하여 대학을 비롯한 여러 교육기관, 연구기관 및 산업계에서 이용이 증가하고 있습니다. 또, Python은 순수한 프로그램 언어로써의 기능 외에도 다른 언어로 쓰인 모듈들을 연결하는 풀언어(glue language)로써 자주 이용됩니다. 실제 Python은 많은 상용 응용 프로그램에서 스크립트 언어로 채용되고 있다. 도움말 문서도 정리가 잘 되어 있으며, 유니코드 문자열을 지원해서 다양한 언어의 문자 처리에도 능합니다. (Wikipedia)</p>
+
+<p>필요한 패키지나 라이브러리를 불러오고 조합하여 분석 목적에 맞는 작업을 수행할 수 있습니다. 또한 직관적인 프로그래밍 언어로 초보자도 쉽게 배울 수 있다는 강점이 있습니다. 2018년 기준으로 파이썬은 머신러닝에 가장 많이 사용되고 있는 프로그래밍 언어로 자리잡았다. 최신 머신러닝 오픈소스는 대부분 파이썬 인터페이스를 지원하고, 전 세계에서 가장 규모가 큰 머신러닝 경진대회인 캐글에서도 가장 인기가 많은 언어는 단연 파이썬으로 꼽을 수 있다. 2015년부터 급격히 증가하는 머신러닝 관련 채용 포스팅에서는 항상 파이썬이 1등으로 나타나고 있다. – ‘머신러닝 탐구생활’, 정권우 저</p>
+
+<h2 id="데이터-분석-입문-r로-시작할까-python으로-시작할까">데이터 분석 입문, R로 시작할까 Python으로 시작할까?</h2>
+
+<blockquote>
+  <p>출처 : <a href="http://media.fastcampus.co.kr/knowledge/dataanalysis-python-r/" target="_blank">http://media.fastcampus.co.kr/knowledge/dataanalysis-python-r/</a></p>
+</blockquote>
+
+<p>데이터 분석은 이제 시대의 키워드이자 흐름입니다. 데이터 사이언스 분야 종사자 뿐 아니라 마케팅, 금융 등 모든 비즈니스에서 데이터를 분석해 숨겨져있던 인사이트를 찾는 것은 선택이 아닌 필수죠. 더 이상 검증할 수 없는, 감에 의존한 의사결정은 가치가 있다고 보기 어렵습니다.</p>
+
+<p>시작하지 않으면 큰일 날 것 같은 데이터 분석, 본격적으로 시작하려는 사람이라면 누구나 마주하는 문제가 있을 텐데요, 바로 ‘어떤 툴을 활용해 공부해야 하지?’입니다. 대표적으로 파이썬과 R이라는 두 가지 툴이 있는데요, 고민하고 계신 분들을 위해 준비했습니다. 파이썬이냐, R이냐! (원본 출처:<a href="https://www.kdnuggets.com/2015/05/r-vs-python-data-science.html">KDnuggets, R vs Python for Data Science; The winner is …</a>){:target=’_blank’}</p>
+
+<p>*혹시 데이터 분석 입문자라면, ‘통계’를 먼저 공부하시기를 추천드립니다.<br />
+참고:<a href="http://blog.fastcampus.co.kr/220818318599" target="_blank">데이터 분석하고 싶은데, 통계 공부도 꼭 해야 하나요?</a></p>
+
+<h3 id="python을-써야-할까요-r을-써야-할까요">Python을 써야 할까요? R을 써야 할까요?</h3>
+
+<p>패스트캠퍼스의 데이터 사이언스팀이 정말 많이 받는 질문입니다. 아쉽게도, 명확한 대답을 드리기가 어렵습니다. 마주하고 있는 데이터의 종류와 과제의 성격에 따라 다르기 때문이죠.</p>
+
+<p>통상적으로 R은 통계학자들에 의해 만들어졌기 때문에 보다 통계학적인 요소가 잘 스며 들어있는 툴이라고 하고, 파이썬은 이해하기 쉽고 유연한 문법으로 좋은 접근성을 가지고 있다고 합니다. 어떤 상황에 어떤 툴을 활용해야 할지, 각 툴의 장단점은 무엇인지 분석해 봤습니다!</p>
+
+<p>언제, 어떻게 R을 사용하는가?<br />
+R은 연구 목적의 업무에 최적화되어있지만 웬만한 종류의 데이터 분석에도 매우 용이합니다. 왜냐하면 R은 방대한 양의 패키지와 즉시 사용 가능한 테스트 SET을 제공하기 때문이죠. 이는 R의 최대 강점이기도 합니다. 많은 양의 메일 리스트, 문서, 그리고 엄청나게 활발한 스택 오버 플로우(궁금한 점을 묻고 답하는 프로그래밍계의 네이버 지식인)처럼 그룹의 도움을 언제든지 받을 수 있습니다. 쉽게 말해 잘 설명되어 있는 방대한 R 패키지 저장소가 있다는 겁니다. 누구나 쉽게 자료를 접할 수 있을 뿐 아니라 자기 의견도 낼 수 있죠.</p>
+
+<p>처음 R을 시작한다면 RStudio IDE를 설치하는 것이 가장 현명한 방법입니다. R의 통합 개발 환경으로, 프로그램 소스의 편집, 실행, 출력을 하나의 프로그램을 통해 수행할 수 있죠. 이후에는 다양한 R의 패키지들을 살펴보면 됩니다. 다음과 같은 것들이 있습니다.</p>
+
+<p>* 패키지들을 쉽게 다루기 위한 dplyr, plyr, data table<br />
+* 문자열을 처리하기 위한 stringr<br />
+* 시계열 분석을 위한 zoo<br />
+* 데이터 시각화를 위한 ggvis, lattice, ggplot2<br />
+* 머신러닝을 위한 caret</p>
+
+<p>언제, 어떻게 파이썬을 사용하는가?<br />
+파이썬은 주로 데이터 분석 결과를 다른 웹 애플리케이션에 접목하거나 통계적인 코드를 데이터베이스에 포함시켜야 할 때 사용합니다. 필요한 패키지나 라이브러리를 불러오고 조합하여 분석 목적에 맞는 작업을 수행할 수 있습니다. 또한 직관적인 프로그래밍 언어로 초보자도 쉽게 배울 수 있다는 강점이 있습니다.</p>
+
+<p>R에 비해 패키지가 초기 발전 단계라는 점이 지적되긴 하지만, 최근 몇 년 사이 눈에 띄게 발전했습니다. NumPy/SciPy, pandas와 같은 패키지들을 꼭 설치하세요. 그래픽을 만들고 싶다면 matplotlib, 머신러닝을 구현하고 싶다면 scikit-learn을 살펴보시기 바랍니다.</p>
+
+<p>R의 장단점<br />
+장점 1 : 데이터 시각화<br />
+시각화된 데이터는 Raw 데이터 보다 훨씬 효과적으로 그 의도를 전달할 수 있습니다. R을 처음 만든 목적 자체가 ‘데이터 분석, 통계학 그리고 시각화를 하기 위해 더 좋고 친근한 방법을 만들어 보자!‘입니다. 그만큼 R은 강력한 데이터 시각화 기능을 자랑하죠. 의미 전달이나 보고가 목적이라면 R을 활용하세요. 대표적인 시각화 패키지에는 ggplot2, ggvis, googleVis, rCharts등이 있습니다.</p>
+
+<p>장점 2: 생태계<br />
+R은 정말 풍부한 최첨단 패키지와 활발한 커뮤니티를 자랑합니다. 말 그대로 ‘R의 생태계’를 이루고 있죠. R 함수와 데이터들의 모음인 패키지, 이를 통해서 언제나 쉽게 최근의 테크닉과 기능에 접근할 수 있습니다. 자료를 찾느라 밤을 지새우지 않아도 되는 거죠!</p>
+
+<p>장점 3: 데이터 사이언스의 통용어<br />
+R은 통계학자들에 의해, 통계학을 위해 개발되었습니다. 그래서 통계학자들은 그들의 아이디어와 개념들을 R의 코드와 패키지 등을 통해 공유하죠. 그래서 R을 활용한다면 데이터 사이언스를 시작하기 위해 꼭 컴퓨터 공학을 배워야 할 필요가 없습니다!</p>
+
+<p>단점 1: 느린 속도<br />
+말씀드렸듯이 R은 통계학자들이 좀 더 쉽게 연구하려고 만든 언어이기에 컴퓨터를 효율적으로 활용하는 방법은 그리 깊게 고려하지 않은듯합니다. 다시 말해 R은 읽기 어려운 코드 때문에 좀 느릴 수 있습니다. 하지만 그런 단점을 상쇄해줄 수 있는 pqR, renjin, FastR, Riposte 등의 패키지가 있죠! R의 패키지 생태계는 정말 대단하네요.</p>
+
+<p>단점 2: 어렵다<br />
+R을 배우는 것은 그리 쉬운 일이 아닙니다. 풍부한 패키지가 있지만 그걸 사용하는데 익숙하지 않다면 활용하는데 시간이 꽤 오래 걸릴 겁니다. 입문자가 처음부터 R을 활용해 원하는 분석을 할 수는 없습니다. 꾸준한 학습이 필요하죠.</p>
+
+<p>파이썬의 장단점<br />
+장점 1: IPython Notebook<br />
+IPython Notebook은 파이썬을 가지고 하는 데이터 작업을 훨씬 쉽게 만들어줍니다. 따로 부가적인 설치도 할 필요 없이, 동료들과 메모와 작업을 공유할 수 있습니다. 이를 통해 코드, 결과물, 메모 파일들을 정리하는데 필요한 비용을 획기적으로 줄여주죠. 진짜 해야 할 일에 집중할 수 있습니다.</p>
+
+<p>장점 2: 특정 주제나 용도에 국한되지 않은 배우기 쉬운 언어<br />
+파이썬은 특정 분야를 위한 언어가 아니라 비교적 쉽고, 직관적입니다. 데이터 사이언스 말고도 다양한 분야에 많이 쓰이죠. 그만큼 배우기 쉽습니다. 코드를 익히고 쓰는데 드는 시간을 줄일 수 있습니다.</p>
+
+<p>장점 3: 다양한 용도의 언어<br />
+파이썬은 다양한 백 그라운드의 사람들이 모두 사용할 수 있는 언어입니다. 이해하기 쉬운 언어이기 때문에 통계 백 그라운드를 가진 사람들도 배울 수 있죠. 워크플로우의 모든 부분을 통합시킬 하나의 도구를 만들 수도 있습니다.</p>
+
+<p>단점 1: 시각화<br />
+R 에겐 장점이었던 것이 파이썬에겐 단점입니다! 시각화는 데이터 분석 소프트웨어를 고르는데 매우 중요한 판단 기준이지만, 아쉽게도 파이썬은 시각화 기능이 R에 비해 떨어지죠. Seaborn, Bokeh and Pygal과 같은 시각화 라이브러리를 가지고 있긴 하지만, 너무 선택사항이 많은 감이 들기도 합니다. 더욱이 R과 비교하면 파이썬의 시각화는 난해한 모습을 하고 있는 경우가 많습니다. 그래서 시각화된 결과가 썩 만족스럽지 않을 때도 있죠.</p>
+
+<p>단점 2: 파이썬은 도전자다<br />
+데이터 분석 툴에 있어서 R이 파이썬보다 선구자입니다. 파이썬은 도전자죠. 그래서 R이 수백 개에 달하는 기본적인 패키지들의 대체자가 되기에는 아직 많이 부족합니다. 파이썬이 최근 핫하게 떠오르고는 있지만, 여전히 사람들이 방대한 패키지를 자랑하는 R을 포기할 만큼인지는 미지수입니다.</p>
+
+<p>어떤가요? 각 툴의 특징과 장단점을 읽어보니 내 업무에 어떤 툴을 써야 할지 감이 오시나요? 아직 오지 않는다면, 아래 질문에 답을 내어본 후 한번 더 생각해보시길 바랍니다.</p>
+
+<p>– 당신이 풀기 원하는 문제가 무엇인가?<br />
+– 언어를 배우기 위한 순수 비용은 무엇(시간, 백그라운드 등등) 이 있는가?<br />
+– 당신의 필드에서 일반적으로 쓰이는 도구가 무엇인가?<br />
+– 엑셀이나 spss같은 도구가 당신의 데이터 분석에 있어서는 더 적합하지 않은가?</p>
+
+<blockquote>
+  <p><strong>ToRead</strong>
+<a href="https://medium.com/@InDataLabs/r-vs-python-729ceaa15620#.r2lkjj362" target="_blank">R vs. Python</a> (Dec 11, 2015)</p>
+</blockquote>
+</div><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-01-20T03:15:00+09:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+</footer>
+<div class="article__section-navigator clearfix"><ul class="posts-list">
+    
+    
+    <li>
+        <h3>
+            <a href="/bigdata/DataAnalysisTech">
+                빅데이터 - 데이터 분석 기술
+            </a>
+            <small>20 Feb 2020</small>
+        </h3>
+    </li>
+    
+    <li>
+        <h3>
+            <a href="/bigdata/DataAnalysisType">
+                빅데이터 - 데이터 분석 유형
+            </a>
+            <small>19 Feb 2020</small>
+        </h3>
+    </li>
+    
+    <li>
+        <h3>
+            <a href="/bigdata/DataAnalysisBase">
+                빅데이터 - 데이터 분석
+            </a>
+            <small>19 Feb 2020</small>
+        </h3>
+    </li>
+    
+    <li>
+        <h3>
+            <a href="/bigdata/RvsPython">
+                빅데이터 - R vs Python
+            </a>
+            <small>20 Jan 2020</small>
+        </h3>
+    </li>
+    
+</ul>
+</div>
+  </div>
+
+</div></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+
+<!-- end custom main bottom snippet -->
+</div>
+            </div></div></div>
+
+        <!-- footer를 sidebar로 이동시킴<div class="page__footer d-print-none">
+<footer class="footer py-4 js-page-footer">
+  <div class="main"><div itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MiKy"><meta itemprop="url" content="/"><meta itemprop="description" content="Developer likes Trip."><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Follow me on Linkedin.">
+        <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/willnfate" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M260.096 155.648c0 27.307008-9.899008 50.516992-29.696 69.632-19.796992 19.115008-45.396992 28.672-76.8 28.672-30.036992 0-54.612992-9.556992-73.728-28.672-19.115008-19.115008-28.672-42.324992-28.672-69.632 0-28.672 9.556992-52.224 28.672-70.656 19.115008-18.432 44.372992-27.648 75.776-27.648 31.403008 0 56.32 9.216 74.752 27.648 18.432 18.432 28.331008 41.984 29.696 70.656 0 0 0 0 0 0m-202.752 808.96c0 0 0-632.832 0-632.832 0 0 196.608 0 196.608 0 0 0 0 632.832 0 632.832 0 0-196.608 0-196.608 0 0 0 0 0 0 0m313.344-430.08c0-58.708992-1.364992-126.292992-4.096-202.752 0 0 169.984 0 169.984 0 0 0 10.24 88.064 10.24 88.064 0 0 4.096 0 4.096 0 40.96-68.267008 105.812992-102.4 194.56-102.4 68.267008 0 123.220992 22.868992 164.864 68.608 41.643008 45.739008 62.464 113.664 62.464 203.776 0 0 0 374.784 0 374.784 0 0-196.608 0-196.608 0 0 0 0-350.208 0-350.208 0-91.476992-33.451008-137.216-100.352-137.216-47.787008 0-81.236992 24.576-100.352 73.728-4.096 8.192-6.144 24.576-6.144 49.152 0 0 0 364.544 0 364.544 0 0-198.656 0-198.656 0 0 0 0-430.08 0-430.08 0 0 0 0 0 0" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow me on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/willnfate" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li></ul>
+</div>
+</div>
+    </div><div class="site-info mt-2">
+      <div>© Dev Tripper 2020 <br/>
+        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </div>
+    </div>
+  </div>
+</footer>
+</div>-->
+      </div>
+    </div></div></div><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $body = $('body'), $window = $(window);
+    var $pageRoot = $('.js-page-root'), $pageMain = $('.js-page-main');
+    var activeCount = 0;
+    function modal(options) {
+      var $root = this, visible, onChange, hideWhenWindowScroll = false;
+      var scrollTop;
+      function setOptions(options) {
+        var _options = options || {};
+        visible = _options.initialVisible === undefined ? false : show;
+        onChange = _options.onChange;
+        hideWhenWindowScroll = _options.hideWhenWindowScroll;
+      }
+      function init() {
+        setState(visible);
+      }
+      function setState(isShow) {
+        if (isShow === visible) {
+          return;
+        }
+        visible = isShow;
+        if (visible) {
+          activeCount++;
+          scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+          $root.addClass('modal--show');
+          $pageMain.scrollTop(scrollTop);
+          activeCount === 1 && ($pageRoot.addClass('show-modal'), $body.addClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.on('scroll', hide);
+          $window.on('keyup', handleKeyup);
+        } else {
+          activeCount > 0 && activeCount--;
+          $root.removeClass('modal--show');
+          $window.scrollTop(scrollTop);
+          activeCount === 0 && ($pageRoot.removeClass('show-modal'), $body.removeClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.off('scroll', hide);
+          $window.off('keyup', handleKeyup);
+        }
+        onChange && onChange(visible);
+      }
+      function show() {
+        setState(true);
+      }
+      function hide() {
+        setState(false);
+      }
+      function handleKeyup(e) {
+        // Char Code: 27  ESC
+        if (e.which ===  27) {
+          hide();
+        }
+      }
+      setOptions(options);
+      init();
+      return {
+        show: show,
+        hide: hide,
+        $el: $root
+      };
+    }
+    $.fn.modal = modal;
+  });
+})();
+</script><div class="modal modal--overflow page__search-modal d-print-none js-page-search-modal"><script>
+(function () {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    // search panel
+    var search = (window.search || (window.search = {}));
+    var useDefaultSearchBox = window.useDefaultSearchBox === undefined ?
+      true : window.useDefaultSearchBox ;
+
+    var $searchModal = $('.js-page-search-modal');
+    var $searchToggle = $('.js-search-toggle');
+    var searchModal = $searchModal.modal({ onChange: handleModalChange, hideWhenWindowScroll: true });
+    var modalVisible = false;
+    search.searchModal = searchModal;
+
+    var $searchBox = null;
+    var $searchInput = null;
+    var $searchClear = null;
+
+    function getModalVisible() {
+      return modalVisible;
+    }
+    search.getModalVisible = getModalVisible;
+
+    function handleModalChange(visible) {
+      modalVisible = visible;
+      if (visible) {
+        search.onShow && search.onShow();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].focus();
+      } else {
+        search.onShow && search.onHide();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].blur();
+        setTimeout(function() {
+          useDefaultSearchBox && ($searchInput.val(''), $searchBox.removeClass('not-empty'));
+          search.clear && search.clear();
+          window.pageAsideAffix && window.pageAsideAffix.refresh();
+        }, 400);
+      }
+    }
+
+    $searchToggle.on('click', function() {
+      modalVisible ? searchModal.hide() : searchModal.show();
+    });
+    // Char Code: 83  S, 191 /
+    $(window).on('keyup', function(e) {
+      if (!modalVisible && !window.isFormElement(e.target || e.srcElement) && (e.which === 83 || e.which === 191)) {
+        modalVisible || searchModal.show();
+      }
+    });
+
+    if (useDefaultSearchBox) {
+      $searchBox = $('.js-search-box');
+      $searchInput = $searchBox.children('input');
+      $searchClear = $searchBox.children('.js-icon-clear');
+      search.getSearchInput = function() {
+        return $searchInput.get(0);
+      };
+      search.getVal = function() {
+        return $searchInput.val();
+      };
+      search.setVal = function(val) {
+        $searchInput.val(val);
+      };
+
+      $searchInput.on('focus', function() {
+        $(this).addClass('focus');
+      });
+      $searchInput.on('blur', function() {
+        $(this).removeClass('focus');
+      });
+      $searchInput.on('input', window.throttle(function() {
+        var val = $(this).val();
+        if (val === '' || typeof val !== 'string') {
+          search.clear && search.clear();
+        } else {
+          $searchBox.addClass('not-empty');
+          search.onInputNotEmpty && search.onInputNotEmpty(val);
+        }
+      }, 400));
+      $searchClear.on('click', function() {
+        $searchInput.val(''); $searchBox.removeClass('not-empty');
+        search.clear && search.clear();
+      });
+    }
+  });
+})();
+</script><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">Search</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--theme-dark button--pill search__cancel js-search-toggle">
+        Cancel</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var search = (window.search || (window.search = {}));
+  var searchData = window.TEXT_SEARCH_DATA || {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) { return null; }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function clear() {
+    $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+  function onInputNotEmpty(val) {
+    $result.html(render(searchByQuery(val)));
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+    $resultItems.eq(0).addClass('active');
+  }
+
+  search.clear = clear;
+  search.onInputNotEmpty = onInputNotEmpty;
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  // Char Code: 13  Enter, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇
+  $(window).on('keyup', function(e) {
+    var modalVisible = search.getModalVisible && search.getModalVisible();
+    if (modalVisible) {
+      if (e.which === 38) {
+        modalVisible && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        modalVisible && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        modalVisible && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+});
+</script>
+</div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function affix(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroll,
+        offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
+        rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
+        hasInit = false, curState;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroll && (scroll = _options.scroll);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $scrollTarget = $(scrollTarget);
+        isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+        $scroll = $(scroll);
+      }
+      function preCalc() {
+        top();
+        rootHeight = $root.outerHeight();
+        rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+        rootLeft = $root.offset().left;
+      }
+      function calc(needPreCalc) {
+        needPreCalc && preCalc();
+        scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+        rootBottomTop = scrollBottom - rootTop;
+      }
+      function top() {
+        if (curState !== 'top') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: 0
+          });
+          curState = 'top';
+        }
+      }
+      function fixed() {
+        if (curState !== 'fixed') {
+          $root.addClass('fixed').css({
+            left: rootLeft + 'px',
+            top: 0
+          });
+          curState = 'fixed';
+        }
+      }
+      function bottom() {
+        if (curState !== 'bottom') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: rootBottomTop + 'px'
+          });
+          curState = 'bottom';
+        }
+      }
+      function setState() {
+        var scrollTop = $scrollTarget.scrollTop();
+        if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+          fixed();
+        } else if (scrollTop < rootTop) {
+          top();
+        } else {
+          bottom();
+        }
+      }
+      function init() {
+        if(!hasInit) {
+          var interval, timeout;
+          calc(true); setState();
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState();
+          });
+          $window.on('resize', function() {
+            disabled || (calc(true), setState());
+          });
+          hasInit = true;
+        }
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true, { animation: false }); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function toc(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
+        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.selectors && (selectors = _options.selectors);
+        _options.container && (container = _options.container);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroller && (scroller = _options.scroller);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $headings = $(container).find(selectors).filter('[id]');
+        $scrollTarget = $(scrollTarget);
+        $scroller = $(scroller);
+      }
+      function calc() {
+        headingsPos = [];
+        $headings.each(function() {
+          headingsPos.push(Math.floor($(this).position().top));
+        });
+      }
+      function setState(element, disabled) {
+        var scrollTop = $scrollTarget.scrollTop(), i;
+        if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+        if (element) {
+          $activeCur = element;
+        } else {
+          for (i = 0; i < headingsPos.length; i++) {
+            if (scrollTop >= headingsPos[i]) {
+              $activeCur = $tocLi.eq(i);
+            } else {
+              $activeCur || ($activeCur = $tocLi.eq(i));
+              break;
+            }
+          }
+        }
+        $activeLast && $activeLast.removeClass('active');
+        ($activeLast = $activeCur).addClass('active');
+      }
+      function render() {
+        if(!hasRendered) {
+          $root.append($tocUl);
+          $headings.each(function() {
+            var $this = $(this);
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+          });
+          $tocLi = $tocUl.children('li');
+          $tocUl.on('click', 'a', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            scrolling = true;
+            setState($this.parent());
+            $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+              scrolling = false;
+            });
+          });
+        }
+        hasRendered = true;
+      }
+      function init() {
+        var interval, timeout;
+        if(!hasInit) {
+          render(); calc(); setState(null, scrolling);
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState(null, scrolling);
+          });
+          $window.on('resize', window.throttle(function() {
+            if (!disabled) {
+              render(); calc(); setState(null, scrolling);
+            }
+          }, 100));
+        }
+        hasInit = true;
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();
+/*(function () {
+
+})();*/
+</script><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $pageMask = $('.js-page-mask');
+    var $pageRoot = $('.js-page-root');
+    var $sidebarShow = $('.js-sidebar-show');
+    var $sidebarHide = $('.js-sidebar-hide');
+
+    function freeze(e) {
+      if (e.target === $pageMask[0]) {
+        e.preventDefault();
+      }
+    }
+    function stopBodyScrolling(bool) {
+      if (bool === true) {
+        window.addEventListener('touchmove', freeze, { passive: false });
+      } else {
+        window.removeEventListener('touchmove', freeze, { passive: false });
+      }
+    }
+
+    $sidebarShow.on('click', function() {
+      stopBodyScrolling(true); $pageRoot.addClass('show-sidebar');
+    });
+    $sidebarHide.on('click', function() {
+      stopBodyScrolling(false); $pageRoot.removeClass('show-sidebar');
+    });
+  });
+})();
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script>
+  window.Lazyload.js(['https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js', 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js'], function() {
+    var $canvas = null, $this = null, _ctx = null, _text = '';
+    $('.language-chart').each(function(){
+      $this = $(this);
+      $canvas = $('<canvas></canvas>');
+      _text = $this.text();
+      $this.text('').append($canvas);
+      _ctx = $canvas.get(0).getContext('2d');
+      (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
+    });
+  });
+</script>
+<script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+		},
+		displayAlign: "left",
+		displayIndent: ".5em"
+	};MathJax.Hub.Config(_config);
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  window.Lazyload.js('https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js', function() {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
+
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();
+</script>
+  </body>
+</html>
+

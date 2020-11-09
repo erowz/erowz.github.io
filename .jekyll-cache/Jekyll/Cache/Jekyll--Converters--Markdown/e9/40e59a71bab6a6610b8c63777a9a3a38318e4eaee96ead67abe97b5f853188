@@ -1,0 +1,35 @@
+I"k<h1 id="조건문-condition">조건문 (Condition)</h1>
+
+<ul>
+  <li>특정 조건에서만 실행시키고자 할 때 사용</li>
+  <li>조건 : Boolean으로 표현 (예외 있음)</li>
+  <li>if, elif, else 구조
+    <ul>
+      <li>조건 (if, elif, else) : 코드 마지막에 :(콜론, Colon) 추가</li>
+      <li>
+        <dl>
+          <dt>실행문 (Block 또는 Code Block)</dt>
+          <dd>들여쓰기(tab 또는 4칸 띄어쓰기)로 설정</dd>
+          <dd>들여쓰기는 항상 동일하게 유지해야 함</dd>
+        </dl>
+      </li>
+    </ul>
+  </li>
+  <li>논리식 AND, OR, NOT 사용 가능
+    <ul>
+      <li>우선 순위 : NOT &gt; AND &gt; OR
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &gt; 10'</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &gt; 5'</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">'a &lt;= 5'</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+:ET

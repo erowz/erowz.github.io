@@ -1,0 +1,258 @@
+I"�*
+<ul>
+  <li>imgpath : /assets/images</li>
+  <li>pageid : /blog/Preperation</li>
+</ul>
+
+<h1 id="summary">Summary</h1>
+
+<ol>
+  <li>로컬에 Ruby, Jekyll 설치 및 설정</li>
+  <li>블로그홈 생성
+    <ol>
+      <li>Jekyll을 이용하여 직접 new home 생성해서 사용하기</li>
+      <li>Jekyll theme을 이용하여 git clone으로 로컬에 복제하여 custumizing하여 사용하기</li>
+    </ol>
+  </li>
+  <li>Gitbuh pages 및 Repository 생성</li>
+  <li>Github Pages에 Git Push해서 웹호스팅</li>
+</ol>
+
+<blockquote>
+  <p>[GitHub Pages 참고]<br />
+<a href="https://jekyllrb-ko.github.io/docs/installation/">jekyllrb-ko</a><br />
+<a href="https://blog.chulgil.me/how-to-make-blog-using-github/">블로그 만들기 GitHub 편 총정리</a><br />
+<a href="https://devinlife.com/howto/">GitHub Pages 블로그 따라하기Permalink</a></p>
+</blockquote>
+
+<blockquote>
+  <p>[오류 참고]<br />
+<a href="https://jekyllrb.com/docs/installation/macos/">Jekyll on macOS</a> : 결국 이 방법으로 설치하자!!<br />
+<a href="http://dawoonjeong.com/gitpages_with_jekyll_01/">github.io 만들기 01 - gitpages with jekyll 환경설정</a><br />
+<a href="https://www.embarcadero.com/starthere/berlin/mobdevsetup/ios/en/installing_the_xcode_command_line_tools_on_a_mac.html">Installing the Xcode Command Line Tools on a Mac</a></p>
+</blockquote>
+
+<h2 id="준비-사항">준비 사항</h2>
+
+<ul>
+  <li>Ruby 2.2.5 이상. 모든 개발환경 헤더 포함 : 루비 설치정보는 ruby -v 로 확인</li>
+  <li>RubyGems : 명령어 gem -v 로 확인</li>
+  <li>GCC 와 Make : 명령행 인터페이스에서 gcc -v 와 g++ -v, make -v 로 확인</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby -v
+
+$ gem -v  
+
+$ gcc -v
+
+$ g++ -v  
+
+$ make -v  
+</code></pre></div></div>
+
+<h1 id="0-homebrew로-상태-확인하기">0. Homebrew로 상태 확인하기</h1>
+
+<p>오류 발생 때문에 뒤져보다보니 새로 설치하기 전 Homebrew로 확인하라고 해서 답답한 마음에 실행해 봄. 그 덕에 Xcode outdated 발견했으니 밑져야 본전. 한 번씩 확인해보자!</p>
+
+<ul>
+  <li>Run ‘<strong>brew doctor</strong>’ before you install anything</li>
+  <li>Run ‘<strong>brew help</strong>’ to get started</li>
+</ul>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://imasoftwareengineer.tistory.com/10">Homebrew 설치하기</a></p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew doctor  
+Please note that these warnings are just used to help the Homebrew maintainers  
+with debugging if you file an issue. If everything you use Homebrew for is  
+working fine: please don't worry or file an issue; just ignore this. Thanks!
+
+Warning: "config" scripts exist outside your system or Homebrew directories.  
+`./configure` scripts often look for \*-config scripts to determine if  
+software packages are installed, and what additional flags to use when  
+compiling and linking.
+
+...
+
+Warning: Your Xcode (9.4) is outdated.  
+Please update to Xcode 10.2 (or delete it).  
+Xcode can be updated from the App Store.
+</code></pre></div></div>
+
+<h1 id="1-xcode">1. Xcode</h1>
+
+<ul>
+  <li>Xcode 10.0 이상 (Mac OS Mojave 이상 설치 가능)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$xcode-select --install  
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+</code></pre></div></div>
+
+<p>이미 설치되어 있으나 명령어는 찾을 수 없다고 한다.</p>
+
+<h3 id="오류-해결-1-command로-xcode-삭제-및-재설치">오류 해결 1) command로 xcode 삭제 및 재설치</h3>
+
+<ul>
+  <li>이 방법으로 해봤는데, Xcode outdated 버전이 설치되었다. 결국 아래 2번 방법으로 재설치했다.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo rm -rf /Library/Developer/CommandLineTools
+
+$ xcode-select --install  
+xcode-select: note: install requested for command line developer tools
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://oneshottenkill.tistory.com/539">xcode-select: error: command line tools are already installed, use “Software Update” to install updates</a></p>
+</blockquote>
+
+<h3 id="오류-해결-2-xcode-app-store-재설치-worked">오류 해결 2) Xcode App Store 재설치 (Worked!!)</h3>
+
+<p>위의 1번 방법으로 명령어로 삭제하고 다시 설치를 해보았다. 하지만 결과는 똑같았다.<br />
+그래서 결국 Applications에서 Xcode를 삭제하고 App Store에서 새로 설치를 진행한 후 ‘xcode-select –install’ 명령어를 재실행하니 설치가 진행된다. 그래도 터미널에서 ‘xcode -v’를 입력해도 command not found이다.</p>
+
+<p><img src="/assets/images/blog/Preperation/img01.png" alt="Install" width="400px" /><br />
+<img src="/assets/images/blog/Preperation/img02.png" alt="Install" width="400px" /></p>
+
+<h3 id="command-line-tools-version-확인">Command Line Tools Version 확인</h3>
+
+<ul>
+  <li>
+    <dl>
+      <dt>Xcode 실행 &gt; Preference &gt; Locations Tab</dt>
+      <dd>2020.1월에 새로 설치했더니 11.3.1 버전이 설치되었다.</dd>
+    </dl>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/Preperation/img03.png" alt="Install" width="600px" /><br />
+<em>Command Line Tools Version 확인</em></p>
+
+<h1 id="ruby-설치-및-설정">Ruby 설치 및 설정</h1>
+
+<p>Mac이라 Ruby가 이미 설치되어 있어서 바로 Jekyll 설치하려했더니 Gem File Permission Error가 발생했다. 내 맥북은 .bash_profile에 환경설정 추가하게 되어있다. 홈 경로에서 설정 파일 확인해서 추가하면 된다.</p>
+
+<h2 id="ruby-설정">Ruby 설정</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 기본 설정
+echo '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrc  
+echo 'export GEM\_HOME=$HOME/gems' &gt;&gt; ~/.bashrc  
+echo 'export PATH=$HOME/gems/bin:$PATH' &gt;&gt; ~/.bashrc  
+source ~/.bashrc
+
+# 내 맥북 설정
+$ echo '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bash_profile  
+$ echo 'export GEM\_HOME=$HOME/gems' &gt;&gt; ~/.bash_profile  
+$ echo 'export PATH=$HOME/gems/bin:$PATH' &gt;&gt; ~/.bash_profile  
+$ source ~/.bash_profile
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://devinlife.com/howto%20github%20pages/github-prepare/">https://devinlife.com</a></p>
+</blockquote>
+
+<h3 id="ruby-재설치">Ruby 재설치</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ /usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install)"](https://raw.githubusercontent.com/Homebrew/install/master/install)")  
+
+$ brew install ruby
+</code></pre></div></div>
+
+<h2 id="jekyll과-bundler-설치">Jekyll과 bundler 설치</h2>
+
+<p>역시 또 오류가 발생해있다. 일단 진행해보자.</p>
+
+<blockquote>
+  <p>I had the same issue on Mac OS Mojave and Xcode 11.2 and unf_ext 0.0.7.6.<br />
+To fix it, I downgraded Xcode command line tools to Xcode 10.3 and bundle install worked as expected.</p>
+</blockquote>
+
+<p>*내 Xcode 버전은 9.## 인데 안된다. 근데 터미널에서는 xcode 명령어를 인식하지 못한다. 왜지??</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install jekyll bundler
+Building native extensions. This could take a while...
+ERROR:  Error installing jekyll:
+    ERROR: Failed to build gem native extension.
+
+$ gem install --user-install bundler jekyll
+WARNING:  You don't have /Users/minky/.gem/ruby/2.6.0/bin in your PATH,
+      gem executables will not run.
+Successfully installed bundler-2.1.4
+...
+If you are upgrading your Rails application from an older version of Rails:
+
+Please check your Rails app for 'config.i18n.fallbacks = true'.
+If you're using I18n (&gt;= 1.1.0) and Rails (&lt; 5.2.2), this should be
+'config.i18n.fallbacks = [I18n.default_locale]'.
+If not, fallbacks will be broken in your app by I18n 1.1.x.
+...
+24 gems installed
+</code></pre></div></div>
+
+<h3 id="sudo-권한으로-설치-강력-권장">sudo 권한으로 설치 강력 권장</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gem install bundler
+  
+$ sudo gem install -n /usr/local/bin/ jekyll
+</code></pre></div></div>
+
+<h1 id="기본-블로그-생성해보기">기본 블로그 생성해보기</h1>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="https://jekyllrb-ko.github.io/docs/usage/">기본 사용법</a><br />
+<a href="https://devinlife.com/howto%20github%20pages/github-prepare/">GitHub Pages 블로그 준비하기</a><br />
+<a href="https://devinlife.com/howto%20github%20pages/new-blog-from-template/">Jekyll theme을 사용하여 블로그 생성하기</a></p>
+</blockquote>
+
+<h3 id="새-블로그-생성">새 블로그 생성</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll new blog
+Running bundle install in /Users/minky/Documents/blog... 
+  Bundler: Fetching gem metadata from https://rubygems.org/...........
+  Bundler: Fetching gem metadata from https://rubygems.org/.
+  Bundler: Resolving dependencies...
+  ...
+  Bundler: Bundle complete! 6 Gemfile dependencies, 30 gems now installed.
+  Bundler: Use `bundle info [gemname]` to see where a bundled gem is installed.
+New jekyll site installed in /Users/minky/Documents/blog. 
+</code></pre></div></div>
+
+<h3 id="서버-구동">서버 구동</h3>
+
+<ol>
+  <li>서버 실행</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd blog/
+$ bundle exec jekyll serve
+Configuration file: /Users/minky/Documents/blog/_config.yml
+            Source: /Users/minky/Documents/blog
+       Destination: /Users/minky/Documents/blog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.435 seconds.
+ Auto-regeneration: enabled for '/Users/minky/Documents/blog'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+[2020-01-30 16:32:07] ERROR `/favicon.ico' not found.
+</code></pre></div></div>
+
+<ol>
+  <li>접속 및 확인<br />
+출력되는 Server address로 접속해서 확인
+<img src="/assets/images/blog/Preperation/img04.png" alt="Install" class="border" width="600px" /><br />
+<em>Command Line Tools Version 확인</em></li>
+</ol>
+
+<h3 id="서버-호스팅">서버 호스팅</h3>
+
+<p>특정 IP로 서버를 호스팅해서 외부에서 접속 가능</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve -H 192.168.0.8
+</code></pre></div></div>
+:ET

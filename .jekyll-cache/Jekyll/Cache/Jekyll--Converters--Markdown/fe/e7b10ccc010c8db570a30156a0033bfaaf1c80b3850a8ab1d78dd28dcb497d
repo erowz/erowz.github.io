@@ -1,0 +1,188 @@
+I"�A<h1 id="lambda-함수">Lambda 함수</h1>
+<ul>
+  <li>단일문으로 표현되는 익명함수 : 이름이 없는 구현체만 존재하는 간단한 함수를 의미</li>
+  <li>코드 상에서 한번만 사용되는 기능이 있을 때 굳이 함수로 만들지 않고 1회성으로 만들어서 쓸 때 사용</li>
+  <li>형식 : <code class="highlighter-rouge">lambda 입력값:출력값</code></li>
+</ul>
+
+<h3 id="기본-구조">기본 구조</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lambda 함수
+</span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">square</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">function</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&gt;&gt; 25</span><span class="err">
+</span></code></pre></div></div>
+
+<h3 id="기본-함수와-비교">기본 함수와 비교</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 기본 함수
+</span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">square</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">function</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&gt;&gt; 25</span><span class="err">
+</span></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">add2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">print</span><span class="p">(</span><span class="n">add2</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="mi">50</span>
+</code></pre></div></div>
+
+<h3 id="sort-예제">sort() 예제</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">strs</span> <span class="o">=</span> <span class="p">[</span><span class="s">'bob'</span><span class="p">,</span> <span class="s">'ashley'</span><span class="p">,</span> <span class="s">'charles'</span><span class="p">,</span> <span class="s">'alexander'</span><span class="p">]</span>
+
+<span class="c1"># 기본 알파벳 순서 정렬
+</span><span class="n">strs</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">strs</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s">'alexander'</span><span class="p">,</span> <span class="s">'ashley'</span><span class="p">,</span> <span class="s">'bob'</span><span class="p">,</span> <span class="s">'charles'</span><span class="p">]</span>
+
+<span class="c1"># 글자수 순서 정렬
+</span><span class="n">strs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">order_len</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">strs</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s">'bob'</span><span class="p">,</span> <span class="s">'ashley'</span><span class="p">,</span> <span class="s">'charles'</span><span class="p">,</span> <span class="s">'alexander'</span><span class="p">]</span>
+
+<span class="c1"># lambda 함수 사용 글자수 정렬
+</span><span class="n">strs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">strs</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s">'bob'</span><span class="p">,</span> <span class="s">'ashley'</span><span class="p">,</span> <span class="s">'charles'</span><span class="p">,</span> <span class="s">'alexander'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h1 id="lambda-사용-대표-함수">lambda 사용 대표 함수</h1>
+<p>: filter, map, reduce</p>
+<ul>
+  <li>lambda가 유용하게 쓰이는 3가지 대표 함수</li>
+  <li>함수형 프로그래밍의 기본 요소</li>
+</ul>
+
+<h3 id="filter">filter</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filter(함수, 리스트)
+</code></pre></div></div>
+<ul>
+  <li>리스트 필터링 함수</li>
+  <li>특정 조건을 만족하는 요소만 남기고 필터링</li>
+  <li>리스트의 각 원소에 함수를 적용해서 결과값이 True면 남기고, False면 제거</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 짝수만 남기는 필터링
+</span><span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="map">map</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filter(함수, 리스트)
+</code></pre></div></div>
+<ul>
+  <li>mapping 시켜서 다른 리스트를 생성</li>
+  <li>각 원소를 주어진 수식에 따라 변형하여 새로운 리스트를 반환</li>
+  <li>리스트의 개수는 변하지 않음</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 기존 리스트 값의 제곱값으로 이루어진 새로운 리스트 생성
+</span><span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="reduce">reduce</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">functools</span>
+<span class="n">functools</span><span class="o">.</span><span class="nb">reduce</span><span class="p">(</span><span class="err">함수</span><span class="p">,</span> <span class="err">리스트</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>python v3부터 기본 함수에서 제외됨 &amp;rarr: import 필수</li>
+  <li>차례대로 앞 2개의 원소를 가지고 연산. 연산의 결과가 또 다음 연산의 입력으로 진행됨. 따라서 마지막까지 진행되면 최종 출력은 한개의 값만 남게 됨</li>
+</ul>
+
+<table>
+<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><td colspan="2">3</td><td>3</td><td>4</td></tr>
+<tr><td colspan="3">6</td><td>4</td></tr>
+<tr><td colspan="4">10</td></tr>
+</table>
+<p><em>앞 두개씩 더하는 로직의 경우</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 리스트 내의 숫자의 합
+</span><span class="n">nums</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">functools</span><span class="o">.</span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<h1 id="함수-예제">함수 예제</h1>
+
+<h3 id="주어진-숫자-리스트의-평균">주어진 숫자 리스트의 평균</h3>
+<ul>
+  <li>입력 : 숫자 리스트</li>
+  <li>출력 : 평균값</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<span class="c1">#     _sum = 0
+#     for n in nums:
+#         _sum += n
+#     return _sum/len(nums)
+#     &gt;&gt; 내장함수 sum으로 대체 가능
+</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">]))</span>
+<span class="mf">2.0</span>
+<span class="mf">3.72</span>
+
+<span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">functools</span><span class="o">.</span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="mf">3.72</span>
+</code></pre></div></div>
+
+<h3 id="소수-판별">소수 판별</h3>
+<ul>
+  <li>소수(Prime number) : 1과 자기 자신으로만 나누어 지는 값</li>
+  <li>입력 : 양의 정수 1개</li>
+  <li>출력 : Boolean (소수: True, 합성수: False)</li>
+  <li>로직 : 2부터 해당 수보다 1작은 수까지 모두 나누어서 결과를 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 소수 여부 판단
+</span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="2와-해당-숫자-사이의-소수의-개수-출력">2와 해당 숫자 사이의 소수의 개수 출력</h3>
+<ul>
+  <li>입력 : 2보다 큰 양의 정수 1개</li>
+  <li>출력 : 소수의 개수</li>
+  <li>로직 : 2부터 해당 숫자까지 소수 여부를 확인해서 개수 추가</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 2부터 해당 숫자사이에 소수가 몇개인지 출력
+</span><span class="k">def</span> <span class="nf">count_prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">', '</span><span class="p">)</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">count_prime</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</code></pre></div></div>
+:ET

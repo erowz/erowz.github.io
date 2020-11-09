@@ -1,0 +1,23 @@
+I"�
+<h1 id="unix--shell-commands">UNIX / Shell Commands</h1>
+
+<h2 id="unix-기본-command">UNIX 기본 Command</h2>
+
+<h3 id="navigating-files-and-directions">Navigating Files and Directions</h3>
+<ul>
+  <li>cd path</li>
+  <li>ls path</li>
+  <li>pwd</li>
+  <li>..</li>
+  <li>.</li>
+</ul>
+
+<h3 id="files-and-directories">Files and Directories</h3>
+<ul>
+  <li>cp old new</li>
+  <li>mkdir path</li>
+  <li>rm path</li>
+  <li>*</li>
+  <li>cp -r / rm -r</li>
+</ul>
+:ET

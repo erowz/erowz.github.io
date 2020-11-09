@@ -1,0 +1,4 @@
+---
+title: Algorithm
+permalink: /algorithm
+---

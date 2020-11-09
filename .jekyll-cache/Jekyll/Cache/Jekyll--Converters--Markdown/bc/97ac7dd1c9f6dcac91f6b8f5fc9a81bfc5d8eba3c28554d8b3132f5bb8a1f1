@@ -1,0 +1,63 @@
+I"V
+<h1 id="python-기본-구조">Python 기본 구조</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># python system 관련 패키지
+</span><span class="kn">import</span> <span class="nn">sys</span>  
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'main start'</span><span class="p">)</span>
+
+<span class="c1"># 이 파일이 직접 실행되었을 때 수행되는 부분
+# 근데 왜 __main__인 건데?? 이런 건 설명안해주네. ㅡㅡ;;
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># 모듈로 임포트 될 때 수행되는 부분 (확인용)
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'This script is being imported'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>⇓</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 spotify_api.py 
+python start
+
+<span class="nv">$ </span>python3
+Python 3.7.3 <span class="o">(</span>default, Mar 27 2019, 09:23:15<span class="o">)</span> 
+<span class="o">[</span>Clang 10.0.1 <span class="o">(</span>clang-1001.0.46.3<span class="o">)]</span> on darwin
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for </span>more information.
+<span class="o">&gt;&gt;&gt;</span> import spotify_api
+This script is being imported
+</code></pre></div></div>
+
+<h1 id="python-library---requests">Python Library - Requests</h1>
+<blockquote>
+  <p><strong>REF</strong> <a href="https://requests.readthedocs.io/en/master/api/" target="_blank">Requests: HTTP for Humans &gt; Deleoper Interface</a></p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">requests</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'https://httpbin.org/get'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">req</span>
+<span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="request">request</h3>
+<p>requests.request(<em>method, url, **kwargs</em>)</p>
+<ul>
+  <li>method : GET, HEAD, POST, PUT, DELETE</li>
+  <li>url : Endpoint</li>
+  <li>**kwargs : 그외 다양한 파라미터 추가 가능</li>
+</ul>
+
+<h3 id="get">get</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

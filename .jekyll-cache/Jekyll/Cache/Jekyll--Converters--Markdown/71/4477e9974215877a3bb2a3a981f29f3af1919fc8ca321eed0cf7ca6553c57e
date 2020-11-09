@@ -1,0 +1,63 @@
+I"�
+<h1 id="github-pages-생성하기">GitHub Pages 생성하기</h1>
+
+<blockquote>
+  <p>참고</p>
+
+  <ul>
+    <li><a href="https://help.github.com/en/github/working-with-github-pages">GitHub Help - Page</a></li>
+    <li><a href="https://tianqi.name/jekyll-TeXt-theme/docs/en/quick-start">TeXt Theme Help</a></li>
+  </ul>
+</blockquote>
+
+<p><img src="/assets/images/blog/GitHubPages/img01.png" alt="GitHub Pages" width="400px" /><br />
+<em>출처 : <a href="https://youtu.be/2MsN8gpT6jY" target="_blank">https://youtu.be/2MsN8gpT6jY</a></em></p>
+
+<h1 id="github-pages-생성">GitHub Pages 생성</h1>
+
+<p><strong>* 주의</strong></p>
+
+<ul>
+  <li>
+    <dl>
+      <dt>GitHub Pages</dt>
+      <dd>저장소가 비공개여도 페이지는 공개 상태이므로 비공개 데이터가 있는 경우 지우고 배포해라.</dd>
+      <dd>GitHub Pages sites are publicly available on the internet, even if their repositories are private. If you have sensitive data in your site’s repository, you may want to remove it before publishing.</dd>
+    </dl>
+  </li>
+</ul>
+
+<h3 id="git-repository-생성">Git Repository 생성</h3>
+
+<ol>
+  <li>새 repository 생성<br />
+ <img src="/assets/images/blog/GitHubPages/img02.png" alt="GitHub Pages" width="160px" /></li>
+  <li>name 입력 후 생성<br />
+ <img src="/assets/images/blog/GitHubPages/img03.png" alt="GitHub Pages" class="border" width="600px" /></li>
+  <li>
+    <dl>
+      <dt>생성 확인</dt>
+      <dd>생성 시 입력한 이름으로 접속해보면 페이지 확인 가능
+ <img src="/assets/images/blog/GitHubPages/img04.png" alt="GitHub Pages" class="border" width="400px" /></dd>
+    </dl>
+  </li>
+</ol>
+
+<h3 id="기본-theme-지정하기">기본 Theme 지정하기</h3>
+
+<ul>
+  <li>
+    <dl>
+      <dt>Setting Tab &gt; GitHub Pages</dt>
+      <dd>기본 테마 중 선택해서 적용 가능
+  <img src="/assets/images/blog/GitHubPages/img05.png" alt="GitHub Pages" class="border" width="600px" /></dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>커스텀 테마 적용하기</dt>
+      <dd>기본 테마가 마음에 들지 않을 경우 커스텀 제작된 테마 적용 가능 (다른 포스트에 정리)</dd>
+    </dl>
+  </li>
+</ul>
+:ET

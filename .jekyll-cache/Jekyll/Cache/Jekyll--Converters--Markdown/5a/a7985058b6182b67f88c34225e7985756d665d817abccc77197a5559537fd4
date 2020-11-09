@@ -1,0 +1,68 @@
+I"�
+<h1 id="amazon-cloud">Amazon Cloud</h1>
+<ul>
+  <li><a href="https://aws.amazon.com/" target="_blank">Amazon clound console</a></li>
+</ul>
+
+<h2 id="service-개요">Service 개요</h2>
+
+<h3 id="compute">Compute</h3>
+<ul>
+  <li>EC2
+    <ul>
+      <li>Service &gt; Compute &gt; EC2</li>
+      <li>가상 클라우드 서버</li>
+    </ul>
+  </li>
+  <li>Lambda : Serverless</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+<ul>
+  <li>S3 : 데이터 저장</li>
+</ul>
+
+<h3 id="database">Database</h3>
+<ul>
+  <li>RDS : MySQL, Postgre 등</li>
+  <li>DynamoDB : NoSQL</li>
+  <li>Amazon RedShift</li>
+</ul>
+
+<h3 id="networking--content-delivery">Networking &amp; Content Delivery</h3>
+<ul>
+  <li>API Gateway : 우리의 API를 만들 예정</li>
+</ul>
+
+<h3 id="management--governance">Management &amp; Governance</h3>
+<ul>
+  <li>CloudWatch : 다양한 로그를 통해 에러 해결, 퍼포먼스 모니터링 등에 사용</li>
+</ul>
+
+<h3 id="analytics">Analytics</h3>
+<ul>
+  <li>Athena : Presto 기반의 서비스로 우리가 사용할 예정</li>
+  <li>Kinesis : 데이터를 프로세싱</li>
+  <li>Data Pipeline</li>
+  <li>AWS Glue</li>
+</ul>
+
+<h3 id="security-identity--compliance">Security, Identity, &amp; Compliance</h3>
+<ul>
+  <li>IAM
+    <ul>
+      <li>User, Permission 관리 서비스</li>
+      <li>웹에 접속하지 않고 로컬에서 Console과 통신</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="aws-command-line-interface-cli">AWS Command Line Interface (CLI)</h1>
+
+<p><img src="/assets/images/dataengineer/AwsBase#excerpt/img01.png" alt="Image" width="500px" /></p>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET
