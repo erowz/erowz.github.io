@@ -12,6 +12,8 @@ tags: [漫画,NAS,备忘]
 > 安装包需要部署到docker上，且是二次修改版本。所以要在**`映像/新增/从文件添加`**中自行安装。下面是tar 的下载地址。
 {:.comment} 
 
+<!--more-->
+
 链接:[https://pan.baidu.com/s/1V8Ds8anL9gWO_e9xIB6q7A]( https://pan.baidu.com/s/1V8Ds8anL9gWO_e9xIB6q7A)  提取码: qb5q
 
 下载完后，把tar包拖进NAS任意一个文件夹里，只要你找得到就好。
