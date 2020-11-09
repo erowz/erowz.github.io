@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
+lang: zh # the language of your site, default as "en"
 timezone:	Asia/Shanghai # see https://en.데이터 싸이언티스트와 데이터 애널리스트, 데이터 엔지니어, 비즈니스 애널리스트wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -35,6 +35,7 @@ author:
   linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name
   github    : erowz # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
+
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
@@ -101,7 +102,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider:  false # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
@@ -122,24 +123,24 @@ comments:
   valine:
     app_id      : # LeanCloud App id
     app_key     : # LeanCloud App key
-    placeholder :  # Prompt information
+    placeholder : # Prompt information
     visitor     : # false (default)
-    meta        :  # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
+    meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
 
 ## => Pageview
 ##############################
 pageview:
-  provider: # false (default), "leancloud", "custom"
+  provider: false # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    :  # LeanCloud App id
-    app_key   :  # LeanCloud App key
+    app_id    : # LeanCloud App id
+    app_key   : # LeanCloud App key
     app_class : # LeanCloud App class
 
 
-## => Search 
+## => Search
 ##############################
 search:
   provider: default # "default" (default), false, "google", "custom"
@@ -152,25 +153,22 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: # false (default), "google", "custom"
+  provider: google # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
-    anonymize_ip:  # Anonymize IP tracking for Analytics
+    tracking_id : UA-158719188-1 # Google Analytics id for the site
+    anonymize_ip: true # Anonymize IP tracking for Analytics
 
 ## Google Font
-google_fonts : 
+google_fonts :
 
 ## => Build
 ##############################
 markdown    : kramdown
 highlighter : rouge
 permalink   : /:categories/:title
-
-## => Dev
-############################## 
-# show_drafts : true
+show_drafts : true
 
 exclude:
   - CHANGELOG.md

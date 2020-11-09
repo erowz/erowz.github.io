@@ -35,7 +35,7 @@ Navigation Bar에 카테고리를 설정하고 싶어서 방법을 찾아보았�
   title: Algorithm
   permalink: /algorithm
   sidebar:
-      nav: nav-kr
+      nav: nav-zh
   ---
   ```
    - title : 카테고리 이름
@@ -53,7 +53,7 @@ defaults:
     values:
       layout: category
       sidebar:
-        nav: nav-kr
+        nav: nav-zh
 ```
 
 ## navigation list
@@ -61,7 +61,7 @@ defaults:
 - /_data/navigation.yml 에 nav list 추가 
 
   ```yaml
-  nav-kr:
+  nav-zh:
   - title: Data Science
     children:
       - title:  Big Data

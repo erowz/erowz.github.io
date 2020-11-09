@@ -6,7 +6,7 @@ header:
       en-US   : *EN
       en-CA   : *EN
       en-AU   : *EN
-      zh-Hans : &ZH_HANS  归档
+      zh-Hans : &ZH_HANS  分类归纳
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
@@ -49,8 +49,8 @@ header:
   #     # @end locale config
   #   url: /about.html
 
-nav-kr:
-  - title: Data Science
+nav-zh:
+  - title: Data
     children:
       - title:  빅데이터 Big Data
         url:    /bigdata
@@ -62,13 +62,11 @@ nav-kr:
         url:    /stats
   - title: DEV
     children:
-      - title:  알고리즘 Algorithm
-        url:    /algorithm
-      - title:  파이썬 Python
-        url:    /python
+      - title:  Dijkstra's Algorithm
+        url:    /algorithm/Dijkstra
   - title: ETC
     children:
       - title:  블로그 Blog
         url:    /blog
       - title:  그외 ETC
-        url:    /etc
+        url:    /

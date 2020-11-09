@@ -3,7 +3,7 @@ title: 통계학 - 확률과 통계
 category: Stats
 tags: [bigdata, statistics, stats, 통계학, 확률변수, 확률분포]
 description: 제대로 시작하는 기초 통계학 강의 노트
-# published : false
+published : false
 ---
 
 # 확률과 의사결정
