@@ -1,4 +1,4 @@
 ---
-title: 博客/Nas
+title: blognas
 permalink: /ceshi
 ---
