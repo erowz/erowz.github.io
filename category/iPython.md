@@ -1,4 +1,0 @@
----
-title: iPython
-permalink: /ipython
----

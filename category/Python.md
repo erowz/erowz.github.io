@@ -1,4 +1,0 @@
----
-title: Python
-permalink: /python
----
