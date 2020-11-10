@@ -1,4 +1,4 @@
 ---
-title: "博客/NAS"
+title: "bolg/NAS"
 permalink: /bknas
 ---
