@@ -12,40 +12,6 @@
   //   }
 }
 
-#s1 {
-    width: 100%;
-    height: 630px;
-    -webkit-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-    /*上二者皆為書寫之格式，切毋妄動*/
-    padding-top: 40px;
-    /*字符與頂部的距離*/
-    font-size: 16.8px;
-    /*字符大小*/
-    letter-spacing:0.1em;
-    /*字符上下間距*/
-    line-height:170%
-    /*左右行距離*/
-}
-px{
-    font-family: "PMingLiU", MingLiU, 宋体;;
-    font-weight: 500;
-    padding-top: 35px;
-}
-/*h4是标题或副标题*/
-h4x{
-    font-family:"宋体";
-    font-weight: blod; 
-    padding-top: 60px;
-}
-h1x{
-    font-family:"宋体";
-    font-weight: blod; 
-    padding-top: 20px;
-}
-/*专名号的专属标签zmx*/
-
-
 .font-red {
   color: red !important;
 }
