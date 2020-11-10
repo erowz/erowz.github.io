@@ -23,9 +23,7 @@ header:
       fr-LU   : *FR
       # @end locale config
     url: /archive.html
-    
-header:
-  - about:
+  - titles:
       # @start locale config
        en      : &EN       About
        en-GB   : *EN
@@ -48,7 +46,9 @@ header:
        fr-FR   : *FR
        fr-LU   : *FR
        # @end locale config
+       key: page-about
      url: /about.html
+
 nav-zh:
   - title: 学习笔记
     children:
