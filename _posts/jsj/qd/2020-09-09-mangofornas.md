@@ -3,7 +3,6 @@ date: 2020-09-09 18:23:00
 title: 如何在NAS中部署漫画管理仓库mango
 category: 博客-Nas
 tags: [漫画,NAS,备忘]
-excerpt_type: html
 ---
 # 前言
 该版本的`mango`来自于这个[B站UP主](https://www.bilibili.com/video/BV1zQ4y1P7dn)的打包修改版。
