@@ -1,0 +1,4 @@
+---
+title: bknas
+permalink: /bknas
+---
