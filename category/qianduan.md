@@ -1,4 +1,4 @@
 ---
-title: 前端
-permalink: /qianduan
+title: ceshi
+permalink: /ceshi
 ---

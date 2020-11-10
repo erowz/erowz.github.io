@@ -1,4 +1,0 @@
----
-title: ceshi
-permalink: /ceshi
----
