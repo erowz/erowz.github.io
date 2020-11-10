@@ -62,10 +62,12 @@ nav-zh:
     children:
       - title:  2020随想
         url:    /sx
-  - title: 计算机
+  - title: 计算机相关
     children:
-      - title:  博客
-        url:    /博客
+      - title:  前端
+        url:    /前端
+      - title:  博客-Nas
+        url:    /博客-Nas
   - title: 其他
     children:
       - title:  杂项
