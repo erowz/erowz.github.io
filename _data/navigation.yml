@@ -66,16 +66,16 @@ nav-zh:
     children:
       - title:  前端
         url:    /qianduan
+  - title: 计算机
+    children:
+      - title:  파이썬 분석 iPython
+        url:    /ceshi
   - title: 其他
     children:
       - title:  杂项
         url:    /zx
       - title:  全部
         url:    /
-  - title: Data
-    children:
-      - title:  파이썬 분석 iPython
-        url:    /ceshi
 
 #nav-xh:
 #  - title: Data
