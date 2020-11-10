@@ -62,13 +62,9 @@ nav-zh:
     children:
       - title:  2020随想
         url:    /sx
-  - title: 计算机相关
-    children:
-      - title:  前端
-        url:    /qianduan
   - title: 计算机
     children:
-      - title:  파이썬 분석 iPython
+      - title:  前端技术
         url:    /ceshi
   - title: 其他
     children:
