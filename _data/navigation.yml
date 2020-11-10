@@ -65,7 +65,7 @@ nav-zh:
   - title: 计算机
     children:
       - title:  blognas
-        url:    /ceshi
+        url:    /blognas
   - title: 其他
     children:
       - title:  杂项

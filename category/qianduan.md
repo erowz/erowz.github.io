@@ -1,4 +1,4 @@
 ---
 title: blognas
-permalink: /ceshi
+permalink: /blognas
 ---
