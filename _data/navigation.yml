@@ -65,13 +65,17 @@ nav-zh:
   - title: 计算机相关
     children:
       - title:  前端
-        url:    /etc
+        url:    /qianduan
   - title: 其他
     children:
       - title:  杂项
         url:    /zx
       - title:  全部
         url:    /
+  - title: Data
+    children:
+      - title:  파이썬 분석 iPython
+        url:    /ipython
 
 #nav-xh:
 #  - title: Data

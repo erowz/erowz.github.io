@@ -1,7 +1,7 @@
 ---
 date: 2020-09-09 18:23:00
 title: 如何在NAS中部署漫画管理仓库mango
-category: etc
+category: qianduan
 tags: [漫画,NAS,备忘]
 ---
 # 前言
