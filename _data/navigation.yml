@@ -22,11 +22,11 @@ header:
       fr-FR   : *FR
       fr-LU   : *FR
       # @end locale config
-    url: /archive.html
+    url: /about.html
 
-article:
-  - titles:
-      # @start locale config
+#article:
+#  - titles:
+#      # @start locale config
        en      : &EN       About
        en-GB   : *EN
        en-US   : *EN
@@ -49,7 +49,7 @@ article:
        fr-LU   : *FR
        # @end locale config
      url: /about.html
-
+#     url: /archive.html
 nav-zh:
   - title: 学习笔记
     children:
