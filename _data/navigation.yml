@@ -65,9 +65,7 @@ nav-zh:
   - title: 计算机
     children:
       - title:  前端技术
-        url:    /qiduan
-      - title:  博客/NAS
-        url:    /bknas
+        url:    /ceshi
   - title: 其他
     children:
       - title:  杂项
