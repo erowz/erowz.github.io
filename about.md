@@ -2,11 +2,10 @@
 layout: article
 title: "自叙"
 description: "初衷与目标 " 
-cover: true
-image: "assets/images/rred.png.jpg"
 sidebar:
   nav: nav-zh
 key: page-about
+sharing: false
 ---
 # 博客简介
 
@@ -19,7 +18,7 @@ key: page-about
   
   
 我的github:[**erowz-github**](https://github.com/erowz)  
-主题见:[**主题**](https://github.com/erowz)  
+主题见:[**主题**](https://tianqi.name/)  
 我的邮箱:[**olwreeass@gmail.com**](mailto:olwreeass@gmail.com)  
 我的Telegram:[**@erowz**](https://t.me/erowz)
 
@@ -28,7 +27,7 @@ key: page-about
 # 内容
 
 本博客的主要的编辑者是`嚴和渿`。  
-博客内容有关于-`笔记/世界语/思考`
+博客内容有关于-`笔记/思考`
 
 
 
