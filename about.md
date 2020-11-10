@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: "自叙"
 description: "初衷与目标 " 
 header-img: "assets/images/rred.png.jpg"

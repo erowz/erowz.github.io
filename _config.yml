@@ -56,6 +56,7 @@ paths:
 ##############################
 ## excerpt
 excerpt_separator: <!--more-->
+excerpt_type: html # text (default), html
 
 ## license
 ## license: CC-BY-ND-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
@@ -80,7 +81,7 @@ chart: true # false (default), true
 
 ## => Paginate
 ##############################
-paginate: 10
+paginate: 8
 paginate_path: /page:num # don't change this unless for special need
 
 
