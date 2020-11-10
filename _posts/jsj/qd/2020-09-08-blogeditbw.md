@@ -4,7 +4,6 @@ title: 博客编辑备忘
 category: 博客-Nas
 tags: [博客,备忘]
 description: 编辑的描述
-excerpt_type: html
 published : true
 ---
 {% assign path = page.imgpath | append: page.id %}
