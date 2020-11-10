@@ -3,6 +3,7 @@ date: 2020-09-09 18:23:00
 title: 如何在NAS中部署漫画管理仓库mango
 category: 博客-Nas
 tags: [漫画,NAS,备忘]
+excerpt_type: html
 ---
 # 前言
 该版本的`mango`来自于这个[B站UP主](https://www.bilibili.com/video/BV1zQ4y1P7dn)的打包修改版。
@@ -14,6 +15,8 @@ tags: [漫画,NAS,备忘]
 例如`回到之前阅读位置`功能的错乱，批量识别的不便等（只能识别单个文件夹内的zip文件）  
 建议还是前往github mango下载最新版
 {:.error}
+
+<!--more-->
 
 # docker-tar包的下载地址
 > 安装包需要部署到docker上，且是二次修改版本。所以要在**`映像/新增/从文件添加`**中自行安装。下面是tar 的下载地址。
