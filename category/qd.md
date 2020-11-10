@@ -1,4 +1,4 @@
 ---
-title: 前端
-permalink: /qd
+title: ETC
+permalink: /etc
 ---
