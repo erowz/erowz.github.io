@@ -1,7 +1,7 @@
 ---
 date: 2020-01-19 16:14 +09:00
 title: Python & Jupyter Notebook 설치
-category: iPython
+category: ceshi
 tags: [python, jupyternotebook]
 ---
 {% assign path = page.imgpath | append: page.id %}

@@ -1,4 +1,4 @@
 ---
-title: iPython
-permalink: /ipython
+title: ceshi
+permalink: /ceshi
 ---

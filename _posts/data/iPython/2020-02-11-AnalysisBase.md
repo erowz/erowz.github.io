@@ -1,7 +1,7 @@
 ---
 date: 2020-02-12 23:30:00 +09:00
 title: 빅데이터 - 파이썬을 이용한 빅데이터 분석
-category: iPython
+category: ceshi
 tags: [bigdata, python]
 ---
 # 분석 도구

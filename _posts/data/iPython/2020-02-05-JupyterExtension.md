@@ -1,7 +1,7 @@
 ---
 date: 2020-02-05 19:12 +09:00
 title: Jupyter Notebook Extensions
-category: iPython
+category: ceshi
 key: JupyterExtension
 tags: [python, jupyternotebook, extensions]
 ---

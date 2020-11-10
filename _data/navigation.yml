@@ -75,7 +75,7 @@ nav-zh:
   - title: Data
     children:
       - title:  파이썬 분석 iPython
-        url:    /ipython
+        url:    /ceshi
 
 #nav-xh:
 #  - title: Data
