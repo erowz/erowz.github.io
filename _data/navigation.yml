@@ -64,8 +64,8 @@ nav-zh:
         url:    /sx
   - title: 计算机
     children:
-      - title:  blognas
-        url:    /blognas
+      - title:  博客
+        url:    /博客
   - title: 其他
     children:
       - title:  杂项
