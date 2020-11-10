@@ -24,7 +24,7 @@ header:
       # @end locale config
     url: /archive.html
 
-page-about:
+article:
   - titles:
       # @start locale config
        en      : &EN       About
