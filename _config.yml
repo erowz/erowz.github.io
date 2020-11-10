@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
+lang: zh # the language of your site, default as "en"
 timezone:	Asia/Shanghai # see https://en.데이터 싸이언티스트와 데이터 애널리스트, 데이터 엔지니어, 비즈니스 애널리스트wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -203,8 +203,8 @@ defaults:
       sidebar:
         nav: nav-zh
       show_edit_on_github: false
-      show_subscribe: false
-      pageview: false
+      show_subscribe: true
+      pageview: true
       fullwidth: true
       imgpath: "/assets/images"
   - scope:
