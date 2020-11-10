@@ -49,46 +49,6 @@ header:
       # @end locale config
     url: /about
 
-  - title:      Docs
-    url:        /docs/What_is_on_the_page
-
-  - title:      项目文档
-    url:        /docs/
-    
-docs-nav:
-  - title: 网站布局详析
-    children:
-      - title: 网页上都有些什么？
-        url: /docs/What_is_on_the_page
-  - title:      文章编辑教程
-    children:
-      - title:  如何写文章?
-        url:    /docs/How_to_write_an_article
-      - title:  文章编辑的其他样式
-        url:    /docs/Other_styles
-      - title:  如何在文章里添加脚注
-        url:    /docs/jz
-      - title:  如何在文章中插入图片
-        url:    /docs/How_to_insert_pictures
-      - title:  文章中插入图片的高级用法
-        url:    /docs/Picture_advanced_usage
-  - title:      拓展高级教程
-    children:
-      - title:  如何添加音乐、视频、PPT？
-        url:    /docs/Advanced_extended_usage
-      - title:  如何在文章中使用数学公式？
-        url:    /docs/How_to_use_Mathjax
-  - title:      各种图表如何使用？
-    children:
-      - title:  流程图
-        url:    /docs/Flowchart
-      - title:  顺序图和甘特图
-        url:    /docs/sxthgtt
-      - title:  折线图、条形图和饼图
-        url:    /docs/zxtd
-      - title:  雷达图和气泡图
-        url:    /docs/ldtqpt
-
 nav-zh:
   - title: 学习笔记
     children:
