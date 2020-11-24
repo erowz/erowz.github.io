@@ -194,18 +194,18 @@ exclude:
 
 defaults:
   - scope:
-      license: false
-      aside:
-        toc: true
-      sidebar:
       path: ""
       type: posts
     values:
       layout: article
       sharing: true
+      license: false
+      aside:
+        toc: true
+      sidebar:
         nav: nav-zh
       show_edit_on_github: false
-      show_subscribe: false
+      show_subscribe: true
       pageview: true
       fullwidth: true
       imgpath: "/assets/images"
