@@ -73,7 +73,7 @@ nav-zh:
   - title: 其他
     children:
       - title:  杂项
-        url:    /zx
+        url:    /zx/zxsx
       - title:  全部
         url:    /
 
