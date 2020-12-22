@@ -205,7 +205,7 @@ defaults:
       sidebar:
         nav: nav-zh
       show_edit_on_github: false
-      show_subscribe: true
+      show_subscribe: false
       pageview: true
       fullwidth: true
       imgpath: "/assets/images"
