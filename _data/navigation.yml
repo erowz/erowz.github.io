@@ -52,12 +52,12 @@ header:
 nav-zh:
   - title: 学习笔记
     children:
+      - title:  论语精读笔记
+        url:    /ly/lunyu
       - title:  美学
         url:    /mx/mxbj
       - title:  左传研究
         url:    /zz/zzyj
-      - title:  论语精读笔记
-        url:    /ly/lunyu
   - title: 读书/电影/漫画笔记
     children:
       - title:  2020年读书归档
