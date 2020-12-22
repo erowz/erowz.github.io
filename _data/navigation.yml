@@ -52,7 +52,7 @@ header:
 nav-zh:
   - title: 学习笔记
     children:
-      - title:  论语精读笔记
+      - title:  论语精读
         url:    /ly/lunyu
       - title:  美学
         url:    /mx/mxbj
