@@ -241,14 +241,14 @@ graph LR
 
 ### table表格
 <table class='mk-table'>
-    <tr><th>구분</th><th>특징</th><th>이름</th><th>설명</th></tr>
-    <tr><td rowspan='2'>표본평균의 확률분포</td><td rowspan='2'>평균과 관련된 분포</td><td>$z$분포</td><td class='text--left'>표본 개수가 충분한 경우 사용</td></tr>
-    <tr><td>$t$분포</td><td class='text--left'>표본 개수가 충분하지 못한 경우 사용</td></tr>
-    <tr><td rowspan='2'>표본분산의 확률분포</td><td rowspan='2'>분산의 추론과 관련된 분포</td><td>$x^2$분포</td><td class='text--left'>한 개의 분산(표본)을 추론한 분포<br/>직접적으로 조사 대상 설명 가능</td></tr>
-    <tr><td>$F$분포</td><td class='text--left'>두 개의 분산(표본)을 추론하는 분포<br/>직접 이용하기보다는 추론된 분산을 이용</td></tr>
-    <tr><td>표본비율의 확률분포</td><td>비율과 관련된 분포</td><td>$\hat{p}$분포</td><td class='text--left'>모비율을 추정하기 위해 사용</td></tr>
+    <tr><th>测试</th><th>测试</th><th>测试</th><th>测试</th></tr>
+    <tr><td rowspan='2'>测试测试测试 测试测试</td><td rowspan='2'>测试测试 测试测试 测试</td><td>$z$测试</td><td class='text--left'>测试 测试测试测试测试测试</td></tr>
+    <tr><td>测试</td><td class='text--left'>测试</td></tr>
+    <tr><td rowspan='2'>测试测试</td><td rowspan='2'>测试测试测试测试</td><td>$x^2$测试</td><td class='text--left'>测试测试测试<br/>测试测试测试</td></tr>
+    <tr><td>$F$测试</td><td class='text--left'>두测试测试测试测试测试测试<br/>测试测试测试测试测试测试</td></tr>
+    <tr><td>测试测试测试测试</td><td>测试测试测试测试</td><td>$\hat{p}$测试测试</td><td class='text--left'>测试测试测试测试测试</td></tr>
 </table>
-*표본 확률분포의 종류*
+*测试测试测试测试测试*
 
 ### 竖排直书
 <div style="writing-mode: vertical-rl;" markdown="1">
