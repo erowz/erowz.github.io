@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## => Site Settings
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
@@ -224,3 +225,120 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+=======
+# Site settings
+title: La blogo de "Y Kaj Nai"
+title-alias: La blogo de "Y Kaj Nai"
+SEOTitle: 嚴與渿的博客 | Blog
+header-img: "img/blue.jpg"
+email: olwreeass@gmail.com
+description: "嚴與渿的博客" 
+keyword: "嚴與渿 读书笔记 左传 现代汉语 思考 Blog erowz"
+url: "https://erowz.github.io"              # your host, for absolute URL
+baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
+
+
+
+# SNS settings
+RSS: true
+email_address: olwreeass@gmail.com
+# weibo_username:     Thistledown
+zhihu_username: wassup-57/activities
+github_username: erowz
+# twitter_username:  MyThistledown
+#facebook_username:  
+
+# Data
+gavatar: img/favicon.png # 浏览器地址栏小图标，可自定义更改
+favicon: img/favicon.png # 浏览器地址栏小图标，可自定义更改
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+
+#Comment settings
+# Disqus settings
+# disqus_username: Thistledown
+
+# Duoshuo settings
+#duoshuo_username: Thistledown
+# Share component is depend on Comment so we can NOT use share only.
+#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+# Publish posts or collection documents with a future date.
+future: true
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "往来日久，迷恋不已。"
+sidebar-avatar: /img/favicon.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+# Comments 
+valine_comment:
+    enable: true
+    leancloud_appid: 7hgyMrKUuyLB2dXPeeia9O72-gzGzoHsz
+    leancloud_appkey: bSWXyG6X950FhYGplIvUhvKb
+    placeholder: "点击评论，记得输入上方的昵称喔~"
+
+
+# Analytics and webmaster tools stuff goes here
+google_analytics: G-YX6ZS8S1CY  # 填写你  google_analytics id
+google_verify:
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: true
+
+
+
+
+# Friends
+friends: [
+     {
+         title: "中国哲学书电子化计划",
+         href: "https://ctext.org/zhs"
+     },{
+         title: "白雲深處人家 | 道学",
+         href: "http://www.homeinmists.com/index.htm"
+     }
+ ]
+theme: jekyll-theme-cayman
+>>>>>>> 88b2943ca25fe536c314e5a05e2fc0c89e2a0433
