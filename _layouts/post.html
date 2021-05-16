@@ -1,0 +1,251 @@
+---
+layout: default
+---
+
+<!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+<!-- Post Header -->
+{% include intro-header.html type='post' %}
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+                
+
+
+                <!--meting added in 2019-11-08 18:28:23-->
+                {% if page.Meting %}
+                    {% include Meting.html %}
+                {% endif %}
+
+                <!-- Multi-Lingual -->
+                {% if page.multilingual %}
+                <!-- Language Selector -->
+                <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+                    <option value="0" selected> 中文 Chinese </option>
+                    <option value="1"> 英文 English </option>
+                </select>
+                {% endif %}
+
+				{{ content }}
+
+                <!-- 添加文章作者署名 -->
+                <p align="right" style="font-family: 'Comic Sans MS', cursive; font-style: italic;"><i class="fa fa-send"></i> {{ page.author }}</p>
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                        上一篇<br>
+                        <span>{{page.previous.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+                        下一篇<br>
+                        <span>{{page.next.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <hr style="visibility: hidden;">
+
+<!-- GITMENT 评论 -->
+<div id="comments"></div>
+<script src="https://cdn1.lncld.net/static/js/av-min-1.4.8.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#comments',
+        app_id: '7hgyMrKUuyLB2dXPeeia9O72-gzGzoHsz',
+        app_key: 'bSWXyG6X950FhYGplIvUhvKb',
+        placeholder:'点击评论，记得输入上方的昵称喔~',
+            // 设置Bilibili表情包地址
+    emojiCDN: '//erowz.github.io/img/bqb/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        "tv_电视笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+        "ni_疑惑": "7750b698d15a1b8e83c0f59106e8e9cd5cb57897.png",
+        "ni_坏笑": "d3717f10ffe9787336bc39a09214270988521a67.png",
+        "em_狗头": "bba7c12aa51fed0199c241465560dfc2714c593e.png",
+        "em_斜笑": "d15121545a99ac46774f1f4465b895fe2d1411c3.png",
+        "em_星星眼": "63c9d1a31c0da745b61cdb35e0ecb28635675db2.png",
+        "em_哦呼": "362bded07ea5434886271d23fa25f5d85d8af06c.png",
+        "em_害羞": "9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png",
+        "em_大笑": "ca94ad1c7e6dac895eb5b33b7836b634c614d1c0.png",
+        "em_认真": "685612eadc33f6bc233776c6241813385844f182.png",
+        "em_嘘声": "e64af664d20716e090f10411496998095f62f844.png",
+        "em_再见": "fc510306bae26c9aec7e287cdf201ded27b065b9.png",
+        "em_吃瓜": "4191ce3c44c2b3df8fd97c33f85d3ab15f4f3c84.png",
+        "em_笑哭": "485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png",
+        "em_迷醉": "44667b7d9349957e903b1b62cb91fb9b13720f04.png",
+        "em_问号": "b7840db4b1f9f4726b7cb23c0972720c1698d661.png",
+        "xr_抱抱": "41780a4254750cdaaccb20735730a36044e98ef3.png",
+        "xr_跪了": "f2b3aee7e521de7799d4e3aa379b01be032698ac.png",
+        "wz_妙啊": "0e98299d7decf5eaffad854977946075c3e91cb8.png",
+        "wz_秀": "50782fbf5d9b7f48f9467b5c53932981e321eedc.png",
+        "wz_都要": "d424d1ad8d14c1c9b8367842bc68c658b9229bc1.png",
+        "wz_内味": "7ca61680a905b5b6e2e335c630e725b648b03b4d.png",
+        "wz_猛男": "c97064450528a0e45c7e7c365a15fbb13fd61d8c.png",
+        "wz_爱了": "2a165b555ba20391316366c664ed7891883dc5aa.png",
+        // ... 更多表情
+    } 
+    });
+</script>
+
+
+                {% if site.disqus_username %}
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                {% endif %}
+
+                {% if site.netease_comment %}
+                <!-- 网易云跟帖 评论框 start -->
+                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+                <!-- 网易云跟帖 评论框 end -->
+                {% endif %}
+            </div>  
+
+    <!-- Side Catalog Container -->
+        {% if page.catalog %}
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        {% endif %}
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                {% include featured-tags.html bottom=true %}
+
+                <!-- Friends Blog -->
+                {% include friends.html %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+{% if page.mathjax %}
+  {% include mathjax_support.html %}
+{% endif %}
+
+{% if site.netease_comment %}
+<!-- 网易云跟帖JS代码 start -->
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "de25fc98a6fe48b3bc8a7ae765da99a0",
+    target: "cloud-tie-wrapper"
+  };
+  var yunManualLoad = true;
+  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
+<!-- 网易云跟帖JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{page.id}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
+
+
+{% if site.anchorjs %}
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+{% endif %}

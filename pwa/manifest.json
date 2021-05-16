@@ -1,0 +1,19 @@
+{
+  "name": "嚴和渿",
+  "short_name": "Y KAJ NAI",
+  "description": "A learner.",
+  "icons": [{
+    "src": "icons/128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "icons/512.png",
+    "sizes": "433x433",
+    "type": "image/png"
+  }],
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
