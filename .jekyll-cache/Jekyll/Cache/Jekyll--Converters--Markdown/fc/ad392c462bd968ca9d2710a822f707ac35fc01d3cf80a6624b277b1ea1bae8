@@ -1,0 +1,247 @@
+I"�G
+<h1 id="python-기본-구조">Python 기본 구조</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>  <span class="c1"># python system 관련 패키지
+</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'main start'</span><span class="p">)</span>
+
+<span class="c1"># 이 파일이 직접 실행되었을 때 수행되는 부분
+# 근데 왜 __main__인 건데?? 이런 건 설명안해주네. ㅡㅡ;;
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># 모듈로 임포트 될 때 수행되는 부분 (확인용)
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'This script is being imported'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>⇓</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 spotify_api.py 
+python start
+
+<span class="nv">$ </span>python3
+Python 3.7.3 <span class="o">(</span>default, Mar 27 2019, 09:23:15<span class="o">)</span> 
+<span class="o">[</span>Clang 10.0.1 <span class="o">(</span>clang-1001.0.46.3<span class="o">)]</span> on darwin
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for </span>more information.
+<span class="o">&gt;&gt;&gt;</span> import spotify_api
+This script is being imported
+</code></pre></div></div>
+
+<h1 id="requests-module">Requests Module</h1>
+<blockquote class="comment">
+  <p>Python Library</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://requests.readthedocs.io/en/master/api/" target="_blank">Requests: HTTP for Humans &gt; Deleoper Interface</a></p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">requests</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'https://httpbin.org/get'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">req</span>
+<span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="설치">설치</h2>
+<ul>
+  <li>python 2.X
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip <span class="nb">install </span>requests
+</code></pre></div>    </div>
+  </li>
+  <li>python 3.X : 아래 명령어 중 가능한 방법으로 설치 진행
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip3 <span class="nb">install </span>requests
+<span class="nv">$ </span>pip3 <span class="nb">install </span>requests <span class="nt">--user</span>
+<span class="nv">$ </span><span class="nb">sudo </span>pip3 <span class="nb">install </span>requests
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="syntax">Syntax</h2>
+
+<h3 id="request">Request</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>method : GET, HEAD, POST, PUT, DELETE</li>
+  <li>url : Endpoint</li>
+  <li>**kwargs : 그외 다양한 파라미터 추가 가능</li>
+</ul>
+
+<h3 id="head">HEAD</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="get">GET</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="post">POST</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>data : (optional) Dictionary, list of tuples, bytes, or file-like object to send in the body of the Request.</li>
+  <li>json : (optional) json data to send in the body of the Request.</li>
+</ul>
+
+<h3 id="put">PUT</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="patch">PATCH</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="api-정보">API 정보</h1>
+
+<h2 id="client-credentials-flow">Client Credentials Flow</h2>
+<blockquote>
+  <p><strong>DOC</strong> <a href="https://developer.spotify.com/documentation/general/guides/authorization-guide/" target="_blank">Authorization Guide</a> : OAuth가 아니므로 Web API 부분 참고</p>
+</blockquote>
+
+<ul>
+  <li>You do : Login with your Client ID and Secret Key.</li>
+  <li>You get : Access token.</li>
+</ul>
+
+<p><img src="/assets/images/dataengineer/PythonForAPI/img01.png" alt="Image" width="500px" /><br />
+<em>Client Credentials Flow</em></p>
+
+<h3 id="endpoints">Endpoints</h3>
+<p><code class="highlighter-rouge">POST https://accounts.spotify.com/api/token</code></p>
+
+<h3 id="header-fields">Header Fields</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Basic &lt;base64 encoded client_id:client_secret&gt;"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><strong>Authorization</strong>
+    <ul>
+      <li>Required</li>
+      <li><code class="highlighter-rouge">Basic &lt;base64 encoded client_id:client_secret&gt;</code> 형식으로 인코딩해서 전송 입력
+        <ul>
+          <li>base64 : string을 인코딩하는 방식
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># python 2.X
+</span><span class="n">Basic</span> <span class="n">base</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">client_id</span><span class="p">:</span><span class="n">client_secret</span><span class="p">)</span>
+<span class="c1"># python 3.X
+</span><span class="n">Basic</span> <span class="n">base</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">client_id</span><span class="p">:</span><span class="n">client_secret</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'UTF-8'</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="body-parameter">Body parameter</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"grant_type"</span><span class="p">:</span> <span class="s">"client_credentials"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>application/x-www-form-urlencoded로 인코딩</li>
+  <li><strong>grant_type</strong>
+    <ul>
+      <li>Required</li>
+      <li>client_credentials로 설정 : OAuth 2.0에 따라 지정된 값</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="response">Response</h3>
+<p><code class="highlighter-rouge">response.text</code></p>
+<ul>
+  <li>return type : string</li>
+  <li>json으로 변환해서 사용 : <code class="highlighter-rouge">json.load(text)[key]</code>
+    <ul>
+      <li>access_token</li>
+      <li>token_type</li>
+      <li>expires_in : 사용 가능 기한</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NgCXRKc...MzYjw"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="search">Search</h2>
+<blockquote>
+  <p><strong>DOC</strong> <a href="https://developer.spotify.com/documentation/web-api/reference/search/search/">Search for an Item</a></p>
+</blockquote>
+
+<h3 id="endpoints-1">Endpoints</h3>
+<p><code class="highlighter-rouge">GET https://api.spotify.com/v1/search</code></p>
+
+<h3 id="request-parameters">Request parameters</h3>
+
+<h4 id="header-fields-1">Header Fields</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><strong>Authorization</strong>
+    <ul>
+      <li>Required</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="api-호출">API 호출</h1>
+
+<h3 id="code">code</h3>
+<ul>
+  <li>expires_in에 의해 토큰을 다시 요청하는 일 발생 가능</li>
+  <li>토큰 요청하는 기능을 별도 클래스로 분리해서 관리하는 것이 용이</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h3 id="result">result</h3>
+<ul>
+  <li>status : 200</li>
+  <li>response.text
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="s2">"BQAggPn-ZRd435MxxQPbolUMoirC5UQyRMFIxgXM_Lfsv8_ORWhfnjqfodl8Kj0Kfb0R2giyi8kwJpWR5H0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>response.headers
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">'date':</span><span class="w"> </span><span class="err">'Tue</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="err">Feb</span><span class="w"> </span><span class="mi">2020</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">43</span><span class="err">:</span><span class="mi">03</span><span class="w"> </span><span class="err">GMT'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'content-type':</span><span class="w"> </span><span class="err">'application/json'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'set-cookie':</span><span class="w"> </span><span class="err">'__Host-device_id=AQBfw</span><span class="mi">4</span><span class="err">T</span><span class="mi">9</span><span class="err">ewXqgYbuOw</span><span class="mi">3</span><span class="err">srbJZJo</span><span class="mi">7</span><span class="err">OVT</span><span class="mi">6</span><span class="err">QVVKqNsHoZsqYfVVc</span><span class="mi">46</span><span class="err">hL</span><span class="mi">1</span><span class="err">_-wJ-JZT</span><span class="mi">57</span><span class="err">do</span><span class="mi">3</span><span class="err">A</span><span class="mi">1</span><span class="err">Kld_sNIEZWVS</span><span class="mi">87</span><span class="err">R</span><span class="mi">8</span><span class="err">dN</span><span class="mi">37</span><span class="err">spMKOEKtr</span><span class="mi">0</span><span class="err">s;Version=</span><span class="mi">1</span><span class="err">;Path=/;Max-Age=</span><span class="mi">2147483647</span><span class="err">;Secure;HttpOnly;SameSite=Lax'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'server':</span><span class="w"> </span><span class="err">'envoy'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'x-envoy-upstream-service-time':</span><span class="w"> </span><span class="err">'</span><span class="mi">3</span><span class="err">'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'strict-transport-security':</span><span class="w"> </span><span class="err">'max-age=</span><span class="mi">31536000</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="err">'x-content-type-options':</span><span class="w"> </span><span class="err">'nosniff'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'vary':</span><span class="w"> </span><span class="err">'Accept-Encoding'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'content-encoding':</span><span class="w"> </span><span class="err">'gzip'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'Via':</span><span class="w"> </span><span class="err">'HTTP/</span><span class="mi">2</span><span class="w"> </span><span class="err">edgeproxy</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="err">google'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'Alt-Svc':</span><span class="w"> </span><span class="err">'clear'</span><span class="p">,</span><span class="w"> 
+  </span><span class="err">'Transfer-Encoding':</span><span class="w"> </span><span class="err">'chunked'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>access_token : BQAyzteLRRLDMl9TAV5x3fYE5LArLLqNLEXksvhmULU_5raKEa8SFV0g9F-9x-3TknJN2cvzu4IIueaAJC8</li>
+  <li>headers
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="err">'Authorization':</span><span class="w"> </span><span class="err">'Bearer</span><span class="w"> </span><span class="err">BQAK</span><span class="mi">8</span><span class="err">Kt</span><span class="mi">-5</span><span class="err">scwVO</span><span class="mi">7</span><span class="err">YyW_N</span><span class="mi">16</span><span class="err">esnIHl</span><span class="mi">4</span><span class="err">t</span><span class="mi">8</span><span class="err">ClRWMgQJmTOlAR</span><span class="mi">7</span><span class="err">KqdIEy</span><span class="mi">8</span><span class="err">WJS_TCGbPLi</span><span class="mi">6</span><span class="err">VfEe</span><span class="mi">5</span><span class="err">WI</span><span class="mi">7</span><span class="err">jZ</span><span class="mi">2e0</span><span class="err">ssArM'</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

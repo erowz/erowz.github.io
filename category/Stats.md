@@ -1,0 +1,4 @@
+---
+title: Stats
+permalink: /stats
+---

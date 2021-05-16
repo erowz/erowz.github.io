@@ -1,0 +1,28 @@
+I"�
+<pre><code class="language-mermaid">graph LR
+    A(SQL Data Types)
+    B[Numeric]
+    C[Date/Time]
+    D[Character/String]
+    E[Unicode Character/String]
+    F[Binary]
+    G[Miscellaneous]
+    A--&gt;B
+    A--&gt;C
+    A--&gt;D
+    A--&gt;E
+    A--&gt;F
+    A--&gt;G
+    B--&gt;B1[bit, tinyint, smallint, int,&lt;br/&gt;bigint, decimal, numeric, float, real]
+    C--&gt;C1[Date, Time, Datetime, Timestamp, Year]
+    D--&gt;D1["Char, Varchar, Varchar(max), Text"]
+    E--&gt;E1["NChar, NVarchar, NVarchar(max), NText"]
+    F--&gt;F1["Binary, Varbinary, Varbinary(max), image"]
+    G--&gt;G1[Clob, Blob, XML, JSON]
+</code></pre>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

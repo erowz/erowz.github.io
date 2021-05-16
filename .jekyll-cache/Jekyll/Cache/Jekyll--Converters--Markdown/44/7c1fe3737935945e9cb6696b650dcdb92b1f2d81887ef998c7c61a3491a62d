@@ -1,0 +1,490 @@
+I"�{<h1 id="python">Python</h1>
+
+<h2 id="특징">특징</h2>
+
+<ul>
+  <li>사용하기 쉽게 직관적으로 되어 있다</li>
+  <li>범용적으로 사용 가능 : Django, Pandas, etc</li>
+  <li>다른 언어로 만든 프로그램을 파이썬 프로그램에 포함 가능
+    <ul>
+      <li>매우 복잡하고 반복 연산이 많은 프로그램은 파이썬과 어울리지 않는다.</li>
+      <li>전반적인 뼈대는 파이썬으로 만들고, 빠른 실행 속도가 필요한 부분은 C로 만들어서 파이썬 프로그램 안에 포함시시킬 수 있다.</li>
+      <li>사실 파이썬 라이브러리 중에는 C로 만든 것도 많다. C로 만든 것은 대부분 속도가 빠르다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="파이썬으로-할-수-있는-일">파이썬으로 할 수 있는 일</h2>
+
+<ul>
+  <li>시스템 유틸리티 : 파이썬은 운영체제(윈도우, 리눅스 등)의 시스템 명령어를 사용할 수 있는 각종 도구를 갖추고 있다.</li>
+  <li>GUI(Graphic User Interface) 프로그래밍
+    <ul>
+      <li>화면에 또 다른 윈도우 창을 만들고 그 창에 프로그램을 동작시킬 수 있는 메뉴나 버튼, 그림 등을 추가하는 것</li>
+      <li>그 예로 파이썬과 함께 설치되는 Tkinter(티케이인터)가 있다</li>
+    </ul>
+  </li>
+  <li>C/C++와의 결합 : C나 C++로 만든 프로그램을 파이썬에서 사용할 수 있으며, 파이썬으로 만든 프로그램 역시 C나 C++에서 사용할 수 있다.</li>
+  <li>웹 프로그래밍</li>
+  <li>수치 연산 프로그래밍 : 파이썬이 수치 연산에 적합한 것은 아니지만, C로 제작된 NumPy라는 수치 연산 모듈로 빠르게 연산 처리 가능</li>
+  <li>데이터베이스 프로그래밍
+    <ul>
+      <li>사이베이스(Sybase), 인포믹스(Infomix), 오라클(Oracle), 마이에스큐엘(MySQL), 포스트그레스큐엘(PostgreSQL) 등의 데이터베이스에 접근하기 위한 도구를 제공</li>
+      <li>피클(pickle)이라는 모듈 : 파이썬에서 사용하는 자료를 변형 없이 그대로 파일에 저장하고 불러오는 일을 담당</li>
+    </ul>
+  </li>
+  <li>데이터 분석 : 파이썬으로 만든 판다스(Pandas) 모듈을 사용하면 더 쉽고 효과적으로 데이터 분석 가능. 데이터 분석에 특화된 ‘R’이라는 언어를 많이 사용하고 있지만, 판다스가 등장한 이후로 파이썬을 사용하는 경우가 점점 증가</li>
+  <li>사물 인터넷 : 라즈베리파이(Raspberry Pi)는 리눅스 기반의 아주 작은 컴퓨터를 제어하는 도구로 사용</li>
+</ul>
+
+<h2 id="파이썬으로-할-수-없는-일">파이썬으로 할 수 없는 일</h2>
+
+<ul>
+  <li>시스템과 밀접한 프로그래밍 영역 : 대단히 빠른 속도를 요구하거나 하드웨어를 직접 건드려야 하는 프로그램</li>
+  <li>모바일 프로그래밍</li>
+</ul>
+
+<h1 id="변수variable">변수(Variable)</h1>
+
+<p>- 데이터를 저장하는 공간, 변수<br />
+- 저장 공간(memory)에 값을 생성하고 이름(name)을 지정하여 값을 기억하는 역할<br />
+- =(대입 연산자)를 이용하여 ‘이름=값’ 형식으로 설정<br />
+- 선언과 동시에 값을 초기화해주어야 함</p>
+
+<h2 id="변수명-이름-규칙variable-namimg">변수명 이름 규칙(Variable Namimg)</h2>
+
+<ol>
+  <li>소문자로 시작 (변수 - 소문자, 함수 - 대문자, …), 숫자로 시작 불가</li>
+  <li>숫자, _(under bar) 사용 가능</li>
+  <li>공백 사용 불가</li>
+  <li>변수의 의미를 담아 작성하는 것이 추후 관리에 용이</li>
+</ol>
+
+<h2 id="예약어reserved-keywords">예약어(Reserved Keywords)</h2>
+
+<p>- 미리 선점하여 사용 중인 키워드<br />
+- 변수, 함수, 클래드 등의 사용자 정의 이름으로 사용 불가</p>
+
+<h1 id="기본-데이터-타입">기본 데이터 타입</h1>
+
+<ul>
+  <li>정수(int)</li>
+  <li>실수(float)</li>
+  <li>문자(string)</li>
+  <li>불리언(boolean)</li>
+</ul>
+
+<h3 id="type-함수">type 함수</h3>
+
+<p>해당 변수, 값의 타입(type)을 알고자 할 때 사용</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">int</span>
+</code></pre></div></div>
+
+<h3 id="none">None</h3>
+
+<p>- 아무런 값을 갖지 않을 때 사용<br />
+- 초기값을 갖지 않는 변수를 생성할 때 사용<br />
+- Null, nill 등과 같은 의미</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<h3 id="비교-연산자comparison-operator">비교 연산자(Comparison Operator)</h3>
+
+<p>비교 결과는 Boolean 값</p>
+
+<ul>
+  <li>&lt;, &gt; : 작다, 크다</li>
+  <li>&lt;=, &gt;= : 작거나 같다, 크거나 같다</li>
+  <li>== : 같다</li>
+  <li>!= : 같지 않다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">7</span>  <span class="c1"># &gt;&gt; True
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">7</span>  <span class="c1"># &gt;&gt; False
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">5</span>   <span class="c1"># &gt;&gt; False
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">5</span>       <span class="c1"># &gt;&gt; False
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">&gt;=</span> <span class="mi">5</span>      <span class="c1"># &gt;&gt; True
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">4</span>  <span class="c1"># &gt;&gt; True
+</span></code></pre></div></div>
+
+<h3 id="숫자형-타입numbers">숫자형 타입(numbers)</h3>
+
+<p>- 정수, 실수로 구성<br />
+- 수학의 기본 연산자(가감승제) 사용 가능</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>   <span class="c1"># &gt;&gt; 7  # 더하기
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span>   <span class="c1"># &gt;&gt; 2  # 빼기
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span>   <span class="c1"># &gt;&gt; 2  # 나누기
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">4</span>   <span class="c1"># &gt;&gt; 8  # 곱하기
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># &gt;&gt; 9  # 거듭제곱
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>   <span class="c1"># &gt;&gt; 1  # 나머지
+</span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># &gt;&gt; 2  # 몫
+</span></code></pre></div></div>
+
+<h4 id="연산자-우선-순위">연산자 우선 순위</h4>
+
+<p>- 기본적인 수학의 연산자 우선 순위와 동일<br />
+- 강제로 연산을 선수하기 위해서 () 사용</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">4</span>   <span class="c1"># &gt;&gt; 21
+</span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span> <span class="c1"># &gt;&gt; 36
+</span></code></pre></div></div>
+
+<h4 id="식-평가--대입-expression-evaluation--assignment">식 평가 &amp; 대입 (Expression evaluation &amp; assignment)</h4>
+
+<p>=을 사용하여 변수에 대입이 발생한 경우만 변수의 값이 바뀐다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c1"># &gt;&gt; 9
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># &gt;&gt; 6
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c1"># &gt;&gt; 9
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># &gt;&gt; 6
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">**=</span> <span class="mi">2</span>   <span class="c1"># &gt;&gt; 36
+</span></code></pre></div></div>
+
+<h3 id="문자string">문자(String)</h3>
+
+<ul>
+  <li>”“(큰 따옴표) 또는 ‘‘(작은 따옴표)로 문자를 감싸서 사용 : 한 줄 문자열</li>
+  <li>””””””, ‘’’’’’ 사용 : 여러 줄 문자열</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"Hello, World"</span>       <span class="c1"># &gt;&gt; Hello, World
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"Hello"</span> <span class="o">==</span> <span class="s">'Hello'</span>   <span class="c1"># &gt;&gt; True
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"""Hello
+&gt;&gt;&gt; World"
+&gt;&gt;&gt; b = '''Hello
+&gt;&gt;&gt; World'''
+&gt;&gt;&gt; print(a) || print(b)
+Hello
+World
+</span></code></pre></div></div>
+
+<h4 id="문자열-내-작은-따옴표-처리">문자열 내 작은 따옴표 처리</h4>
+
+<ol>
+  <li>큰 따옴표 사용</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"Kim's name"</span>   <span class="c1"># &gt;&gt; Kim's name
+</span></code></pre></div></div>
+
+<ol>
+  <li>\ 사용</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">'Kim</span><span class="se">\'</span><span class="s">s name'</span>  <span class="c1"># &gt;&gt; Kim's name
+</span></code></pre></div></div>
+
+<h4 id="이스케이프-문자escape-string">이스케이프 문자(Escape String)</h4>
+
+<p>- 일부 문자의 의미를 달리하여 특정한 효과를 주는 것<br />
+- \n : new line, \t : tab</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'Hello world</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'End</span><span class="se">\t</span><span class="s"> String'</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="n">World</span>
+
+
+<span class="n">End</span>    <span class="n">String</span>    
+</code></pre></div></div>
+
+<h3 id="문자열-연산">문자열 연산</h3>
+
+<h4 id="문자열-더해서-연결하기concatenation">문자열 더해서 연결하기(Concatenation)</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">head</span> <span class="o">=</span> <span class="s">"Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tail</span> <span class="o">=</span> <span class="s">" is fun!"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="n">tail</span><span class="p">)</span>
+<span class="n">Python</span> <span class="ow">is</span> <span class="n">fun</span><span class="err">!</span>
+</code></pre></div></div>
+
+<h4 id="문자열-곱하기">문자열 곱하기</h4>
+
+<p>문자열의 반복을 뜻하는 의미로 사용</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">pythonpython</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"="</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"My Program"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"="</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="o">==================================================</span>
+<span class="n">My</span> <span class="n">Program</span>
+<span class="o">==================================================</span>
+</code></pre></div></div>
+
+<h4 id="문자열-포맷팅formatting">문자열 포맷팅(Formatting)</h4>
+
+<p>문자열 안에 어떤 값을 삽입하기</p>
+
+<ul>
+  <li>%s : 문자열(String)</li>
+  <li>%c : 문자 1개(character)</li>
+  <li>%d : 정수(Integer)</li>
+  <li>%f : 부동소수(floating-point)</li>
+  <li>%o : 8진수</li>
+  <li>%x : 16진수</li>
+  <li>%% : Literal % (문자 % 자체)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat </span><span class="si">%</span><span class="s">d apples."</span> <span class="o">%</span> <span class="n">number</span>
+<span class="s">'I eat 3 apples.'</span>
+
+<span class="c1"># 포매팅 연산자와 %를 함께 사용할 경우 %%로 입력해야 함
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"Error is </span><span class="si">%</span><span class="s">d</span><span class="si">%%</span><span class="s">."</span> <span class="o">%</span> <span class="mi">98</span>
+<span class="s">'Error is 98</span><span class="si">%</span><span class="s">.'</span>
+
+<span class="c1"># %10s : 길이가 10인 빈 문자열을 넣고 왼쪽 정렬
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"</span><span class="si">%10</span><span class="s">s"</span> <span class="o">%</span> <span class="s">"hi"</span>
+<span class="s">'        hi'</span>
+
+<span class="c1"># %-10s : 길이가 10인 빈 문자열을 넣고 오른쪽 정렬
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"</span><span class="si">%-10</span><span class="s">sjane."</span> <span class="o">%</span> <span class="s">'hi'</span>
+<span class="s">'hi        jane.'</span>
+
+<span class="c1"># 길이가 10인 빈 문자열을 넣고 오른쪽 정렬로 소수점 4자리까지 출력
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"</span><span class="si">%10.4</span><span class="s">f"</span> <span class="o">%</span> <span class="mf">3.42134234</span>
+<span class="s">'    3.4213'</span>
+</code></pre></div></div>
+
+<h4 id="f-포맷팅">f 포맷팅</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'홍길동'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">'나의 이름은 {name}입니다. 나이는 {age+1}입니다.'</span>
+<span class="s">'나의 이름은 홍길동입니다. 나이는 31입니다.'</span>
+
+<span class="c1"># 정렬
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">'{"hi":&lt;10}'</span>  <span class="c1"># 왼쪽 정렬
+</span><span class="s">'hi        '</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">'{"hi":&gt;10}'</span>  <span class="c1"># 오른쪽 정렬
+</span><span class="s">'        hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">'{"hi":^10}'</span>  <span class="c1"># 가운데 정렬
+</span><span class="s">'    hi    '</span>
+</code></pre></div></div>
+
+<h4 id="문자열-길이-구하기">문자열 길이 구하기</h4>
+
+<p>len(string)으로 문자열의 길이 구하기</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># &gt;&gt; 17
+</span></code></pre></div></div>
+
+<h3 id="문자열-인덱스-및-추출-indexing--slicing-string">문자열 인덱스 및 추출 (Indexing &amp; Slicing String)</h3>
+
+<p>문자열의 각 문자는 첫 번째 문자부터 마지막 문자까지 순서(index)를 갖고 있음</p>
+
+<h4 id="index">index</h4>
+
+<ul>
+  <li>[ ]를 사용해서 하나의 문자 추출</li>
+  <li>0부터 시작</li>
+  <li>음수 인덱스 (-n) : 뒤에서부터 n번째 인덱스 위치 값 지정</li>
+  <li>
+    <dl>
+      <dt>인덱스의 범위</dt>
+      <dd>구간 설정으로 제어</dd>
+      <dd>유효 범위 &gt; [0, 문자열 길이] or [-문자열 길이, -1]</dd>
+      <dd>유효 범위를 벗어나면 index out of range 오류 발생</dd>
+    </dl>
+  </li>
+</ul>
+
+<h4 id="slicing">slicing</h4>
+
+<ul>
+  <li>[n:m]를 사용해서 부분 문자열 추출</li>
+  <li>n과 m 인덱스 사이의 문자열 추출 (<em>m 인덱스 위치 문자는 포함하지 않는다</em>) » n &lt;= string &lt; m-1 구간의 문자열 반환됨</li>
+  <li>시작/끝 중 인덱스가 생략되어 있으면 0/마지막까지로 간주</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"0123456789"</span>
+<span class="c1"># index
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># &gt;&gt; 1
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>   <span class="c1"># &gt;&gt; 6
+</span>
+<span class="c1"># slice
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>   <span class="c1"># &gt;&gt; 6789
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># &gt;&gt; 12
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>  <span class="c1"># &gt;&gt; 78
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>  <span class="c1"># &gt;&gt; 6789
+</span></code></pre></div></div>
+
+<h2 id="문자열-함수">문자열 함수</h2>
+
+<h4 id="replace">replace</h4>
+
+<ul>
+  <li>문자열 내의 특정 문자를 치환</li>
+  <li>string.replace(target, new string) 형식으로 적용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'hello world'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'h'</span><span class="p">,</span> <span class="s">'j'</span><span class="p">)</span>
+<span class="n">jello</span> <span class="n">world</span>
+</code></pre></div></div>
+
+<h4 id="format">format</h4>
+
+<ul>
+  <li>문자열 내의 특정한 값을 변수로부터 초기화하여 동적으로 문자열을 생성</li>
+  <li>‘text {}’.format(variable,…) 형식으로 적용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="mf">26.5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'오늘 기온은 {}도이고, 비올 확률은 {}</span><span class="si">%</span><span class="s">이다.'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  
+<span class="err">오늘</span> <span class="err">기온은</span> <span class="mf">26.5</span><span class="err">도이고</span><span class="p">,</span> <span class="err">비올</span> <span class="err">확률은</span> <span class="mi">80</span><span class="o">%</span><span class="err">이다</span><span class="o">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I ate {number} apples. so I was sick for {day} days."</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="s">'I ate 10 apples. so I was sick for 3 days.'</span>
+
+<span class="c1"># 왼쪽 정렬
+</span><span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:&lt;10}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'hi        '</span>
+</code></pre></div></div>
+
+<h4 id="split">split</h4>
+
+<ul>
+  <li>문자열을 특정한 문자(delimiter)로 구분하여 문자열의 리스트로 치환</li>
+  <li>
+    <dl>
+      <dt>string.split(delimiter)</dt>
+      <dd>optional</dd>
+      <dd>기본 delemiter는 띄어쓰기</dd>
+    </dl>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'Hello World! What a nice day'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>     <span class="c1"># &gt;&gt; [Hello, World!, What, a, nice, day]
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'!'</span><span class="p">))</span>  <span class="c1"># &gt;&gt; [Hello World, What a nice day]
+</span></code></pre></div></div>
+
+<h4 id="문자-개수-세기count">문자 개수 세기(Count)</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"hobby"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span>
+<span class="mi">2</span>
+</code></pre></div></div>
+
+<h3 id="문자-위치-찾기">문자 위치 찾기</h3>
+
+<p>- 첫 번째 문자의 위치 반환<br />
+- 0부터 시작하는 인덱스 값 반환</p>
+
+<h4 id="find">find</h4>
+
+<p>문자가 없는 경우 -1 반환</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Python is the best choice"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span>
+<span class="mi">14</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'k'</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+</code></pre></div></div>
+
+<h4 id="index-1">index</h4>
+
+<p>문자가 없는 경우 오류 발생</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">'t'</span><span class="p">)</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">'k'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">ValueError</span><span class="p">:</span> <span class="n">substring</span> <span class="ow">not</span> <span class="n">found</span>
+</code></pre></div></div>
+
+<h4 id="문자열-삽입join">문자열 삽입(join)</h4>
+
+<p>각 글자 사이에 문자 삽입</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">'abcd'</span><span class="p">)</span>
+<span class="s">'a,b,c,d'</span>
+</code></pre></div></div>
+
+<h3 id="공백-지우기">공백 지우기</h3>
+
+<h4 id="lstrip">lstrip</h4>
+
+<ul>
+  <li>왼쪽 공백 지우기</li>
+  <li>문자열 중 가장 왼쪽에 있는 한 칸 이상의 연속된 공백들 삭제</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+<span class="s">'hi '</span>
+</code></pre></div></div>
+
+<h4 id="rstrip">rstrip</h4>
+
+<ul>
+  <li>오른쪽 공백 지우기</li>
+  <li>문자열 중 가장 오른쪽에 있는 한 칸 이상의 연속된 공백 삭제</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="s">' hi'</span>
+</code></pre></div></div>
+
+<h4 id="strip">strip</h4>
+
+<ul>
+  <li>양쪽 공백 지우기</li>
+  <li>문자열 양쪽에 있는 한 칸 이상의 연속된 공백 삭제</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s">'hi'</span>
+</code></pre></div></div>
+
+<h2 id="print-함수">print 함수</h2>
+
+<ul>
+  <li>해당 변수의 값을 출력</li>
+  <li>,를 사용하여 나열하면 여러 변수를 한 줄에 출력</li>
+  <li>함수 설정
+    <ul>
+      <li>sep=” “ : 구분자, 각 출력할 변수 사이를 구분하는 역할. 기본 값은 한 칸 띄어쓰기</li>
+      <li>end : 마지막에 출력할 문자열. 기본 값은 \n</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; print(10, 100)
+10 100
+
+&gt;&gt;&gt; print(10, 100, sep="*", end="!")
+10*100!
+</code></pre></div></div>
+
+<blockquote>
+  <p>※ <strong>참고</strong></p>
+
+  <ul>
+    <li><a href="https://wikidocs.net/book/1">점프투파이썬</a></li>
+    <li><a href="https://dataitgirls2.github.io/10minutes2pandas/">Pandas 10분 완성</a> : 기존 개발 유경험자들 읽어보라고 제시함</li>
+  </ul>
+</blockquote>
+:ET

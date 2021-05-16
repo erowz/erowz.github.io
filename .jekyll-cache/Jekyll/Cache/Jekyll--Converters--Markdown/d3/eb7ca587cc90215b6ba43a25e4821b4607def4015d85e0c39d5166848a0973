@@ -1,0 +1,24 @@
+I"><h1 id="함수">함수</h1>
+<ul>
+  <li>입력(input)에 대해서 의도한 출력(output)을 전달</li>
+</ul>
+
+<h2 id="함수의-정의">함수의 정의</h2>
+<ul>
+  <li>정의 시 최초에 def 키워드 사용</li>
+  <li>parameter(argument 라고도 함) 정의 : 함수에 입력으로 전달하는 값</li>
+  <li><code class="highlighter-rouge">:</code> (콜론) -&gt; 함수 역시 코드 블록이기 때문에 콜론(:) 필요</li>
+  <li>body (함수의 구현 부분, 함수 역시 코드 블록이기 때문에 들여쓰기 된 부분까지 함수의 코드블록으로 인지 함)
+    <ul>
+      <li>함수를 호출한 코드 (caller)로 함수가 해당 기능을 수행하고 완료된 값(output)을 전달하기 위해 return 키워드 사용</li>
+      <li>즉, return 이후에 오는 값을 caller로 전달</li>
+    </ul>
+  </li>
+  <li>함수의 네이밍 역시 중요
+    <ul>
+      <li>즉, 어떤 기능을 하는 함수인지 이름으로 최대한 나타날 수 있게 해야함</li>
+      <li>e.g) get_a (x) get_student_name (o)</li>
+    </ul>
+  </li>
+</ul>
+:ET

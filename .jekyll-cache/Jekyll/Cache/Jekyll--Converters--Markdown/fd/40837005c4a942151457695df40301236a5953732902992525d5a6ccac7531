@@ -1,0 +1,179 @@
+I")
+<h1 id="데이터-엔지니어의-필요성">데이터 엔지니어의 필요성</h1>
+
+<h3 id="문제-해결을-위한-가설-검증-단계">문제 해결을 위한 가설 검증 단계</h3>
+
+<ul>
+  <li>모든 비지니스가 동일한 데이터 분석 환경을 갖출 수가 없다</li>
+  <li>성장 단계에 따라 선택 집중해야 하는 분석 환경이 다르다</li>
+</ul>
+
+<p><img src="/assets/images/dataengineer/DataArchitecture/img01.png" alt="Image" /><br />
+<em>데이터 기반 가설 검증단계</em></p>
+
+<h1 id="데이터-아키텍처-시-고려사항">데이터 아키텍처 시 고려사항</h1>
+
+<ol>
+  <li>비지니스 모델 상 가장 중요한 데이터는 무엇?
+    <ul>
+      <li>비용 대비 비지니스 임팩트가 높은 데이터 확보</li>
+    </ul>
+  </li>
+  <li>
+    <p>데이터 거버넌스(Data Governance)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">원칙(Principle)</th>
+          <th style="text-align: left">조직(Organization)</th>
+          <th style="text-align: left">프로세스(Process)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">- 데이터를 유지하기 위한 가이드<br />- 보안, 품질, 변경관리</td>
+          <td style="text-align: left">- 데이터를 관리할 조직의 역할과 책임<br />- 데이터 관리자, 데이터 아키텍트 담당자 지정</td>
+          <td style="text-align: left">- 데이터 관리를 위한 시스템<br />- 작업절차, 모니터 및 측정</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>유연하고 변화 가능한 환경 구축
+    <ul>
+      <li>새로운 기술을 빠르게 반영할 수 있도록 구축</li>
+    </ul>
+  </li>
+  <li>Real Time(실시간) 데이터 핸들링이 가능한 시스템
+    <ul>
+      <li>데이터 아키텍쳐는 모든 스피드의 데이터를 핸들링
+        <ul>
+          <li>Real Time Streaming Data Processing</li>
+          <li>Cronjob : 스케쥴링을 통해서 데이터를 처리하는 시스템</li>
+          <li>Serverless Triggered Data Processing</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>시큐리티
+    <ul>
+      <li>데이터를 안전하게 보관</li>
+    </ul>
+  </li>
+  <li>셀프 서비스 환경 구축
+    <ul>
+      <li>BI Tools</li>
+      <li>Query System for Analysis</li>
+      <li>Front-end data applications</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="데이터-시스텝-옵션">데이터 시스텝 옵션</h1>
+
+<h3 id="api">API</h3>
+<ul>
+  <li>마케팅, CRM, ERP 등 다양한 플랫폼 및 소프트웨어들은 API를 통해 데이터를 주고 받을 수 있는 환경을 구축하여 생태계를 생성</li>
+</ul>
+
+<h3 id="relational-database">Relational Database</h3>
+<ul>
+  <li>대부분의 서비스들이 가장 많이 쓰고 있는 데이터 시스템</li>
+</ul>
+
+<h3 id="nosql-database">NoSQL Database</h3>
+<ul>
+  <li>Not Only SQL</li>
+  <li>Unstructured, Schema Less Data</li>
+  <li>Scale horizontally (예: 메신저)</li>
+  <li>Highly scalable / Less expensive to maintain</li>
+</ul>
+
+<h3 id="hadoop-spark-presto-등의-빅데이터-처리">Hadoop, Spark, Presto 등의 빅데이터 처리</h3>
+<ul>
+  <li>Distributed Storage System / MapReduce를 통한 병렬 처리
+    <ul>
+      <li>나눠서 처리한 저장 시스템</li>
+    </ul>
+  </li>
+  <li>Spark:
+    <ul>
+      <li>Hadoop의 진화된 버전으로 빅데이터 분석 환경에서 Real Time 데이터를 프로세싱하기에 더 최적화</li>
+      <li>Java, Python, Scala를 통한 API를 제공하여 애플리케이션 생성 가능</li>
+      <li>SQL Query 환경을 서포트하여 분석가들에게 더 각광</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="serverless-framework">Serverless Framework</h3>
+<ul>
+  <li>Triggered by http requests, database events, queuing services</li>
+  <li>장점
+    <ul>
+      <li>Pay as you use</li>
+      <li>Form of functions</li>
+      <li>$3^{rd}$ Party 앱들 및 다양한 API를 통해 데이터를 수집 정제하는데 유용</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="데이터-파이프라인">데이터 파이프라인</h1>
+<ul>
+  <li>데이터를 옮기는 개념</li>
+  <li>eg.
+    <ul>
+      <li>API → database</li>
+      <li>database → database</li>
+      <li>API → BI Tool</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/dataengineer/DataArchitecture/img02.png" alt="Image" /><br />
+<em>데이터 파이프라인 예시</em></p>
+
+<h3 id="데이터-파이프라인이-필요한-경우">데이터 파이프라인이 필요한 경우</h3>
+<ul>
+  <li>다양한 데이터 소스들로부터 많은 데이터를 생성하고 저장하는 서비스</li>
+  <li>데이터 사일로 : 마케팅, 어카운팅, 세일즈, 오퍼레이션 등 각 영역의 데이터가 서로 고립되어 있는 경우 → 데이터 통합 필요</li>
+  <li>실시간 혹은 높은 수준의 데이터 분석이 필요한 비지니스 모델</li>
+  <li>클라우드 환경으로 데이터 저장</li>
+</ul>
+
+<h3 id="데이터-파이프라인-구축-시-고려사항">데이터 파이프라인 구축 시 고려사항</h3>
+<ol>
+  <li>Scalability : 데이터가 기하급수적으로 급증해도 작동하는가</li>
+  <li>Stability : Error, Data Flow 등 다양한 모니터링</li>
+  <li>Security : 데이터 이동 간 보안 관련 리스크</li>
+</ol>
+
+<h1 id="데이터-프로세싱-자동화">데이터 프로세싱 자동화</h1>
+<ul>
+  <li>필요한 데이터의 추출/수집/정제의 과정을 자동으로 머신이 처리하도록 하는 것</li>
+  <li>eg. 자동으로 정해진 시간에 API를 통해 정보를 가져와 Database에 저장하도록 설정</li>
+</ul>
+
+<p><img src="/assets/images/dataengineer/DataArchitecture/img02.png" alt="Image" /><br />
+<em>데이터  예시</em></p>
+
+<h3 id="자동화-고려사항">자동화 고려사항</h3>
+<ol>
+  <li>Data Processing Steps
+    <ul>
+      <li>API로 정보를 가져와서 정제하고 저장한 후 알고리즘을 적용하는 등의 단계 설정</li>
+    </ul>
+  </li>
+  <li>Error Handling 및 Monitoring
+    <ul>
+      <li>오류 발생으로 실패 시 재시도 횟수 설정 등</li>
+      <li>Performance 등을 지속적으로 관찰</li>
+    </ul>
+  </li>
+  <li>Trigger / Scheduling</li>
+</ol>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 데이터 엔지니어 강의(한승수 강사)</p>
+</blockquote>
+:ET

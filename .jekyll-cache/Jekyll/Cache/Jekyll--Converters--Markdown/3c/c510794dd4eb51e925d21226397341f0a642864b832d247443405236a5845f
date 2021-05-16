@@ -1,0 +1,122 @@
+I"�
+<h1 id="amazon-cloud">Amazon Cloud</h1>
+<ul>
+  <li><a href="https://aws.amazon.com/" target="_blank">Amazon clound console</a></li>
+</ul>
+
+<h2 id="service-개요">Service 개요</h2>
+
+<h3 id="compute">Compute</h3>
+<ul>
+  <li>EC2
+    <ul>
+      <li>Service &gt; Compute &gt; EC2</li>
+      <li>가상 클라우드 서버</li>
+    </ul>
+  </li>
+  <li>Lambda : Serverless</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+<ul>
+  <li>S3 : 데이터 저장</li>
+</ul>
+
+<h3 id="database">Database</h3>
+<ul>
+  <li>RDS : MySQL, Postgre 등</li>
+  <li>DynamoDB : NoSQL</li>
+  <li>Amazon RedShift</li>
+</ul>
+
+<h3 id="networking--content-delivery">Networking &amp; Content Delivery</h3>
+<ul>
+  <li>API Gateway : 우리의 API를 만들 예정</li>
+</ul>
+
+<h3 id="management--governance">Management &amp; Governance</h3>
+<ul>
+  <li>CloudWatch : 다양한 로그를 통해 에러 해결, 퍼포먼스 모니터링 등에 사용</li>
+</ul>
+
+<h3 id="analytics">Analytics</h3>
+<ul>
+  <li>Athena : Presto 기반의 서비스로 우리가 사용할 예정</li>
+  <li>Kinesis : 데이터를 프로세싱</li>
+  <li>Data Pipeline</li>
+  <li>AWS Glue</li>
+</ul>
+
+<h3 id="security-identity--compliance">Security, Identity, &amp; Compliance</h3>
+<ul>
+  <li>IAM
+    <ul>
+      <li>User, Permission 관리 서비스</li>
+      <li>웹에 접속하지 않고 로컬에서 Console과 통신</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="aws-command-line-interface-cli">AWS Command Line Interface (CLI)</h1>
+
+<h2 id="cli-설치-웹사이트">CLI 설치 웹사이트</h2>
+
+<p><img src="/assets/images/dataengineer/AwsBase#excerpt/img01.png" alt="Image" class="border" width="500px" /><br />
+<em><a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/install-macos.html" target="_blank">Amazon CLI Install</a></em></p>
+
+<blockquote>
+  <p><strong>CHECK</strong><br />
+AWS CLI는 두 가지 버전으로 제공됩니다.</p>
+  <ul>
+    <li>버전 1.x – 일반적으로 사용 가능한 AWS CLI 버전이며 프로덕션 환경에서 사용하기에 더 적합합니다.</li>
+    <li>버전 2.x – 테스트 및 평가용으로 사용되는 AWS CLI의 미리 보기 버전입니다. 이 버전에는 스크립트가 예상대로 계속 작동하도록 스크립트를 변경해야 할 수 있는 “주요” 변경 사항이 포함되어 있습니다. 버전 2의 새로운 기능 및 주요 변경 사항 목록은 <a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cliv2-migration.html">호환성에 영향을 미치는 변경 – AWS CLI 버전 1에서 버전 2로 마이그레이션</a> 단원을 참조하십시오.</li>
+  </ul>
+
+  <p>⇒ 강의에 나온대로 버전 1로 진행</p>
+</blockquote>
+
+<h3 id="사전-준비">사전 준비</h3>
+<ul>
+  <li>Python 2.7, Python 3.4 또는 이후 버전 필수 (이전 버전의 파인썬 지원 중단 2020.01.10)
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python <span class="nt">--version</span>
+Python 3.7.4
+</code></pre></div>    </div>
+  </li>
+  <li>pip3 설치 확인 : Python 3.7 설치 시 자동 설치된다고 함
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip3 <span class="nt">--version</span>
+pip 19.0.3 from /usr/local/lib/python3.7/site-packages/pip <span class="o">(</span>python 3.7<span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>번들 설치 관리자는 공백을 포함하는 경로에 설치하는 것을 미지원 → 공백이 없도록 경로 정리할 것!</li>
+</ul>
+
+<h3 id="cli-설치">CLI 설치</h3>
+<ul>
+  <li>번들 설치 관리자를 사용 / pip를 사용 설치 방법 중 선택</li>
+</ul>
+
+<h4 id="pip로-설치">PIP로 설치</h4>
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/install-macos.html#awscli-install-osx-pip">pip를 사용하여 macOS에 AWS CLI 버전 1 설치</a><br />
+<a href="https://travelc.tistory.com/28">pip SSL 관련 오류 해결 방법</a></p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip3 <span class="nb">install </span>awscli <span class="nt">--upgrade</span> <span class="nt">--user</span>
+</code></pre></div></div>
+
+<p><strong>※ PIP 설치 오류</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip3 <span class="nb">install </span>awscli <span class="nt">--upgrade</span> <span class="nt">--user</span>
+pip is configured with locations that require TLS/SSL, however the ssl module <span class="k">in </span>Python is not available.
+...
+Could not fetch URL https://pypi.org/simple/awscli/: There was a problem confirming the ssl certificate: HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">'pypi.org'</span>, <span class="nv">port</span><span class="o">=</span>443<span class="o">)</span>: Max retries exceeded with url: /simple/awscli/ <span class="o">(</span>Caused by SSLError<span class="o">(</span><span class="s2">"Can't connect to HTTPS URL because the SSL module is not available."</span><span class="o">))</span> - skipping
+  Could not find a version that satisfies the requirement awscli <span class="o">(</span>from versions: <span class="o">)</span>
+No matching distribution found <span class="k">for </span>awscli
+pip is configured with locations that require TLS/SSL, however the ssl module <span class="k">in </span>Python is not available.
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

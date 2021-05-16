@@ -1,0 +1,71 @@
+I"�
+<h1 id="통계학statistics의-정의">통계학(Statistics)의 정의</h1>
+
+<ul>
+  <li>수량적인 비교로 많은 사실을 관찰하고 처리하는 방법을 연구하는 학문</li>
+  <li>어떤 사건이나 현상을 효율적인 자료를 얻어 수치화하여 합리적인 해석을 하는 것</li>
+</ul>
+
+<h2 id="기술통계descriptive-statistics">기술통계(Descriptive Statistics)</h2>
+<ul>
+  <li>수집한 데이터를 요약 및 묘사해서 설명하는 통계 기법</li>
+  <li>기술통계 기법을 통해 수집한 데이터를 시각화해서 분석</li>
+</ul>
+
+<ol>
+  <li>집중화 경향(Central tendency) : 평균(mean), 중앙값(median), 최빈값(mode)</li>
+  <li>분산도(Variation) : 표준편차(standared deviation), 사분위(quartile)
+    <ul>
+      <li>데이터가 어떻게 분포되어 있는 지를 설명 : 넓게 퍼질 수록 좋지 않은 상황이라고 판단</li>
+    </ul>
+  </li>
+</ol>
+
+<p>eg. 국민 소득 수준</p>
+<ul>
+  <li>1인당 평균 소득 2만 달러 : 대표값 &gt; 대표값이 높다고 무조건 좋은 상황이라고 판단 할 게 아니라 분산도 확인해야 한다</li>
+  <li>소득에 대한 편차도 높다면 &gt; 소득 분포가 넓게 퍼져있다 &gt;&gt; 소득의 분배가 잘 이루어지지 않고 있는 상황이다</li>
+</ul>
+
+<h2 id="추리통계inferential-statistics">추리통계(Inferential Statistics)</h2>
+<ul>
+  <li>수집한 데이터를 바탕으로 추론 예측하는 통계 기법</li>
+  <li>제한된 데이터(표본)로 추론을 진행하므로 100% 맞는 것은 아님</li>
+</ul>
+
+<p>eg. 선거 당선 예측</p>
+<ul>
+  <li>설문조사를 통해 데이터를 수집해서 그 결과로 모집단의 결과를 에측하는 것</li>
+  <li>결과의 정확도를 높이기 위해서는 빅데이터가 점점 더 중요해진다</li>
+</ul>
+
+<p><img src="/assets/images/stats/StatisticsBase/img01.png" alt="통계분류" width="560px" /><br />
+<em>출처 : https://slidesplayer.org/slide/11152136/</em></p>
+
+<h1 id="통계의-목적">통계의 목적</h1>
+<ul>
+  <li><strong>의사결정</strong> : 많은 정보 중 하나를 선택하기 위한 기준 제시</li>
+  <li><strong>불확실성의 해소</strong> : 더 많은 정보를 분석해서 더 나은 선택을 하기 위한 것</li>
+  <li><strong>요약</strong> : 데이터를 요약해서 의미 있는 정보로 가공</li>
+  <li><strong>연관성 파악</strong> : 요약된 정보 간의 연관성 파악해서 실제 결정에 사용</li>
+  <li><strong>예측</strong> : 정보의 패턴을 찾아내 다양한 방법을 통해 미래를 예측</li>
+</ul>
+
+<h1 id="통계분석의-과정">통계분석의 과정</h1>
+
+<pre><code class="language-mermaid">graph LR;
+    A[수집]
+    B[정제]
+    C[추정]
+    D[검정]
+    A--&gt;B;
+    B--&gt;C;
+    C--&gt;D;
+</code></pre>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="https://www.youtube.com/playlist?list=PLsri7w6p16vs-rMb1uXHfh3FiCk2WjEUG" target="_blank">제대로 시작하는 기초 통계학 | 노경섭 지음</a><br />
+<a href="https://drhongdatanote.tistory.com/25" target="_blank">기술통계와 추리통계란 무엇인가 | 필로홍의 데이터노트</a></p>
+</blockquote>
+:ET

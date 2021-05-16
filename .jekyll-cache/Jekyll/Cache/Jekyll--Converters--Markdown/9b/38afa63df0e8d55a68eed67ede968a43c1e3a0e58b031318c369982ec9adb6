@@ -1,0 +1,24 @@
+I"�
+<h1 id="rest-api">REST API</h1>
+
+<h2 id="api">API</h2>
+<p><em class="comments">Application Programing Interface</em></p>
+<ul>
+  <li>두 개의 시스템이 상호 작용하기 위한 인터페이스</li>
+  <li>데이터를 주고 받는 인터페이스</li>
+  <li>API라하면 보통 REST API를 지칭함</li>
+</ul>
+
+<h2 id="web-api">WEB API</h2>
+
+<p><img src="/assets/images/dataengineer/APIBase/img01.png" alt="Image" width="500px" /></p>
+
+<ul>
+  <li>웹 사이트 : http 프로토콜을 사용하는 REST API 기반으로 구축</li>
+</ul>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+패스트캠퍼스 - 데이터 엔지니어 강의 / 한승수 강사</p>
+</blockquote>
+:ET

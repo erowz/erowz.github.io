@@ -1,0 +1,23 @@
+I"
+<h1 id="모듈module">모듈(Module)</h1>
+<ul>
+  <li>다양한 기능들이 함수로 구현되어 모듈 형태로 제공</li>
+  <li>이미 구현되어 있는 필요한 기능을 가져다 import해서 사용하면 됨</li>
+</ul>
+
+<h2 id="사용-예정-모듈">사용 예정 모듈</h2>
+<ul>
+  <li>requests : HTTP 요청/응답 모듈</li>
+  <li>numpy : 수치해석 모듈</li>
+  <li>pandas : 데이터 분석 모듈</li>
+</ul>
+
+<h3 id="requests">requests</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://naver.com'</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">text</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/python/Module/img01.png" alt="Image" /></p>
+:ET

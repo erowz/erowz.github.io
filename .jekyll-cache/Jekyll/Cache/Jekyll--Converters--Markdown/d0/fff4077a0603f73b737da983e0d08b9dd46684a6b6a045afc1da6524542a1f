@@ -1,0 +1,144 @@
+I"�%<h1 id="정규표현식">정규표현식</h1>
+<blockquote class="comment">
+  <p>regular expression, re</p>
+</blockquote>
+
+<ul>
+  <li>특정한 패턴과 일치하는 문자열를 ‘검색’, ‘치환’, ‘제거’ 하는 기능을 지원</li>
+  <li>정규표현식의 도움없이 패턴을 찾는 작업(Rule 기반)은 불완전 하거나 작업의 cost가 높음</li>
+  <li>crawling에서도 많이 사용</li>
+  <li>eg. 이메일 형식 판별, 전화번호 형식 판별, 숫자로만 이루어진 문자열 등</li>
+</ul>
+
+<h3 id="raw-string">raw string</h3>
+<ul>
+  <li>문자열 앞에 r이 붙으면 해당 문자열이 구성된 그대로 문자열로 변환</li>
+  <li>정규표현식 사용 시 raw string을 이용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'abcdef</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>  <span class="c1"># escape 문자열
+</span><span class="k">print</span><span class="p">(</span><span class="s">r'abcdef\n'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">----------------</span>
+<span class="n">abcdef</span>
+
+<span class="n">abcdef</span>\<span class="n">n</span>
+</code></pre></div></div>
+<p>​</p>
+<h2 id="기본-패턴">기본 패턴</h2>
+
+<blockquote>
+  <p><strong>REF</strong> <a href="https://docs.python.org/3/library/re.html" target="_blank">re — Regular expression operations</a></p>
+</blockquote>
+
+<ul>
+  <li><strong>character</strong>
+    <ul>
+      <li>a, X, 9 등등 문자 하나하나의 글자들은 정확히 해당 문자와 일치</li>
+      <li>eg. 패턴 test는 test 문자열과 일치하는 지를 검사</li>
+    </ul>
+  </li>
+  <li><strong>대소문자</strong>
+    <ul>
+      <li>기본적으로 대소문자 구별</li>
+      <li>구별하지 않도록 설정도 가능</li>
+    </ul>
+  </li>
+  <li><strong>예외 문자</strong>
+    <ul>
+      <li>. ^ $ * + ? { } [ ] ( ) \ |</li>
+      <li>몇몇 문자들에 대해서는 예외 존재 → 특별한 의미로 사용</li>
+    </ul>
+  </li>
+  <li><strong>. (마침표)</strong> : 어떤 한개의 character와 일치 (newline(엔터) 제외)</li>
+  <li><strong>\w</strong> : 문자 character(대소문자, 숫자) 1개와 일치 [a-zA-Z0-9_]</li>
+  <li><strong>\d</strong> : 숫자 character 1개와 일치 [0-9]</li>
+  <li><strong>\s</strong> : 공백문자와 일치</li>
+  <li><strong>\t, \n, \r</strong> : tab, newline, return</li>
+  <li><strong>^, $</strong> : 각각 문자열의 시작과 끝을 의미</li>
+  <li><strong>\ (백슬래시)</strong>가 붙으면 스페셜한 의미가 없어짐
+    <ul>
+      <li><strong>\.</strong> : .자체를 의미</li>
+      <li><strong>\\</strong> : \를 의미</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="search-method">search method</h2>
+<p><code class="highlighter-rouge">re.search(pattern, string, flag)</code></p>
+<ul>
+  <li><code class="highlighter-rouge">re</code> 패키지 임포트해서 <code class="highlighter-rouge">search</code> 함수 사용</li>
+  <li>첫 번째로 패턴을 찾으면 match 객체를 반환
+    <ul>
+      <li>match.start() : 시작 인덱스</li>
+      <li>match.end() : 종료 인덱스</li>
+      <li>match.group() : 그룹 정보</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'abc'</span><span class="p">,</span> <span class="s">'abcdef'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="o">&gt;&gt;</span> <span class="o">----------------</span>
+<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'abc'</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">re</span><span class="o">.</span><span class="n">Match</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">0</span><span class="err">
+</span><span class="s">3</span><span class="err">
+</span><span class="s">abc</span><span class="err">
+</span></code></pre></div></div>
+
+<ul>
+  <li>패턴을 찾지 못하면 None 반환</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'abc'</span><span class="p">,</span> <span class="s">'abdef'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span> <span class="o">----------------</span>
+<span class="bp">None</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">NoneType</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<ul>
+  <li>검색 예제</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 3자리 숫자 검색
+</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'\d\d\d'</span><span class="p">,</span> <span class="s">'123abcd456'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'123'</span><span class="o">&gt;</span>
+
+<span class="c1"># 4자리 숫자 검색
+</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'\d\d\d\d'</span><span class="p">,</span> <span class="s">'123abcd456'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> 
+
+<span class="c1"># 3자리 숫자와 다음 1자리 문자 검색
+</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'\d\d\d\w'</span><span class="p">,</span> <span class="s">'123abcd456'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'123a'</span><span class="o">&gt;</span>
+
+<span class="c1"># 2자리 모든 패턴과 2자리 문자 검색
+</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r'..\w\w'</span><span class="p">,</span> <span class="s">'@#$#ABCDabcd'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'$#AB'</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="metacharacters-메타-캐릭터">metacharacters (메타 캐릭터)</h2>
+
+<h3>[]</h3>
+<ul>
+  <li>문자들의 범위를 나타내기 위해 사용</li>
+  <li>[] 내부의 메타 캐릭터는 캐릭터 자체를 나타냄
+eg.
+[abck] : a or b or c or k
+[abc.^] : a or b or c or . or ^
+[a-d] : -와 함께 사용되면 해당 문자 사이의 범위에 속하는 문자 중 하나
+[0-9] : 모든 숫자
+[a-z] : 모든 소문자
+[A-Z] : 모든 대문자
+[a-zA-Z0-9] : 모든 알파벳 문자 및 숫자
+[^0-9] : ^가 맨 앞에 사용 되는 경우 해당 문자 패턴이 아닌 것과 매칭</li>
+</ul>
+:ET

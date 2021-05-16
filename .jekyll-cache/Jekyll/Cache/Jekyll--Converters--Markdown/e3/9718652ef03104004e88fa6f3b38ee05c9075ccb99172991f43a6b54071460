@@ -1,0 +1,187 @@
+I"c#<h1 id="link">Link</h1>
+<ul>
+  <li>새 창 열기 : <code class="highlighter-rouge">{:target='_blank'}</code></li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">link</span><span class="p">](</span><span class="sx">https://willnfate.github.io</span><span class="p">)</span>{:target='_blank'}
+</code></pre></div></div>
+<p><a href="https://willnfate.github.io" target="_blank">link</a></p>
+
+<h1 id="image">Image</h1>
+
+<h2 id="markdown">markdown</h2>
+
+<ul>
+  <li>테두리 : <code class="highlighter-rouge">{:.border}</code></li>
+  <li>스타일 : <code class="highlighter-rouge">{:width='600px' height='300px'}</code></li>
+  <li>코멘트 : <code class="highlighter-rouge">*comment*</code></li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">GitHub Pages</span><span class="p">](</span><span class="sx">/assets/images/blog/GitHubPages/img01.png</span><span class="p">)</span>{:.border width='600px'}  
+<span class="ge">*출처 : [link](https://willnfate.github.io){:target='_blank'}*</span>
+</code></pre></div></div>
+<p><img src="/assets/images/blog/GitHubPages/img01.png" alt="GitHub Pages" class="border" width="600px" /><br />
+<em>출처 : <a href="https://willnfate.github.io" target="_blank">link</a></em></p>
+
+<h2 id="css-customizing">CSS Customizing</h2>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="o">+</span> <span class="nt">br</span> <span class="o">+</span> <span class="nt">em</span><span class="o">,</span>
+<span class="nt">img</span> <span class="o">+</span> <span class="nt">em</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="n">map-get</span><span class="p">(</span><span class="err">$</span><span class="n">base</span><span class="p">,</span> <span class="n">font-size-sm</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">text-color-l</span><span class="p">;</span>
+  <span class="nl">border-left</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="n">lightgray</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">.4rem</span> <span class="m">.3rem</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="custom-image-deprecated">custom image (deprecated)</h2>
+<ul>
+  <li>직접 제작해서 사용했으나, table에 넣으니 테이블이 깨지는 오류 발생</li>
+  <li>기본 markdown 문법으로 이미지 작성하는 방법으로 변경</li>
+</ul>
+
+<h3 id="html-작성">html 작성</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- _includes/img.html --&gt;</span>
+<span class="nt">&lt;figure</span> <span class="na">style=</span><span class="s">'width:{{ include.width}};'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">data-action=</span><span class="s">"zoom"</span> <span class="na">src=</span><span class="s">'{{ include.src }}'</span> <span class="na">alt=</span><span class="s">'{{ include.alt }}'</span>
+        <span class="na">class=</span><span class="s">'post--img'</span><span class="nt">&gt;</span>
+    {%- if include.link != null -%}
+    <span class="nt">&lt;figcaption&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'{{include.link}}'</span> <span class="na">target=</span><span class="s">'_blank'</span><span class="nt">&gt;</span>
+            {%- if include.description != null -%}
+            {{ include.description }}
+            {%- else -%}
+            {{ include.link }}
+            {%- endif -%}
+        <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/figcaption&gt;</span>
+    {%- else -%}
+    <span class="nt">&lt;figcaption&gt;</span>{{ include.description }}<span class="nt">&lt;/figcaption&gt;</span>
+    {%- endif -%}
+<span class="nt">&lt;/figure&gt;</span>
+</code></pre></div></div>
+
+<h3 id="이미지-입력">이미지 입력</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include img.html src='/assets/images/blog/github-pages/img-03.png' 
+    width='600px' link='https://willnfate.github.io' %}
+</code></pre></div></div>
+
+<h1 id="code-block">Code Block</h1>
+<blockquote>
+  <p>REF <a href="https://stackoverflow.com/a/24102537" target="_blank">Escaping double curly braces inside a markdown code block in Jekyll</a></p>
+</blockquote>
+
+<ul>
+  <li>코드 블럭에 Curly braces 코드를 입력할 때 코드를 실제로 실행하는 문제 발생</li>
+  <li>-&gt; { %- raw -%} … { % endraw %} 사이에 코드를 입력해서 해결</li>
+</ul>
+
+<h1 id="table">Table</h1>
+
+<h3 id="type-1">type 1</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|test|test|
+|test|test|
+</code></pre></div></div>
+
+<h3 id="type-2">type 2</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">header</th>
+      <th>header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">body</td>
+      <td>body</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|header|header|
+|:---:|---|
+|body|body|
+</code></pre></div></div>
+
+<h1 id="mathjax">MathJax</h1>
+
+<h3 id="--입력하기">{ } 입력하기</h3>
+<ul>
+  <li>$$ 와 $ 에 따라 사용법 상이</li>
+</ul>
+
+<p>$\{1,2,3\}$<br />
+<script type="math/tex">\{1,2,3\}</script></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$<span class="se">\\</span>{1,2,3<span class="se">\\</span>}$  
+$$
+<span class="se">\{</span>1,2,3<span class="se">\}</span>
+$$ 
+</code></pre></div></div>
+
+<h1 id="comment-block">comment block</h1>
+<blockquote class="comment">
+  <p>부가 설명</p>
+</blockquote>
+
+<ul>
+  <li>명칭의 다른 이름 등의 추가 표기용으로 별도 설정</li>
+  <li>입력 방식
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # comment block
+<span class="gt">  &gt; 부가 설명</span>
+  {:.comment}
+</code></pre></div>    </div>
+  </li>
+  <li>CSS 설정
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">.comment</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">-1rem</span> <span class="m">0px</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">8px</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="각주">각주<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></h1>
+<ul>
+  <li>각주 : 해당 내용 뒤에 <code class="highlighter-rouge">[^숫자]</code> 형식으로 추가</li>
+  <li>각주 설명 : 서식 없이 <code class="highlighter-rouge">[^숫자]:</code> 형식으로 입력할 것. 입력 위치는 어디에 입력하든 문서 맨 마지막에 출력됨</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>각주<span class="p">[</span><span class="nv">^1</span><span class="p">]</span>
+<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">각주</span> 설명은 문서 맨 아래에 이렇게 보여진다
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>REF</strong><br />
+<a href="https://blog.jaeyoon.io/2017/12/jekyll-image.html" target="_blank">지킬(Jekyll) 포스팅에 이미지 첨부하는 방법 총체적 정리</a><br />
+<a href="https://www.xaprb.com/blog/how-to-style-images-with-markdown/" target="_blank">how-to-style-images-with-markdown</a><br />
+<a href="https://kramdown.gettalong.org/quickref.html#tables" taget="_blank">kramdown table</a></p>
+</blockquote>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>각주 설명은 문서 맨 아래에 이렇게 보여진다 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

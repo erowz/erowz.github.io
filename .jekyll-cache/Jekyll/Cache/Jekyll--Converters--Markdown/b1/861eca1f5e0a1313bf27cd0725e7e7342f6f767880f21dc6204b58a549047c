@@ -1,0 +1,42 @@
+I"�<h1 id="class">Class</h1>
+<ul>
+  <li>실세계의 것을 모델링하여 속성(attribute)와 동작(method)를 갖는 데이터 타입</li>
+  <li>python에서의 string, int, list, dict.. 모두가 다 클래스로 존재</li>
+  <li>예를들어 학생이라는 클래스를 만든다면, 학생을 나타내는 속성과 학생이 행하는 행동을 함께 정의 할 수 있음</li>
+  <li>따라서, 다루고자 하는 데이터(변수) 와 데이터를 다루는 연산(함수)를 하나로 캡슐화(encapsulation)하여 클래스로 표현</li>
+  <li>모델링에서 중요시 하는 속성에 따라 클래스의 속성과 행동이 각각 달라짐</li>
+</ul>
+
+<h2 id="class-선언">Class 선언</h2>
+<ul>
+  <li>객체를 생성하기 위해서는 객체의 모체가 되는 클래스를 먼저 선언해야 함</li>
+</ul>
+
+<h3 id="__init__self">__init__(self)</h3>
+<ul>
+  <li>생성자, 클래스 인스턴스가 생성될 때 호출됨</li>
+  <li>self인자는 항상 첫 번째에 오며 자기 자신을 가리킴</li>
+  <li>이름이 꼭 self일 필요는 없지만, 관례적으로 self로 사용</li>
+  <li>생성자에서는 해당 클래스가 다루는 데이터를 정의 : 이 데이터를 멤버 변수(member variable) 또는 속성(attribute)라고 함</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'is generated'</span><span class="p">)</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x114ec9b90</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x114ec9d50</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+</code></pre></div></div>
+<p><em>→ 0x114ec9b90, 0x114ec9d50 메모리에 각각 할당된 Person의 객체 2개가 생성된 것을 확인 가능</em></p>
+
+<h1 id="object">Object</h1>
+<ul>
+  <li>클래스로 생성되어 구체화된 객체(인스턴스)</li>
+  <li>파이썬의 모든 것(int, str, list..etc)은 객체(인스턴스)</li>
+  <li>실제로 class가 인스턴스화 되어 메모리에 상주하는 상태를 의미</li>
+  <li>class가 빵틀이라면, object는 실제로 빵틀로 찍어낸 빵이라고 비유 가능</li>
+</ul>
+
+:ET

@@ -1,0 +1,232 @@
+I"�Q<h1 id="class">class</h1>
+<ul>
+  <li>실세계의 것을 모델링하여 속성(attribute)와 동작(method)를 갖는 데이터 타입</li>
+  <li>python에서의 string, int, list, dict.. 모두가 다 클래스로 존재</li>
+  <li>예를들어 학생이라는 클래스를 만든다면, 학생을 나타내는 속성과 학생이 행하는 행동을 함께 정의 할 수 있음</li>
+  <li>따라서, 다루고자 하는 데이터(변수) 와 데이터를 다루는 연산(함수)를 하나로 캡슐화(encapsulation)하여 클래스로 표현</li>
+  <li>모델링에서 중요시 하는 속성에 따라 클래스의 속성과 행동이 각각 달라짐</li>
+</ul>
+
+<h2 id="class-선언">class 선언</h2>
+<ul>
+  <li>객체를 생성하기 위해서는 객체의 모체가 되는 클래스를 먼저 선언해야 함</li>
+</ul>
+
+<h3 id="__init__self">__init__(self)</h3>
+<ul>
+  <li>생성자, 클래스 인스턴스가 생성될 때 호출됨</li>
+</ul>
+
+<h3 id="self">self</h3>
+<ul>
+  <li>self인자는 항상 첫 번째에 오며 자기 자신을 가리킴 : 기본적으로 항상 포함됨</li>
+  <li>이름이 꼭 self일 필요는 없지만, 관례적으로 self로 사용</li>
+  <li>C++/C#, Java의 this와 같은 개념</li>
+  <li>생성자에서는 해당 클래스가 다루는 데이터를 정의 → 이 데이터를 멤버 변수(member variable) 또는 속성(attribute)라고 함</li>
+</ul>
+
+<h4 id="class의-정적-생성">class의 정적 생성</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'is generated'</span><span class="p">)</span> <span class="c1"># 객체 생성 시점 확인용
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'Mike'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x114ec9b90</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x114ec9d50</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Mike</span> <span class="mi">10</span>
+
+<span class="n">p2</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s">'Kelly'</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Kelly</span> <span class="mi">20</span>
+</code></pre></div></div>
+<p><em>→ 0x114ec9b90, 0x114ec9d50 메모리 주소에 각각 할당된 Person의 객체 2개가 생성된 것을 확인 가능</em></p>
+
+<h4 id="class-동적-생성">class 동적 생성</h4>
+<ul>
+  <li>클래스의 속성을 파라미터로 받아서 생성</li>
+  <li>selft는 항상 기본으로 포함</li>
+  <li>파라미터 기본값 정의도 가능</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'is generated'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'Bob'</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'Amy'</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'Aron'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10735bf90</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10735be50</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+<span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10735bf90</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="n">generated</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p3</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Bob</span> <span class="mi">20</span>
+<span class="o">&gt;&gt;</span> <span class="n">Amy</span> <span class="mi">29</span>
+<span class="o">&gt;&gt;</span> <span class="n">Aron</span> <span class="mi">15</span>
+</code></pre></div></div>
+
+<h2 id="mehtod-정의">mehtod 정의</h2>
+<blockquote class="comment">
+  <p>멤버함수</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">{obj}.{method}()</code></p>
+<ul>
+  <li>해당 클래스의 object에서만 호출 가능</li>
+</ul>
+
+<h3 id="instance-method">instance method</h3>
+<ul>
+  <li>객체로 호출 → 해당 객체에만 영향을 끼침</li>
+  <li>해당 객체의 속성에 대한 연산을 수행 → self 인자 필수</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span><span class="mi">0</span>
+    
+    <span class="k">def</span> <span class="nf">print_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Value:'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+
+<span class="n">c1</span><span class="o">.</span><span class="n">print_value</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">print_value</span><span class="p">()</span>
+
+<span class="n">c1</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">print_value</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'-'</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">c2</span><span class="o">.</span><span class="n">print_value</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+<span class="n">Value</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Value</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">Value</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">----------</span>
+<span class="n">Value</span><span class="p">:</span> <span class="mi">0</span>
+</code></pre></div></div>
+<p><em>→ method가 c1과 c2 객체 각각에 영향을 끼치는 것을 알 수 있다</em></p>
+
+<h3 id="static-method">static method</h3>
+<blockquote class="comment">
+  <p>class method</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">@statismethod 함수 정의</code></p>
+
+<ul>
+  <li>class로 호출 → 클래스 멤버 변수만 변경 가능</li>
+  <li>자체 변수를 가질 필요가 없는 경우 사용 → self 인자 불필요</li>
+</ul>
+
+<h3 id="instance-method-vs-static-method">instance method vs static method</h3>
+
+<ol>
+  <li>instance method
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
+     <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+     <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+        
+ <span class="n">m</span> <span class="o">=</span> <span class="n">Math</span><span class="p">()</span>
+ <span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+ <span class="n">m</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>static method
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
+     <span class="o">@</span><span class="nb">staticmethod</span>
+     <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        
+     <span class="o">@</span><span class="nb">staticmethod</span>
+     <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+        
+ <span class="n">Math</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+ <span class="n">Math</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="class-inheritance-상속">class inheritance (상속)</h2>
+<ul>
+  <li>기존에 정의해 둔 클래스의 기능을 그대로 상속 가능</li>
+  <li>코드 재사용 : 기존 클래스에 기능 일부를 추가/변경하여 새로운 클래스를 정의</li>
+  <li>의미적으로 부모/자식 클래스 간에 is-a관계 성립 eg. Student is a Person
+    <ul>
+      <li>Parent, Super, Base class : 상속 받고자 하는 대상인 기존 클래스</li>
+      <li>Child, Sub, Derived class : 상속 받는 새로운 클래스</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="클래스-상속">클래스 상속</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{}은 {}를 먹는다'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minute</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{}은 {}동안 잔다'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">minute</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minute</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{}은 {}동안 일한다'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">minute</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        
+<span class="n">Bob</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Bob'</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">Bob</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s">'Beer'</span><span class="p">)</span>
+<span class="n">Bob</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">Bob</span><span class="o">.</span><span class="n">work</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Bob</span><span class="err">은</span> <span class="n">Beer</span><span class="err">를</span> <span class="err">먹는다</span>
+<span class="o">&gt;&gt;</span> <span class="n">Bob</span><span class="err">은</span> <span class="mi">120</span><span class="err">분동안</span> <span class="err">잔다</span>
+<span class="o">&gt;&gt;</span> <span class="n">Bob</span><span class="err">은</span> <span class="mi">120</span><span class="err">분동안</span> <span class="err">일한다</span>
+</code></pre></div></div>
+
+<h3 id="method-override">method override</h3>
+
+<h1 id="object">Object</h1>
+<ul>
+  <li>클래스로 생성되어 구체화된 객체(인스턴스)</li>
+  <li>파이썬의 모든 것(int, str, list..etc)은 객체(인스턴스)</li>
+  <li>실제로 class가 인스턴스화 되어 메모리에 상주하는 상태를 의미</li>
+  <li>class가 빵틀이라면, object는 실제로 빵틀로 찍어낸 빵이라고 비유 가능</li>
+</ul>
+
+:ET

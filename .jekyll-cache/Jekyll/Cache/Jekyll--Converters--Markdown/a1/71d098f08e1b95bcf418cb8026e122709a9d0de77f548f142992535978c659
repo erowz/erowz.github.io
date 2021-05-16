@@ -1,0 +1,364 @@
+I"v+
+<h1 id="확률변수와-확률분포">확률변수와 확률분포</h1>
+
+<h2 id="확률변수random-variable-x">확률변수(random variable, X)</h2>
+<ul>
+  <li>실험의 결과(사건)에 실수값을 대응시키고 그 값에 확률을 부여한 것</li>
+  <li>실험을 마친 후 어떤 결과가 몇 번 발생했는지 이 결과의 수에 확률이 부여된 것</li>
+</ul>
+
+<h3 id="이산-확률변수discrete-random-variable">이산 확률변수(discrete random variable)</h3>
+<ul>
+  <li>셀 수 있는 특정한 값들로 구성되거나 일정한 범위로 나타나는 것</li>
+  <li>독립적으로 발생하는 사건에 대한 확률변수</li>
+  <li>사건에 대한 실수값에 확률을 부여한 것 → 각 사건의 확률을 적시하는 확률변수를 기준으로 합산하여 계산</li>
+  <li>eg. 동전 던지기, 주사위 던지기, 윳놀이 등과 같이 모두 독립적으로 발생하는 사건에서 이산 확률변수 확인 가능</li>
+</ul>
+
+<h3 id="연속-확률변수continuous-random-variable">연속 확률변수(continuous random variable)</h3>
+<ul>
+  <li>연속형이거나 무한한 경우와 같이 셀 수 없는 것</li>
+  <li>발생하는 각 사건을 단일한 독립사건으로 구분하기에는 경우의 수가 너무 많아서 범위로 표현되는 확률변수</li>
+  <li>eg. 시간, 온도, 길이 등과 같이 셀 수 없는 결과를 나타내는 확률변수</li>
+</ul>
+
+<h2 id="확률분포probability-distribution">확률분포(probability distribution)</h2>
+<ul>
+  <li>확률변수 X의 확률분포 : 확률변수 $X$가 취하는 값 $x_i$와 $X$가 $x_i$를 취할 확률 $p_i$의 대응 관계</li>
+</ul>
+
+<h2 id="확률분포표">확률분포표</h2>
+<ul>
+  <li>확률변수와 확률분포의 관계를 표로 나타낸 것</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>확률변수</td>
+      <td>변수 X가 취할 수 있는 모든 값</td>
+      <td>$X=x_i$</td>
+      <td>$x_1$</td>
+      <td>$x_2$</td>
+      <td>$x_3$</td>
+      <td>$\cdots$</td>
+      <td>$x_n$</td>
+    </tr>
+    <tr>
+      <td>확률분포</td>
+      <td>X가 이들 값을 취할 확률</td>
+      <td>$P(X=x_i)$</td>
+      <td>$p_1$</td>
+      <td>$p_2$</td>
+      <td>$p_3$</td>
+      <td>$\cdots$</td>
+      <td>$p_n$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="확률함수">확률함수</h2>
+<ul>
+  <li>확률변수와 확률분포의 관계를 식으로 나타낸 것</li>
+  <li>확률 P를 가진 어떤 사건이 n회 시행 중 x회 나타날 때, 확률변수 x와 이에 대응되는 P(x)의 관계를 나타낸 함수</li>
+  <li>조건
+    <ul>
+      <li>표본의 개수가 많아야 함 : 최소 30개 이상</li>
+      <li>인문/사회 과학 : 표본의 크기가 클수록 전체 모집단에 근접</li>
+    </ul>
+  </li>
+</ul>
+
+<script type="math/tex; mode=display">P(X=x_i)=p_i \quad (i=1,2,3,\cdots,n)</script>
+
+<ul>
+  <li>확률함수의 성질
+    <ol>
+      <li>$0 \leq P(X=x_i) \leq 1$</li>
+      <li>$p_1 + p_2 + p_3 + \cdots + p_n = 1$</li>
+      <li>$P(X=x_i ~~ or ~~ X=x_j) = P(X=x_i) + P(X=x_j) \quad (i \neq j)$</li>
+    </ol>
+  </li>
+</ul>
+
+<h1 id="사건-확률변수-확률-확률함수의-관계">사건, 확률변수, 확률, 확률함수의 관계</h1>
+
+<blockquote>
+  <p>REF <a href="https://drhongdatanote.tistory.com/45" target="_blank">표본공간, 사건 그리고 확률 | 사용자 필로홍</a></p>
+</blockquote>
+
+<h2 id="두-개의-주사위-합의-확률변수와-확률분포-구하기">두 개의 주사위 합의 확률변수와 확률분포 구하기</h2>
+<ul>
+  <li>두 개의 주사위 A, B를 동시에 던질 때
+    <ul>
+      <li>$i$ : 주사위 A의 눈</li>
+      <li>$j$ : 주사위 B의 눈</li>
+      <li>($i, j$) : 결과</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="표본공간-s">표본공간 $S$</h3>
+<blockquote class="comment">
+  <p>sample space</p>
+</blockquote>
+
+<ul>
+  <li>측정 가능한 모든 결과들의 집합</li>
+  <li>근원사건</li>
+</ul>
+
+<script type="math/tex; mode=display">S = \begin{Bmatrix}
+(1,1), (1,2), (1,3), (1,4), (1,5), (1,6)\\ 
+(2,1), (2,2), (2,3), (2,4), (2,5), (2,6)\\ 
+\cdots\\ 
+(6,1), (6,2), (6,3), (6,4), (6,5), (6,6)
+\end{Bmatrix}</script>
+
+<ul>
+  <li>두 주사위 A,B의 눈의 합<br />
+<img src="/assets/images/stats/RandomVariance#excerpt/img01.png" alt="Image" width="500px" /></li>
+</ul>
+
+<h3 id="사건-e">사건 $E$</h3>
+<blockquote class="comment">
+  <p>event</p>
+</blockquote>
+
+<ul>
+  <li>특정 조건이 발생하는 발생하는 경우</li>
+  <li>표본공간의 부분집합으로 특정 조건을 만족하는 표본점들의 집합</li>
+</ul>
+
+<h3 id="확률-px">확률 $P(X)$</h3>
+<blockquote class="comment">
+  <p>probability</p>
+</blockquote>
+
+<ul>
+  <li>특정 사건이 발생하는 비율</li>
+</ul>
+
+<script type="math/tex; mode=display">P(X) = \frac{X\,사건이\,일어나는\,경우의\,수}{전체\,사건의\, 경우의\, 수}</script>
+
+<h4 id="eg-눈의-합이-4인-경우">eg. 눈의 합이 4인 경우</h4>
+<ul>
+  <li>$X=4$인 사건 : $\{(1,2), (2,2), (3,1)\}$ ⇒ 총 3개</li>
+  <li>$X=4$일 확률 : $P(X=4)=\frac{3}{36}$</li>
+</ul>
+
+<h3 id="확률변수-x">확률변수 $X$</h3>
+<ul>
+  <li>어떤 결과(사건)에 실수값을 대응시키고 그 값에 확률을 부여한 것</li>
+  <li>눈의 합 $X$가 취할 수 있는 값 : 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</li>
+</ul>
+
+<h3 id="확률분포">확률분포</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>확률변수 $X$</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>합</td>
+    </tr>
+    <tr>
+      <td>확률 $P(X)$</td>
+      <td>$\frac{1}{36}$</td>
+      <td>$\frac{2}{36}$</td>
+      <td>$\frac{3}{36}$</td>
+      <td>$\frac{4}{36}$</td>
+      <td>$\frac{5}{36}$</td>
+      <td>$\frac{6}{36}$</td>
+      <td>$\frac{5}{36}$</td>
+      <td>$\frac{4}{36}$</td>
+      <td>$\frac{3}{36}$</td>
+      <td>$\frac{2}{36}$</td>
+      <td>$\frac{1}{36}$</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="대응관계-그래프">대응관계 그래프</h3>
+<p><img src="/assets/images/stats/RandomVariance#excerpt/img02.png" alt="대응관계 그래프" width="500px" /></p>
+
+<h3 id="확률함수-">확률함수 $$</h3>
+<ul>
+  <li>대응관계를 식으로 나타낸 것<br />
+<script type="math/tex">p(x=k)=\left\{\begin{matrix}
+\frac{1}{36}(k-1) \quad (2 \leq k \leq 7) \\ 
+\frac{1}{36}(13-k) \quad (8 \leq k \leq 12)
+\end{matrix}\right.</script><br />
+또는<br />
+<script type="math/tex">P(x=k) = \frac{6-|k-7|}{36} \quad (2 \leq k \leq 12)</script></li>
+</ul>
+
+<h2 id="두-개의-동전을-던져-앞면이-나오는-동전의-개수-x의-확률분포와-확률함수-구하기">두 개의 동전을 던져 앞면이 나오는 동전의 개수 X의 확률분포와 확률함수 구하기</h2>
+<ul>
+  <li>H : 앞면, T : 뒷면</li>
+</ul>
+
+<h3 id="사건-e-1">사건 $E$</h3>
+<ul>
+  <li>HH, HT, TH, TT &gt; 총 4가지 사건</li>
+</ul>
+
+<h3 id="확률변수-x-1">확률변수 $X$</h3>
+<p>: 앞면이 몇 번 나올 것인가를 기준으로 사건 분류</p>
+<ul>
+  <li>HH : 앞면이 2번 발생 → $X=2$</li>
+  <li>HT, TH : 앞면이 1번 발생 → $X=1$</li>
+  <li>TT : 앞면이 없음 → $X=0$</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$X$</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>합</td>
+    </tr>
+    <tr>
+      <td>$P(X)$</td>
+      <td>$\frac{1}{4}$</td>
+      <td>$\frac{2}{4}$</td>
+      <td>$\frac{1}{4}$</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="확률-px-1">확률 $P(X)$</h3>
+<ul>
+  <li>앞면 2번 : 4번 중 1번 발생 ⇒ $\frac{1}{4}$</li>
+  <li>앞면 1번 : 4번 중 2번 발생 ⇒  $\frac{1}{2}$</li>
+</ul>
+
+<h3 id="확률함수-pxx">확률함수 $P(X=x)$</h3>
+<ul>
+  <li>확률변수 2 : H가 나올 확률 $\frac{1}{2}$이 2번 동시에 발생하므로 곱하기 ⇒ $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$</li>
+  <li>확률변수 1 : 확률변수가 1인 경우는 각각해서 2번 발생하므로 더하기 ⇒ $\frac{1}{4} + \frac{1}{4} = \frac{1}{2}$</li>
+  <li>확률변수 0 : T가 나올 확률 $\frac{1}{2}$이 2번 동시 발생하므로 곱하기 ⇒ $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">$E$</th>
+      <th style="text-align: center">$X$</th>
+      <th style="text-align: center">$P(X)$</th>
+      <th style="text-align: center">$P(X=x)$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">HH<br />HT<br />TH<br />TT</td>
+      <td style="text-align: center">2<br />1<br />0</td>
+      <td style="text-align: center">$\frac{1}{4}$<br /><br />$\frac{1}{2}$</td>
+      <td style="text-align: center">$P(x=2)=\frac{1}{4}$<br />$P(x=1)=\frac{1}{2}$<br />$P(x=0)=\frac{1}{4}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">사건</td>
+      <td style="text-align: center">확률변수</td>
+      <td style="text-align: center">확률</td>
+      <td style="text-align: center">확률함수</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>동전 던지기의 사건, 확률변수, 확률, 확률함수의 관계</em></p>
+
+<h2 id="흰-공-3개-초록-공-4개">흰 공 3개, 초록 공 4개</h2>
+<ul>
+  <li>공을 하나씩 두 번 꺼낼 때 흰 공이 나오는 개수 $X$</li>
+  <li>꺼낸 공은 다시 넣지 않는다</li>
+  <li>W:흰 공, G: 초록 공</li>
+</ul>
+
+<ol>
+  <li>$X$의 확률분포를 구하라</li>
+  <li>$P(X \geq1)$을 구하라</li>
+</ol>
+
+<h3 id="사건과-확률변수">사건과 확률변수</h3>
+<ul>
+  <li>
+    <p>흰 공이 나오는 사건의 확률변수 구하기</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>E</td>
+          <td>GG</td>
+          <td>GW</td>
+          <td>WG</td>
+          <td>WW</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>→ $X$ = 0, 1, 2 ⇒ 3가지</p>
+  </li>
+</ul>
+
+<h3 id="확률">확률</h3>
+
+<script type="math/tex; mode=display">P(X=0) = \frac{_4C_2}{_7C_2}, \; P(X=1) = \frac{_4C_1 \times _3C_1}{_7C_2}, \; P(X=2) = \frac{_2C_2}{_7C_2}</script>
+
+<blockquote>
+  <p>REF <a href="https://m.blog.naver.com/at3650/220041816572" target="_blank">경우의 수 - 순열, 조합</a></p>
+</blockquote>
+
+<h3 id="확률분포-1">확률분포</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>X</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>합</td>
+    </tr>
+    <tr>
+      <td>P(X)</td>
+      <td>$\frac{2}{7}$</td>
+      <td>$\frac{4}{7}$</td>
+      <td>$\frac{1}{7}$</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>⇒ 흰 공이 나오는 확률분포 : 흰 공이 한 번 이상 포함된 경우</p>
+
+<script type="math/tex; mode=display">P(X \geq 1) = P(X=1) + P(X=2)\\
+\qquad \qquad = \frac{4}{7} + \frac{1}{7} = \frac{5}{7}</script>
+
+<blockquote>
+  <p><strong>REF</strong></p>
+  <ul>
+    <li>수학의 정석 확률과 통계</li>
+  </ul>
+</blockquote>
+:ET
