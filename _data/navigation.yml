@@ -10,7 +10,7 @@ header:
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  歸檔
+      zh-Hant : &ZH_HANT  分类归纳
       zh-TW   : *ZH_HANT
       zh-HK   : *ZH_HANT
       ko      : &KO       아카이브
@@ -24,49 +24,83 @@ header:
       # @end locale config
     url: /archive.html
 
-  # - titles:
-  #     # @start locale config
-  #     en      : &EN       About
-  #     en-GB   : *EN
-  #     en-US   : *EN
-  #     en-CA   : *EN
-  #     en-AU   : *EN
-  #     zh-Hans : &ZH_HANS  关于
-  #     zh      : *ZH_HANS
-  #     zh-CN   : *ZH_HANS
-  #     zh-SG   : *ZH_HANS
-  #     zh-Hant : &ZH_HANT  關於
-  #     zh-TW   : *ZH_HANT
-  #     zh-HK   : *ZH_HANT
-  #     ko      : &KO       소개
-  #     ko-KR   : *KO
-  #     fr      : &FR       À propos
-  #     fr-BE   : *FR
-  #     fr-CA   : *FR
-  #     fr-CH   : *FR
-  #     fr-FR   : *FR
-  #     fr-LU   : *FR
-  #     # @end locale config
-  #   url: /about.html
+  - titles:
+      # @start locale config
+      en      : &EN       About
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  关于
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  關於
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       소개
+      ko-KR   : *KO
+      fr      : &FR       À propos
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      # @end locale config
+    url: /about
 
 nav-zh:
-  - title: Data
+  - title: 学习笔记
     children:
-      - title:  빅데이터 Big Data
-        url:    /bigdata
-      - title:  데이터 엔지니어 Data Engineer
-        url:    /dataengineer
-      - title:  파이썬 분석 iPython
-        url:    /ipython
-      - title:  통계학 Stats
-        url:    /stats
-  - title: DEV
+      - title:  论语精读
+        url:    /ly/lunyu
+      - title:  美学
+        url:    /mx/mxbj
+      - title:  左传研究
+        url:    /zz/zzyj
+  - title: 读书/电影/漫画笔记
     children:
-      - title:  Dijkstra's Algorithm
-        url:    /algorithm/Dijkstra
-  - title: ETC
+      - title:  2020年读书归档
+        url:    /ds
+  - title: 随想笔记
     children:
-      - title:  블로그 Blog
-        url:    /blog
-      - title:  그외 ETC
+      - title:  杂文
+        url:    /杂文-zaw
+      - title:  随想
+        url:    /sx
+      - title:  岛风大赏
+        url:    /df/dfds
+  - title: 计算机相关
+    children:
+      - title:  前端
+        url:    /前端
+      - title:  博客-Nas
+        url:    /博客-Nas
+  - title: 其他
+    children:
+      - title:  杂项
+        url:    /zx/zxsx
+      - title:  全部
         url:    /
+
+#nav-xh:
+#  - title: Data
+#    children:
+#      - title:  빅데이터 Big Data
+#        url:    /bigdata
+#      - title:  데이터 엔지니어 Data Engineer
+#        url:    /dataengineer
+#      - title:  파이썬 분석 iPython
+#        url:    /ipython
+#      - title:  통계학 Stats
+#        url:    /stats
+#  - title: DEV
+#    children:
+#      - title:  Dijkstra's Algorithm
+#        url:    /algorithm/Dijkstra
+#  - title: ETC
+#    children:
+#      - title:  블로그 Blog
+#        url:    /blog
+#      - title:  그외 ETC
+#        url:    /

@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
+lang: zh # the language of your site, default as "en"
 timezone:	Asia/Shanghai # see https://en.데이터 싸이언티스트와 데이터 애널리스트, 데이터 엔지니어, 비즈니스 애널리스트wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -49,12 +49,14 @@ paths:
   home    : # home layout url, "/" (default)
   archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
+  about   : /about.xml
 
 
 ## => Post
 ##############################
 ## excerpt
 excerpt_separator: <!--more-->
+excerpt_type: html # text (default), html
 
 ## license
 ## license: CC-BY-ND-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
@@ -79,7 +81,7 @@ chart: true # false (default), true
 
 ## => Paginate
 ##############################
-paginate: 10
+paginate: 8
 paginate_path: /page:num # don't change this unless for special need
 
 
@@ -204,7 +206,7 @@ defaults:
         nav: nav-zh
       show_edit_on_github: false
       show_subscribe: false
-      pageview: false
+      pageview: true
       fullwidth: true
       imgpath: "/assets/images"
   - scope:
