@@ -50,26 +50,6 @@ header:
     url: /about
 
 nav-zh:
-  - title: 学习笔记
-    children:
-      - title:  论语精读
-        url:    /ly/lunyu
-      - title:  美学
-        url:    /mx/mxbj
-      - title:  左传研究
-        url:    /zz/zzyj
-  - title: 读书/电影/漫画笔记
-    children:
-      - title:  2020年读书归档
-        url:    /ds
-  - title: 随想笔记
-    children:
-      - title:  杂文
-        url:    /杂文-zaw
-      - title:  随想
-        url:    /sx
-      - title:  岛风大赏
-        url:    /df/dfds
   - title: 计算机相关
     children:
       - title:  前端
