@@ -35,7 +35,7 @@ sharing: false
 博客内容有关于-`笔记/思考`  
 icu几乎不对外展露，除极个位能用手指数得过来的亲友外。  
 
-La blogo de "Y Kaj Nai" 意味着一段隐含的过去。但就不告诉你。![Image](http://pic.yupoo.com/erowz/f8626a1f/d1445926.jpg){:width='23px'}  
+La blogo de "Y Kaj Nai" 意味着一段隐含的过去。但就不告诉你![Image](http://pic.yupoo.com/erowz/f8626a1f/d1445926.jpg){:width='23px'}  
 考虑是否重添每篇帖下的评论系统。估计不。如想互杠可戳上方邮箱。十分欢迎。  
 还有感谢。    
 
