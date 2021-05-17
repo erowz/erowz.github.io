@@ -7,6 +7,9 @@ sidebar:
 key: page-about
 sharing: false
 ---
+
+![Image](http://pic.yupoo.com/erowz/295a25d2/a8ab24ba.png){:.circle.border.shadow}{:width='200px'}
+
 # 博客简介
 
 本博客托管于`github pages`，  
