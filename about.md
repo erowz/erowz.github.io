@@ -22,7 +22,7 @@ sharing: false
 > 就到这吧。  
   
   
-我的github:[**erowz-github**](https://github.com/erowz)  
+我的Github:[**erowz-github**](https://github.com/erowz)  
 主题见:[**主题**](https://tianqi.name/)  
 我的邮箱:[**olwreeass@gmail.com**](mailto:olwreeass@gmail.com)【常用】  
 我的Telegram:[**@erowz**](https://t.me/erowz)  
