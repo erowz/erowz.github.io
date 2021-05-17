@@ -15,6 +15,12 @@ sharing: false
 博客主题`jekyll`，博客编辑`Markdown`,  
 博客内容更新发布`Github-Desktop`。  
 于`191101`发现github代码库里的图片被墙，故将之转至新图床[yupoo](https://x.yupoo.com)。   
+至`210516`发现网站完全被墙。无所谓。  
+引`hHchfO8`的话。  
+> 就到这儿吧
+> 你是崭新的贵人
+> 就到这吧。
+  
   
 我的github:[**erowz-github**](https://github.com/erowz)  
 主题见:[**主题**](https://tianqi.name/)  
@@ -27,3 +33,9 @@ sharing: false
 
 本博客的主要的编辑者是`嚴和渿`。【已无渿】  
 博客内容有关于-`笔记/思考`  
+icu几乎不向外展露，除极个位手指能数得过来的亲友外。  
+
+La blogo de "Y Kaj Nai" 意味着一段隐含的过去。但偏不告诉你。  
+考虑是否重添每篇帖下的评论系统。估计不。如果想互杠可戳上方邮箱。十分欢迎。  
+还有感谢。    
+

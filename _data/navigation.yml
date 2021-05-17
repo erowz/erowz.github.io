@@ -66,8 +66,8 @@ nav-zh:
     children:
       - title:  杂文
         url:    /杂文-zaw
-      - title:  随想
-        url:    /sx
+      - title:  网络日记写作展示
+        url:    /rj/rjxz
       - title:  岛风大赏
         url:    /df/dfds
   - title: 计算机相关
