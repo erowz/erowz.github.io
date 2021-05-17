@@ -66,10 +66,10 @@ nav-zh:
     children:
       - title:  杂文
         url:    /杂文-zaw
-      - title:  网络日记写作展示
-        url:    /rj/rjxz
       - title:  岛风大赏
         url:    /df/dfds
+      - title:  网络日记写作展示
+        url:    /rj/rjxz
   - title: 计算机相关
     children:
       - title:  前端
