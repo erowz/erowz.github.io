@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "自叙"
+title: "关 于 我"
 description: "初衷与目标 " 
 sidebar:
   nav: nav-zh
@@ -8,7 +8,7 @@ key: page-about
 sharing: false
 ---
 
-![Image](http://pic.yupoo.com/erowz/295a25d2/a8ab24ba.png){:.circle.border.shadow}{:width='200px'}
+![Image](http://pic.yupoo.com/erowz/295a25d2/a8ab24ba.png){:.circle.shadow}{:width='200px'}
 
 # 博客简介
 
